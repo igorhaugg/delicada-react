@@ -1,0 +1,25 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 50vh;
+  padding: $s-size $l-size;
+  @media (min-width: $desktop-breakpoint) {
+    min-height: 100%;
+  }
+}
+
+.menu__items {
+  display: flex;
+  flex-direction: column;
+  > * {
+    color: $off-white;
+    font-weight: 300;
+    padding: $s-size 0;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
