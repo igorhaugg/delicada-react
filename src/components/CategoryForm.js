@@ -111,9 +111,11 @@ export default class ExpenseForm extends React.Component {
         )}
 
         <div>
-          {this.state.image && (
-            <button className="button">Save Category</button>
-          )}
+          {this.state.image &&
+            this.state.name &&
+            this.state.description && (
+              <button className="button">Save Category</button>
+            )}
         </div>
       </form>
     );
