@@ -17,7 +17,7 @@ export const CategoriesSummary = ({ categoryCount, categoriesTotal }) => {
         </h1>
         <div className="page-header__actions">
           <Link className="button" to="/category/create">
-            Add Category
+            Add Categorya
           </Link>
         </div>
       </div>
