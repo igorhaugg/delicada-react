@@ -88,7 +88,8 @@ export class ExpenseForm extends React.Component {
       !this.state.image
     ) {
       this.setState(() => ({
-        error: 'Please provide name, description and image.'
+        error:
+          'Please provide name, description, size, price sell, price buy, amount, image and select a category.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -208,8 +209,17 @@ export class ExpenseForm extends React.Component {
         )}
 
         <div>
-          <button className="button">Save Product</button>
-          {/* {this.state.image && <button className="button">Save Product</button>} */}
+          {this.state.description &&
+            this.state.category_id &&
+            this.state.name &&
+            this.state.size &&
+            this.state.price_sell &&
+            this.state.price_buy &&
+            this.state.image &&
+            this.state.amount &&
+            this.state.image && (
+              <button className="button">Save Product</button>
+            )}
         </div>
       </form>
     );
