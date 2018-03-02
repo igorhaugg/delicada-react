@@ -11,7 +11,7 @@ export class CategoryEditPage extends React.Component {
   };
   onRemove = () => {
     this.props.startRemoveCategory({ id: this.props.category.id });
-    this.props.history.push('/');
+    this.props.history.push('/category');
   };
   render() {
     return (

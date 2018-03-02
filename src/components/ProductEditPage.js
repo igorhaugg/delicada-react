@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CategoryForm from './CategoryForm';
-import { startEditCategory, startRemoveCategory } from '../actions/categories';
+import ProductForm from './ProductForm';
+import { startEditProduct, startRemoveProduct } from '../actions/products';
 import MenuAdmin from './MenuAdmin';
 
-export class CategoryEditPage extends React.Component {
-  onSubmit = category => {
-    this.props.startEditCategory(this.props.category.id, category);
-    this.props.history.push('/category');
+export class ProductEditPage extends React.Component {
+  onSubmit = product => {
+    this.props.startEditProduct(this.props.product.id, product);
+    this.props.history.push('/product');
   };
   onRemove = () => {
-    this.props.startRemoveCategory({ id: this.props.category.id });
-    this.props.history.push('/');
+    this.props.startRemoveProduct({ id: this.props.product.id });
+    this.props.history.push('/product');
   };
   render() {
     return (
@@ -20,19 +20,19 @@ export class CategoryEditPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Edit Category</h1>
+              <h1 className="page-header__title">Edit Product</h1>
             </div>
           </div>
           <div className="content-container">
-            <CategoryForm
-              category={this.props.category}
+            <ProductForm
+              product={this.props.product}
               onSubmit={this.onSubmit}
             />
             <button
               className="button button--secondary"
               onClick={this.onRemove}
             >
-              Remove Category
+              Remove Product
             </button>
           </div>
         </div>
@@ -42,15 +42,12 @@ export class CategoryEditPage extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  category: state.categories.find(
-    category => category.id === props.match.params.id
-  )
+  product: state.products.find(product => product.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditCategory: (id, category) =>
-    dispatch(startEditCategory(id, category)),
-  startRemoveCategory: data => dispatch(startRemoveCategory(data))
+  startEditProduct: (id, product) => dispatch(startEditProduct(id, product)),
+  startRemoveProduct: data => dispatch(startRemoveProduct(data))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryEditPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductEditPage);

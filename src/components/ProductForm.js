@@ -5,12 +5,13 @@ import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import selectCategories from '../selectors/categories';
+import selectProducts from '../selectors/products';
 
 export class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: props.product ? props.product.category : '',
+      category_id: props.product ? props.product.category_id : '',
       name: props.product ? props.product.name : '',
       description: props.product ? props.product.description : '',
       image: props.product ? props.product.image : '',
@@ -34,8 +35,8 @@ export class ExpenseForm extends React.Component {
     this.setState(() => ({ description }));
   };
   onCategoryChange = e => {
-    const category = e.target.value;
-    this.setState(() => ({ category }));
+    const category_id = e.target.value;
+    this.setState(() => ({ category_id }));
   };
   onSizeChange = e => {
     const size = e.target.value;
@@ -76,25 +77,35 @@ export class ExpenseForm extends React.Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    if (!this.state.description || !this.state.name || !this.state.image) {
+    if (
+      !this.state.description ||
+      !this.state.category_id ||
+      !this.state.name ||
+      !this.state.size ||
+      !this.state.price_sell ||
+      !this.state.price_buy ||
+      !this.state.amount ||
+      !this.state.image
+    ) {
       this.setState(() => ({
         error: 'Please provide name, description and image.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
+        category_id: this.state.category_id,
         name: this.state.name,
         description: this.state.description,
         image: this.state.image,
+        size: this.state.size,
+        price_sell: parseFloat(this.state.price_sell, 10),
+        price_buy: parseFloat(this.state.price_buy, 10),
+        amount: this.state.amount,
         createdAt: this.state.createdAt.valueOf()
       });
     }
   };
   render() {
-    let options = [];
-    this.props.categories.map(category => {
-      options.push({ label: category.name, value: category.name });
-    });
     return (
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error">{this.state.error}</p>}
@@ -118,11 +129,14 @@ export class ExpenseForm extends React.Component {
         <select
           className="select"
           onChange={this.onCategoryChange}
-          value={this.state.category}
+          value={this.state.category_id}
         >
+          <option key="null" value="null">
+            Select category
+          </option>
           {this.props.categories.map(category => {
             return (
-              <option key={category.name} value={category.name}>
+              <option key={category.id} value={category.id}>
                 {category.name}
               </option>
             );
@@ -194,7 +208,8 @@ export class ExpenseForm extends React.Component {
         )}
 
         <div>
-          {this.state.image && <button className="button">Save Product</button>}
+          <button className="button">Save Product</button>
+          {/* {this.state.image && <button className="button">Save Product</button>} */}
         </div>
       </form>
     );
@@ -203,7 +218,8 @@ export class ExpenseForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    categories: selectCategories(state.categories, state.filters)
+    categories: selectCategories(state.categories, state.filters),
+    products: selectProducts(state.products, state.filters)
   };
 };
 

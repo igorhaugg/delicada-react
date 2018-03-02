@@ -10,9 +10,7 @@ const getVisibleProducts = (products, { text, sortBy, startDate, endDate }) => {
       const endDateMatch = endDate
         ? endDate.isSameOrAfter(createdAtMoment, 'day')
         : true;
-      const textMatch = product.description
-        .toLowerCase()
-        .includes(text.toLowerCase());
+      const textMatch = product.name.toLowerCase().includes(text.toLowerCase());
 
       return startDateMatch && endDateMatch && textMatch;
     })

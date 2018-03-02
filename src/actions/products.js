@@ -15,9 +15,9 @@ export const startAddProduct = (productData = {}) => {
       description = '',
       image = '',
       size = '',
-      price_sell = '',
-      price_buy = '',
-      amount = '',
+      price_sell = 0,
+      price_buy = 0,
+      amount = 0,
       createdAt = 0
     } = productData;
     const product = {
@@ -82,7 +82,7 @@ export const startEditProduct = (id, updates) => {
 };
 
 export const setProducts = products => ({
-  type: 'SET_CATEGORIES',
+  type: 'SET_PRODUCTS',
   products
 });
 

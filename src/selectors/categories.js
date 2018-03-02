@@ -13,7 +13,7 @@ const getVisibleCategories = (
       const endDateMatch = endDate
         ? endDate.isSameOrAfter(createdAtMoment, 'day')
         : true;
-      const textMatch = category.description
+      const textMatch = category.name
         .toLowerCase()
         .includes(text.toLowerCase());
 

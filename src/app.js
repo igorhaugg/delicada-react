@@ -4,8 +4,10 @@ import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetCategories } from './actions/categories';
+import { startSetProducts } from './actions/products';
 import { login, logout } from './actions/auth';
 import getVisibleCategories from './selectors/categories';
+import getVisibleProducts from './selectors/products';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
@@ -37,7 +39,13 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetCategories()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
-        history.push('/dashboard');
+        history.push('/category');
+      }
+    });
+    store.dispatch(startSetProducts()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/products');
       }
     });
   } else {

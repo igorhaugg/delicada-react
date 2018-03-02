@@ -7,7 +7,7 @@ export const ProductList = props => (
   <div className="content-container">
     <div className="list-header">
       <div className="show-for-mobile">Products</div>
-      <div className="show-for-desktop">Category</div>
+      <div className="show-for-desktop">Product</div>
       <div className="show-for-desktop">Image</div>
     </div>
     <div className="list-body">

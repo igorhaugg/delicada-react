@@ -10,7 +10,6 @@ export const startAddCategory = (categoryData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      // user = '',
       name = '',
       description = '',
       image = '',
