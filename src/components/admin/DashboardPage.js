@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryAdminPage from './CategoryAdminPage';
 import MenuAdmin from './MenuAdmin';
 
 const DashboardPage = () => (

@@ -3,17 +3,25 @@
 }
 
 .header__content {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   padding: $s-size $l-size;
 }
 
+.header__content button {
+  grid-column: end;
+}
+
 .header__title {
+  align-self: center;
   color: white;
   text-decoration: none;
   h1 {
+    font-family: 'Mr De Haviland', cursive;
+    font-size: $font-size-xlarge;
     font-weight: 300;
+    grid-column: start;
+    letter-spacing: 5px;
     margin: 0;
   }
 }

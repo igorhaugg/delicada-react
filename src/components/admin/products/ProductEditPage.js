@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProductForm from './ProductForm';
-import { startEditProduct, startRemoveProduct } from '../actions/products';
-import MenuAdmin from './MenuAdmin';
+import {
+  startEditProduct,
+  startRemoveProduct
+} from '../../../actions/products';
+import MenuAdmin from '../MenuAdmin';
 
 export class ProductEditPage extends React.Component {
   onSubmit = product => {

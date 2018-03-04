@@ -4,8 +4,8 @@ import { SingleDatePicker } from 'react-dates';
 import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
-import selectCategories from '../selectors/categories';
-import selectProducts from '../selectors/products';
+import selectCategories from '../../../selectors/categories';
+import selectProducts from '../../../selectors/products';
 
 export class ExpenseForm extends React.Component {
   constructor(props) {
@@ -19,7 +19,6 @@ export class ExpenseForm extends React.Component {
       price_sell: props.product ? props.product.price_sell.toString() : '',
       price_buy: props.product ? props.product.price_buy.toString() : '',
       amount: props.product ? props.product.amount.toString() : '',
-      // amount: props.product ? props.expense.amount.toString() : '',
       createdAt: props.product ? moment(props.product.createdAt) : moment(),
       calendarFocused: false,
       showLoading: false,
@@ -58,8 +57,8 @@ export class ExpenseForm extends React.Component {
     const amount = e.target.value;
     this.setState(() => ({ amount }));
   };
-  handleUploadStart = () => this.setState({ showLoading: true });
-  handleUploadSuccess = filename => {
+  onUploadStart = () => this.setState({ showLoading: true });
+  onUploadSuccess = filename => {
     firebase
       .storage()
       .ref('images/products')
@@ -117,6 +116,7 @@ export class ExpenseForm extends React.Component {
           className="text-input"
           value={this.state.name}
           onChange={this.onNameChange}
+          required
         />
 
         <input
@@ -125,6 +125,7 @@ export class ExpenseForm extends React.Component {
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
+          required
         />
 
         <select
@@ -150,6 +151,7 @@ export class ExpenseForm extends React.Component {
           className="text-input"
           value={this.state.size}
           onChange={this.onSizeChange}
+          required
         />
 
         <div className="form__group">
@@ -159,6 +161,7 @@ export class ExpenseForm extends React.Component {
             className="text-input"
             value={this.state.price_buy}
             onChange={this.onPriceBuyChange}
+            required
           />
           <input
             type="text"
@@ -166,6 +169,7 @@ export class ExpenseForm extends React.Component {
             className="text-input"
             value={this.state.price_sell}
             onChange={this.onPriceSellChange}
+            required
           />
           <input
             type="number"
@@ -173,6 +177,7 @@ export class ExpenseForm extends React.Component {
             className="text-input"
             value={this.state.amount}
             onChange={this.onAmountChange}
+            required
           />
         </div>
 
@@ -193,8 +198,8 @@ export class ExpenseForm extends React.Component {
             randomizeFilename
             hidden
             storageRef={firebase.storage().ref('images/products')}
-            onUploadStart={this.handleUploadStart}
-            onUploadSuccess={this.handleUploadSuccess}
+            onUploadStart={this.onUploadStart}
+            onUploadSuccess={this.onUploadSuccess}
           />
         </label>
 

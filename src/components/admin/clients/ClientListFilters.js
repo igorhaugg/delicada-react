@@ -4,12 +4,12 @@ import { DateRangePicker } from 'react-dates';
 import {
   setTextFilter,
   sortByDate,
-  sortByAmount,
+  sortByName,
   setStartDate,
   setEndDate
-} from '../actions/filters';
+} from '../../../actions/filters';
 
-export class CategoryListFilters extends React.Component {
+export class ClientListFilters extends React.Component {
   state = {
     calendarFocused: null
   };
@@ -26,8 +26,8 @@ export class CategoryListFilters extends React.Component {
   onSortChange = e => {
     if (e.target.value === 'date') {
       this.props.sortByDate();
-    } else if (e.target.value === 'amount') {
-      this.props.sortByAmount();
+    } else if (e.target.value === 'name') {
+      this.props.sortByName();
     }
   };
   render() {
@@ -38,7 +38,7 @@ export class CategoryListFilters extends React.Component {
             <input
               type="text"
               className="text-input"
-              placeholder="Search categories"
+              placeholder="Search clients"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />
@@ -50,7 +50,7 @@ export class CategoryListFilters extends React.Component {
               onChange={this.onSortChange}
             >
               <option value="date">Date</option>
-              {/* <option value="amount">Amount</option> */}
+              <option value="name">Name</option>
             </select>
           </div>
           <div className="input-group__item">
@@ -78,11 +78,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setTextFilter: text => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
-  sortByAmount: () => dispatch(sortByAmount()),
+  sortByName: () => dispatch(sortByName()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  CategoryListFilters
-);
+export default connect(mapStateToProps, mapDispatchToProps)(ClientListFilters);

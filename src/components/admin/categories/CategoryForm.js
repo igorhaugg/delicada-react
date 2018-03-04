@@ -11,7 +11,6 @@ export default class ExpenseForm extends React.Component {
       name: props.category ? props.category.name : '',
       description: props.category ? props.category.description : '',
       image: props.category ? props.category.image : '',
-      // amount: props.category ? props.expense.amount.toString() : '',
       createdAt: props.category ? moment(props.category.createdAt) : moment(),
       calendarFocused: false,
       showLoading: false,
@@ -26,8 +25,8 @@ export default class ExpenseForm extends React.Component {
     const description = e.target.value;
     this.setState(() => ({ description }));
   };
-  handleUploadStart = () => this.setState({ showLoading: true });
-  handleUploadSuccess = filename => {
+  onUploadStart = () => this.setState({ showLoading: true });
+  onUploadSuccess = filename => {
     firebase
       .storage()
       .ref('images/categories')
@@ -70,6 +69,7 @@ export default class ExpenseForm extends React.Component {
           className="text-input"
           value={this.state.name}
           onChange={this.onNameChange}
+          required
         />
         <input
           type="text"
@@ -77,6 +77,7 @@ export default class ExpenseForm extends React.Component {
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
+          required
         />
 
         <SingleDatePicker
@@ -95,8 +96,8 @@ export default class ExpenseForm extends React.Component {
             randomizeFilename
             hidden
             storageRef={firebase.storage().ref('images/categories')}
-            onUploadStart={this.handleUploadStart}
-            onUploadSuccess={this.handleUploadSuccess}
+            onUploadStart={this.onUploadStart}
+            onUploadSuccess={this.onUploadSuccess}
           />
         </label>
 

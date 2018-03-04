@@ -8,7 +8,7 @@ const MenuAdmin = () => (
         <Link to="/dashboard">Home</Link>
         <Link to="/category">Categories</Link>
         <Link to="/product">Products</Link>
-        <Link to="/category">Clients</Link>
+        <Link to="/client">Clients</Link>
         <Link to="/category">Company</Link>
       </div>
       <div className="menu__items">

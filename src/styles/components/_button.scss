@@ -10,6 +10,17 @@
   text-decoration: none;
 }
 
+.button__image {
+  height: 50px;
+  margin-right: 0.5em;
+  width: 50px;
+}
+
+.button__profile {
+  align-items: center;
+  display: flex;
+}
+
 .button--link {
   background: none;
 }

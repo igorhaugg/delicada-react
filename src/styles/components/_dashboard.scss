@@ -9,10 +9,9 @@
 .dashboard__menu {
   background-color: lighten($dark-blue, 25%);
   flex: 4;
-  min-height: 50vh;
   @media (min-width: $desktop-breakpoint) {
     flex: 1;
-    min-height: calc(100vh - 75px);
+    min-height: calc(100vh - 104px);
   }
 }
 

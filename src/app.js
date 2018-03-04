@@ -5,9 +5,11 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetCategories } from './actions/categories';
 import { startSetProducts } from './actions/products';
+import { startSetClients } from './actions/clients';
 import { login, logout } from './actions/auth';
 import getVisibleCategories from './selectors/categories';
 import getVisibleProducts from './selectors/products';
+import getVisibleClients from './selectors/clients';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
@@ -45,7 +47,13 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetProducts()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
-        history.push('/products');
+        history.push('/product');
+      }
+    });
+    store.dispatch(startSetClients()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/client');
       }
     });
   } else {

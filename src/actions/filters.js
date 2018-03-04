@@ -11,6 +11,14 @@ export const sortByAmount = () => ({
   type: 'SORT_BY_AMOUNT'
 });
 
+export const sortByPrice = () => ({
+  type: 'SORT_BY_PRICE'
+});
+
+export const sortByName = () => ({
+  type: 'SORT_BY_NAME'
+});
+
 export const setStartDate = startDate => ({
   type: 'SET_START_DATE',
   startDate

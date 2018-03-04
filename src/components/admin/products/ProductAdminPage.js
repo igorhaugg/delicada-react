@@ -2,7 +2,7 @@ import React from 'react';
 import ProductList from './ProductList';
 import ProductListFilters from './ProductListFilters';
 import ProductsSummary from './ProductsSummary';
-import MenuAdmin from './MenuAdmin';
+import MenuAdmin from '../MenuAdmin';
 
 const ProductAdminPage = () => (
   <main className="dashboard">

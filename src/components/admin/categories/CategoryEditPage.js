@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CategoryForm from './CategoryForm';
-import { startEditCategory, startRemoveCategory } from '../actions/categories';
-import MenuAdmin from './MenuAdmin';
+import {
+  startEditCategory,
+  startRemoveCategory
+} from '../../../actions/categories';
+import MenuAdmin from '../MenuAdmin';
 
 export class CategoryEditPage extends React.Component {
   onSubmit = category => {

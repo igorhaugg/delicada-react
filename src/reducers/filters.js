@@ -19,6 +19,16 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'amount'
       };
+    case 'SORT_BY_PRICE':
+      return {
+        ...state,
+        sortBy: 'price'
+      };
+    case 'SORT_BY_NAME':
+      return {
+        ...state,
+        sortBy: 'name'
+      };
     case 'SORT_BY_DATE':
       return {
         ...state,

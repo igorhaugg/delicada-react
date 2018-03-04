@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
-import selectCategories from '../selectors/categories';
-import selectCategoriesTotal from '../selectors/categories-total';
+import selectCategories from '../../../selectors/categories';
 
-export const CategoriesSummary = ({ categoryCount, categoriesTotal }) => {
+export const CategoriesSummary = ({ categoryCount }) => {
   const categoryWord = categoryCount === 1 ? 'category' : 'categories';
-  const formattedCategoriesTotal = numeral(categoriesTotal).format('$0,0.00');
 
   return (
     <div className="page-header">
@@ -29,8 +27,7 @@ const mapStateToProps = state => {
   const visibleCategories = selectCategories(state.categories, state.filters);
 
   return {
-    categoryCount: visibleCategories.length,
-    categoriesTotal: selectCategoriesTotal(visibleCategories)
+    categoryCount: visibleCategories.length
   };
 };
 

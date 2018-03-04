@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CategoryListItem from './CategoryListItem';
-import selectCategories from '../selectors/categories';
+import selectCategories from '../../../selectors/categories';
 
 export const CategoryList = props => (
   <div className="content-container">
