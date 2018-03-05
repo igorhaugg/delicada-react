@@ -14,7 +14,7 @@ export const ProductsSummary = ({ productCount, productsTotal }) => {
       <div className="content-container">
         <h1 className="page-header__title">
           Viewing <span>{productCount}</span> {productWord} totalling{' '}
-          <span>{formattedProductsTotal}</span>
+          <span>R{formattedProductsTotal}</span>
         </h1>
         <div className="page-header__actions">
           <Link className="button" to="/product/create">
