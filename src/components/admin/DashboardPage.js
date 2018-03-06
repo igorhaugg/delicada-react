@@ -52,7 +52,7 @@ class DashboardPage extends React.Component {
     return (
       <main className="dashboard">
         <MenuAdmin />
-        <section className="dashboard__content">
+        <section className="dashboard__content--chart">
           <Chart
             chartDataProducts={this.state.chartDataProducts}
             title="Amount of products"

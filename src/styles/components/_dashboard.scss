@@ -16,9 +16,13 @@
 }
 
 .dashboard__content {
+  flex: 6;
+}
+
+.dashboard__content--chart {
+  @extend .dashboard__content;
   align-items: center;
   display: flex;
-  flex: 6;
   flex-direction: column;
   justify-content: center;
 }
