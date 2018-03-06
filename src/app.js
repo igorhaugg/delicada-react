@@ -38,24 +38,26 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid));
+    store.dispatch(startSetProducts());
+    store.dispatch(startSetClients());
     store.dispatch(startSetCategories()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
         history.push('/category');
       }
     });
-    store.dispatch(startSetProducts()).then(() => {
-      renderApp();
-      if (history.location.pathname === '/') {
-        history.push('/product');
-      }
-    });
-    store.dispatch(startSetClients()).then(() => {
-      renderApp();
-      if (history.location.pathname === '/') {
-        history.push('/client');
-      }
-    });
+    // store.dispatch(startSetProducts()).then(() => {
+    //   renderApp();
+    //   if (history.location.pathname === '/') {
+    //     history.push('/product');
+    //   }
+    // });
+    // store.dispatch(startSetClients()).then(() => {
+    //   renderApp();
+    //   if (history.location.pathname === '/') {
+    //     history.push('/client');
+    //   }
+    // });
   } else {
     store.dispatch(logout());
     renderApp();

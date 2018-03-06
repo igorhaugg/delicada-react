@@ -16,5 +16,9 @@
 }
 
 .dashboard__content {
+  align-items: center;
+  display: flex;
   flex: 6;
+  flex-direction: column;
+  justify-content: center;
 }
