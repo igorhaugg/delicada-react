@@ -40,6 +40,12 @@ class Chart extends Component {
                     beginAtZero: true
                   }
                 }
+              ],
+              xAxes: [
+                {
+                  categoryPercentage: 0.8,
+                  barPercentage: 0.4
+                }
               ]
             }
           }}

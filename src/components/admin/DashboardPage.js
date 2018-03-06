@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import selectCategories from '../../selectors/categories';
 import selectCategoriesId from '../../selectors/categories-id';
 import Chart from './Chart';
+import randomColor from 'randomcolor';
 
 class DashboardPage extends React.Component {
   constructor(props) {
@@ -24,22 +25,23 @@ class DashboardPage extends React.Component {
       })
     ];
     const amount = Object.values(this.props.amount);
-
+    const colors = [
+      ...this.props.categories.map(category =>
+        randomColor({
+          luminosity: 'random', //'light'
+          hue: 'random', // 'blue' 'green'
+          format: 'rgba',
+          alpha: 1
+        })
+      )
+    ];
     this.setState({
       chartDataProducts: {
         labels: [...val],
         datasets: [
           {
             data: amount,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
-            ]
+            backgroundColor: [...colors]
           }
         ]
       }
