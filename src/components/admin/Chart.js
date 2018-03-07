@@ -5,7 +5,7 @@ class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartDataProducts: props.chartDataProducts
+      chartData: props.chartData
     };
   }
 
@@ -19,37 +19,59 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
-        <Bar
-          data={this.state.chartDataProducts}
-          options={{
-            title: {
-              display: this.props.displayTitle,
-              text: this.props.title,
-              fontSize: 25
-            },
-            legend: {
-              display: this.props.displayLegend,
-              position: this.props.legendPosition
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true
+        {this.props.type === 'pie' && (
+          <Pie
+            data={this.state.chartData}
+            options={{
+              title: {
+                display: this.props.displayTitle,
+                text: this.props.title,
+                fontColor: 'black',
+                fontSize: 30
+              },
+              legend: {
+                display: this.props.displayLegend,
+                position: this.props.legendPosition
+              },
+              responsive: true,
+              maintainAspectRatio: false
+            }}
+          />
+        )}
+        {this.props.type === 'bar' && (
+          <Bar
+            data={this.state.chartData}
+            options={{
+              title: {
+                display: this.props.displayTitle,
+                text: this.props.title,
+                fontColor: 'black',
+                fontSize: 30
+              },
+              legend: {
+                display: this.props.displayLegend,
+                position: this.props.legendPosition
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true
+                    }
                   }
-                }
-              ],
-              xAxes: [
-                {
-                  categoryPercentage: 0.8,
-                  barPercentage: 0.4
-                }
-              ]
-            }
-          }}
-        />
+                ],
+                xAxes: [
+                  {
+                    barPercentage: 1,
+                    categoryPercentage: 0.6
+                  }
+                ]
+              }
+            }}
+          />
+        )}
       </div>
     );
   }

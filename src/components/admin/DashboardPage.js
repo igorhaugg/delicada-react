@@ -6,18 +6,20 @@ import selectCategoriesId from '../../selectors/categories-id';
 import selectClients from '../../selectors/clients-birth';
 import Chart from './Chart';
 import randomColor from 'randomcolor';
-import ClientListItem from './clients/ClientListItem';
+import ClientListBirthday from './clients/ClientListBirthday';
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartDataProducts: {}
+      chartDataProducts: {},
+      chartDataSales: {}
     };
   }
 
   componentWillMount() {
     this.getChartDataProducts();
+    this.getChartDataSales();
   }
 
   getChartDataProducts() {
@@ -50,26 +52,68 @@ class DashboardPage extends React.Component {
     });
   }
 
+  getChartDataSales() {
+    const val = [
+      ...this.props.categories.map(category => category.name).sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+      })
+    ];
+    const amount = Object.values(this.props.amount);
+    const colors = [
+      ...this.props.categories.map(category =>
+        randomColor({
+          luminosity: 'random', //'light'
+          hue: 'random', // 'blue' 'green'
+          format: 'rgba',
+          alpha: 1
+        })
+      )
+    ];
+    this.setState({
+      chartDataSales: {
+        labels: [...val],
+        datasets: [
+          {
+            data: amount,
+            backgroundColor: [...colors]
+          }
+        ]
+      }
+    });
+  }
+
   render() {
     return (
       <main className="dashboard">
         <MenuAdmin />
-        <section className="dashboard__content">
-          <section className="dashboard__content--chart">
+        <article className="dashboard__content">
+          <h1>Birthdays of the month!</h1>
+          <div className="dashboard__content--clients">
+            {this.props.clients.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>No clients</span>
+              </div>
+            ) : (
+              this.props.clients.map(client => {
+                return <ClientListBirthday key={client.id} {...client} />;
+              })
+            )}
+          </div>
+          <div className="dashboard__content--clients">
             <Chart
-              chartDataProducts={this.state.chartDataProducts}
+              type="pie"
+              chartData={this.state.chartDataProducts}
               title="Amount of products"
               legendPosition="bottom"
             />
-          </section>
-          <div className="dashboard__content--clients">
-            <p>Births of the month!</p>
-            {this.props.clients.map(client => {
-              return <ClientListItem key={client.id} {...client} />;
-            })}
-            {console.log(this.props.clients)}
+            <Chart
+              type="bar"
+              chartData={this.state.chartDataSales}
+              title="Amount of sales"
+              legendPosition="bottom"
+            />
           </div>
-        </section>
+        </article>
       </main>
     );
   }

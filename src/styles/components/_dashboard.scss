@@ -17,19 +17,14 @@
 
 .dashboard__content {
   flex: 6;
-}
 
-.dashboard__content--chart {
-  @extend .dashboard__content;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  h1 {
+    text-align: center;
+  }
 }
 
 .dashboard__content--clients {
-  margin-top: $xl-size;
-  p {
-    text-align: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

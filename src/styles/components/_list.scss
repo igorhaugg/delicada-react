@@ -34,6 +34,12 @@
   }
 }
 
+.list-item--birthday {
+  @extend .list-item;
+  border: 1px solid darken($off-white, 7%);
+  flex-direction: column;
+}
+
 .list-item--message {
   align-items: center;
   color: $grey;
