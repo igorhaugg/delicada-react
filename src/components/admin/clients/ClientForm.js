@@ -13,7 +13,8 @@ export default class ExpenseForm extends React.Component {
       cpf: props.client ? props.client.cpf : '',
       phone: props.client ? props.client.phone : '',
       email: props.client ? props.client.email : '',
-      createdAt: props.client ? moment(props.client.createdAt) : moment(),
+      // createdAt: props.client ? moment(props.client.createdAt) : moment(),
+      createdAt: props.client ? props.client.createdAt : '',
       calendarFocused: false,
       error: ''
     };
@@ -42,10 +43,14 @@ export default class ExpenseForm extends React.Component {
     const email = e.target.value;
     this.setState(() => ({ email }));
   };
-  onDateChange = createdAt => {
-    if (createdAt) {
-      this.setState(() => ({ createdAt }));
-    }
+  // onDateChange = createdAt => {
+  //   if (createdAt) {
+  //     this.setState(() => ({ createdAt }));
+  //   }
+  // };
+  onInputDateChange = e => {
+    const createdAt = e.target.value;
+    this.setState(() => ({ createdAt }));
   };
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
@@ -121,14 +126,23 @@ export default class ExpenseForm extends React.Component {
             onChange={this.onEmailChange}
           />
         </div>
-        <SingleDatePicker
+        <input
+          type="date"
+          placeholder="Date"
+          className="text-input"
+          value={this.state.createdAt}
+          onChange={this.onInputDateChange}
+        />
+        {/* <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={this.onDateChange}
           focused={this.state.calendarFocused}
+          // showDefaultInputIcon={true}
           onFocusChange={this.onFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
-        />
+        /> */}
+
         <div>
           {this.state.name &&
             this.state.cpf &&

@@ -26,3 +26,10 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.dashboard__content--clients {
+  margin-top: $xl-size;
+  p {
+    text-align: center;
+  }
+}

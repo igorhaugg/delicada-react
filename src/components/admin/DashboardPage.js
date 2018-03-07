@@ -3,8 +3,10 @@ import MenuAdmin from './MenuAdmin';
 import { connect } from 'react-redux';
 import selectCategories from '../../selectors/categories';
 import selectCategoriesId from '../../selectors/categories-id';
+import selectClients from '../../selectors/clients-birth';
 import Chart from './Chart';
 import randomColor from 'randomcolor';
+import ClientListItem from './clients/ClientListItem';
 
 class DashboardPage extends React.Component {
   constructor(props) {
@@ -52,12 +54,21 @@ class DashboardPage extends React.Component {
     return (
       <main className="dashboard">
         <MenuAdmin />
-        <section className="dashboard__content--chart">
-          <Chart
-            chartDataProducts={this.state.chartDataProducts}
-            title="Amount of products"
-            legendPosition="bottom"
-          />
+        <section className="dashboard__content">
+          <section className="dashboard__content--chart">
+            <Chart
+              chartDataProducts={this.state.chartDataProducts}
+              title="Amount of products"
+              legendPosition="bottom"
+            />
+          </section>
+          <div className="dashboard__content--clients">
+            <p>Births of the month!</p>
+            {this.props.clients.map(client => {
+              return <ClientListItem key={client.id} {...client} />;
+            })}
+            {console.log(this.props.clients)}
+          </div>
         </section>
       </main>
     );
@@ -67,7 +78,8 @@ class DashboardPage extends React.Component {
 const mapStateToProps = state => {
   return {
     categories: selectCategories(state.categories, state.filters),
-    amount: selectCategoriesId(state.products, state.categories, state.filters)
+    amount: selectCategoriesId(state.products, state.categories, state.filters),
+    clients: selectClients(state.clients, state.filters)
   };
 };
 
