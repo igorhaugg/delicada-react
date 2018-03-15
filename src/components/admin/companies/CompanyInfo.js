@@ -8,7 +8,6 @@ import selectCompany from '../../../selectors/company';
 export class CompanyInfo extends React.Component {
   onSubmit = company => {
     this.props.startAddCompany(company);
-    // this.props.history.push('/company');
   };
   render() {
     return (
@@ -27,9 +26,7 @@ export class CompanyInfo extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   const company = selectCompany(state.company, state.filters);
-
   return {
     company: company
   };

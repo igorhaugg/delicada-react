@@ -7,7 +7,6 @@ import firebase from 'firebase';
 export default class CompanyForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.company);
     this.state = {
       name: props.company ? props.company.name : '',
       address: props.company ? props.company.address : '',
@@ -19,7 +18,7 @@ export default class CompanyForm extends React.Component {
       email: props.company ? props.company.email : '',
       description: props.company ? props.company.description : '',
       image: props.company ? props.company.image : '',
-      createdAt: props.company ? moment(props.company.createdAt) : moment(),
+      createdAt: moment(),
       calendarFocused: false,
       showLoading: false,
       error: ''
@@ -74,14 +73,6 @@ export default class CompanyForm extends React.Component {
       .getDownloadURL()
       .then(url => this.setState({ image: url, showLoading: false }));
   };
-  onDateChange = createdAt => {
-    if (createdAt) {
-      this.setState(() => ({ createdAt }));
-    }
-  };
-  onFocusChange = ({ focused }) => {
-    this.setState(() => ({ calendarFocused: focused }));
-  };
   onSubmit = e => {
     e.preventDefault();
     if (!this.state.name) {
@@ -101,7 +92,7 @@ export default class CompanyForm extends React.Component {
         email: this.state.email,
         description: this.state.description,
         image: this.state.image,
-        createdAt: this.state.createdAt.valueOf()
+        createdAt: moment().valueOf()
       });
     }
   };
@@ -171,14 +162,6 @@ export default class CompanyForm extends React.Component {
           className="textarea"
           value={this.state.description}
           onChange={this.onDescriptionChange}
-        />
-        <SingleDatePicker
-          date={this.state.createdAt}
-          onDateChange={this.onDateChange}
-          focused={this.state.calendarFocused}
-          onFocusChange={this.onFocusChange}
-          numberOfMonths={1}
-          isOutsideRange={() => false}
         />
         <label className="label button">
           Select your file

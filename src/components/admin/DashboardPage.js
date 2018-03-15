@@ -86,20 +86,8 @@ class DashboardPage extends React.Component {
     return (
       <main className="dashboard">
         <MenuAdmin />
-        <article className="dashboard__content">
-          <h1>Birthdays of the month!</h1>
-          <div className="dashboard__content--clients">
-            {this.props.clients.length === 0 ? (
-              <div className="list-item list-item--message">
-                <span>No clients</span>
-              </div>
-            ) : (
-              this.props.clients.map(client => {
-                return <ClientListBirthday key={client.id} {...client} />;
-              })
-            )}
-          </div>
-          <div className="dashboard__content--clients">
+        <article className="dashboard__content--home">
+          <div className="dashboard__info">
             <Chart
               type="pie"
               chartData={this.state.chartDataProducts}
@@ -112,6 +100,18 @@ class DashboardPage extends React.Component {
               title="Amount of sales"
               legendPosition="bottom"
             />
+          </div>
+          <div className="dashboard__birthday">
+            <h1>Birthdays of the month!</h1>
+            {this.props.clients.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>No clients</span>
+              </div>
+            ) : (
+              this.props.clients.map(client => {
+                return <ClientListBirthday key={client.id} {...client} />;
+              })
+            )}
           </div>
         </article>
       </main>

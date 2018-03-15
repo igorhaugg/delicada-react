@@ -16,7 +16,6 @@ class ProfilePage extends Component {
   handleProgress = progress => this.setState({ progress });
   handleUploadError = error => {
     this.setState({ isUploading: false });
-    console.error(error);
   };
   handleUploadSuccess = filename => {
     this.setState({ avatar: filename, progress: 100, isUploading: false });
