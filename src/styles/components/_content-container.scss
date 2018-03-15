@@ -3,3 +3,9 @@
   max-width: 80rem;
   padding: 0 $m-size;
 }
+
+.content-container--company {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}

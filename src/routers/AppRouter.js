@@ -11,6 +11,7 @@ import ProductEditPage from '../components/admin/products/ProductEditPage';
 import ClientAdminPage from '../components/admin/clients/ClientAdminPage';
 import ClientAddPage from '../components/admin/clients/ClientAddPage';
 import ClientEditPage from '../components/admin/clients/ClientEditPage';
+import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -41,6 +42,11 @@ const AppRouter = () => (
         <PrivateRoute path="/client" component={ClientAdminPage} exact={true} />
         <PrivateRoute path="/client/create" component={ClientAddPage} />
         <PrivateRoute path="/client/edit/:id" component={ClientEditPage} />
+        <PrivateRoute
+          path="/company"
+          component={CompanyAdminPage}
+          exact={true}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

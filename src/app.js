@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { startSetCategories } from './actions/categories';
 import { startSetProducts } from './actions/products';
 import { startSetClients } from './actions/clients';
+import { startSetCompany } from './actions/company';
 import { login, logout } from './actions/auth';
 import getVisibleCategories from './selectors/categories';
 import getVisibleProducts from './selectors/products';
@@ -40,6 +41,7 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(login(user.uid));
     store.dispatch(startSetProducts());
     store.dispatch(startSetClients());
+    store.dispatch(startSetCompany());
     store.dispatch(startSetCategories()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {

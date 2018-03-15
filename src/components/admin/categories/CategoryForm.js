@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
 
-export default class ExpenseForm extends React.Component {
+export default class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,7 +79,6 @@ export default class ExpenseForm extends React.Component {
           onChange={this.onDescriptionChange}
           required
         />
-
         <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={this.onDateChange}

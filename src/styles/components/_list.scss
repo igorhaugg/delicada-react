@@ -22,7 +22,7 @@
   flex-direction: column;
   padding: $s-size;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background $s-time ease;
   &:hover {
     background: $off-white;
   }
