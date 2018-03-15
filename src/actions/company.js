@@ -11,6 +11,7 @@ export const startAddCompany = (companyData = {}) => {
     const uid = getState().auth.uid;
     const {
       name = '',
+      owner = '',
       address = '',
       about = '',
       facebook = '',
@@ -24,6 +25,7 @@ export const startAddCompany = (companyData = {}) => {
     } = companyData;
     const company = {
       name,
+      owner,
       address,
       about,
       facebook,

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ClientForm from './ClientForm';
 import { startEditClient, startRemoveClient } from '../../../actions/clients';
 import MenuAdmin from '../MenuAdmin';
+import { confirmAlert } from 'react-confirm-alert';
 
 export class ClientEditPage extends React.Component {
   onSubmit = client => {
@@ -10,6 +11,21 @@ export class ClientEditPage extends React.Component {
     this.props.history.push('/client');
   };
   onRemove = () => {
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.onClickRemove()
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
+  };
+  onClickRemove = () => {
     this.props.startRemoveClient({ id: this.props.client.id });
     this.props.history.push('/client');
   };

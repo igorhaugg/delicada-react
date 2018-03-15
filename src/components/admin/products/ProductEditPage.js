@@ -6,6 +6,7 @@ import {
   startRemoveProduct
 } from '../../../actions/products';
 import MenuAdmin from '../MenuAdmin';
+import { confirmAlert } from 'react-confirm-alert';
 
 export class ProductEditPage extends React.Component {
   onSubmit = product => {
@@ -13,6 +14,21 @@ export class ProductEditPage extends React.Component {
     this.props.history.push('/product');
   };
   onRemove = () => {
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.onClickRemove()
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
+  };
+  onClickRemove = () => {
     this.props.startRemoveProduct({ id: this.props.product.id });
     this.props.history.push('/product');
   };

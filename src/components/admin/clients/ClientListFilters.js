@@ -53,7 +53,7 @@ export class ClientListFilters extends React.Component {
               <option value="name">Name</option>
             </select>
           </div>
-          <div className="input-group__item">
+          {/* <div className="input-group__item">
             <DateRangePicker
               startDate={this.props.filters.startDate}
               endDate={this.props.filters.endDate}
@@ -64,7 +64,7 @@ export class ClientListFilters extends React.Component {
               numberOfMonths={1}
               isOutsideRange={() => false}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );

@@ -3,12 +3,14 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
+import { confirmAlert } from 'react-confirm-alert';
 
 export default class CompanyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: props.company ? props.company.name : '',
+      owner: props.company ? props.company.owner : '',
       address: props.company ? props.company.address : '',
       about: props.company ? props.company.about : '',
       facebook: props.company ? props.company.facebook : '',
@@ -27,6 +29,10 @@ export default class CompanyForm extends React.Component {
   onNameChange = e => {
     const name = e.target.value;
     this.setState(() => ({ name }));
+  };
+  onOwnerChange = e => {
+    const owner = e.target.value;
+    this.setState(() => ({ owner }));
   };
   onAddressChange = e => {
     const address = e.target.value;
@@ -83,6 +89,7 @@ export default class CompanyForm extends React.Component {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
         name: this.state.name,
+        owner: this.state.owner,
         address: this.state.address,
         about: this.state.about,
         facebook: this.state.facebook,
@@ -93,6 +100,16 @@ export default class CompanyForm extends React.Component {
         description: this.state.description,
         image: this.state.image,
         createdAt: moment().valueOf()
+      });
+
+      confirmAlert({
+        title: 'Alert',
+        message: 'Saved.',
+        buttons: [
+          {
+            label: 'Ok'
+          }
+        ]
       });
     }
   };
@@ -107,6 +124,14 @@ export default class CompanyForm extends React.Component {
           className="text-input"
           value={this.state.name}
           onChange={this.onNameChange}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Owner"
+          className="text-input"
+          value={this.state.owner}
+          onChange={this.onOwnerChange}
           required
         />
         <input

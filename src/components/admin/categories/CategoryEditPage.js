@@ -6,6 +6,7 @@ import {
   startRemoveCategory
 } from '../../../actions/categories';
 import MenuAdmin from '../MenuAdmin';
+import { confirmAlert } from 'react-confirm-alert';
 
 export class CategoryEditPage extends React.Component {
   onSubmit = category => {
@@ -13,6 +14,21 @@ export class CategoryEditPage extends React.Component {
     this.props.history.push('/category');
   };
   onRemove = () => {
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.onClickRemove()
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
+  };
+  onClickRemove = () => {
     this.props.startRemoveCategory({ id: this.props.category.id });
     this.props.history.push('/category');
   };

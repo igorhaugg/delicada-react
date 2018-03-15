@@ -13,26 +13,43 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  svg {
-    margin-left: $s-size;
-    margin-right: $s-size;
-  }
-  // > *:not(:first-child) {
   > * {
     color: $off-white;
     font-weight: 300;
     padding: $s-size $s-size;
     text-decoration: none;
     transition: font-weight $s-time ease-in-out;
-    &:hover {
-      font-weight: 700;
-    }
+  }
+  svg {
+    margin-left: $s-size;
+    margin-right: $s-size;
+  }
+  a:hover {
+    font-weight: 700;
   }
   @media (min-width: $desktop-breakpoint) {
     flex-direction: column;
     > * {
       padding: $s-size 0;
     }
+  }
+}
+
+.menu__header {
+  background-color: $dark-blue;
+  h3 {
+    border-bottom: 1px solid lighten($dark-blue, 7%);
+    padding-bottom: $s-size;
+    text-align: center;
+  }
+}
+
+.menu_header--user {
+  align-items: center;
+  display: flex;
+  padding: $s-size;
+  span {
+    padding: 0 $s-size;
   }
 }
 

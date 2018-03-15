@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { startLogout } from '../../actions/auth';
 
-const MenuAdmin = () => (
+export const MenuAdmin = ({ startLogout }) => (
   <aside className="dashboard__menu">
     <div className="menu">
       <div className="menu__items">
-        {/* <img className="button__image" src="/images/favicon.png" /> */}
+        <div className="menu__header">
+          <h3>Delicada Mulher</h3>
+          <div className="menu_header--user">
+            <img className="button__image" src="/images/favicon.png" />
+            <span>Priscila</span>
+          </div>
+        </div>
         <Link
           to="/dashboard"
           className={classNames({ active: location.pathname === '/dashboard' })}
@@ -46,12 +54,19 @@ const MenuAdmin = () => (
         </Link>
       </div>
       <div className="menu__items">
-        <Link to="create">
+        <Link to="/">
           <i className="fas fa-question-circle" /> Help
+        </Link>
+        <Link to="/" onClick={startLogout}>
+          <i className="fas fa-sign-out-alt" /> Logout
         </Link>
       </div>
     </div>
   </aside>
 );
 
-export default MenuAdmin;
+const mapDispatchToProps = dispatch => ({
+  startLogout: () => dispatch(startLogout())
+});
+
+export default connect(undefined, mapDispatchToProps)(MenuAdmin);
