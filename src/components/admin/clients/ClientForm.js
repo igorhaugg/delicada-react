@@ -43,11 +43,6 @@ export default class ExpenseForm extends React.Component {
     const email = e.target.value;
     this.setState(() => ({ email }));
   };
-  // onDateChange = createdAt => {
-  //   if (createdAt) {
-  //     this.setState(() => ({ createdAt }));
-  //   }
-  // };
   onInputDateChange = e => {
     const createdAt = e.target.value;
     this.setState(() => ({ createdAt }));

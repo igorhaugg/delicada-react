@@ -3,6 +3,7 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
+import database from '../../../firebase/firebase';
 
 export default class CategoryForm extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class CategoryForm extends React.Component {
       createdAt: props.category ? moment(props.category.createdAt) : moment(),
       calendarFocused: false,
       showLoading: false,
-      error: ''
+      error: '',
+      oldImage: null
     };
   }
   onNameChange = e => {
@@ -27,6 +29,9 @@ export default class CategoryForm extends React.Component {
   };
   onUploadStart = () => this.setState({ showLoading: true });
   onUploadSuccess = filename => {
+    if (this.props.editForm) {
+      this.setState({ oldImage: this.state.image });
+    }
     firebase
       .storage()
       .ref('images/categories')
@@ -50,12 +55,15 @@ export default class CategoryForm extends React.Component {
       }));
     } else {
       this.setState(() => ({ error: '' }));
-      this.props.onSubmit({
-        name: this.state.name,
-        description: this.state.description,
-        image: this.state.image,
-        createdAt: this.state.createdAt.valueOf()
-      });
+      this.props.onSubmit(
+        {
+          name: this.state.name,
+          description: this.state.description,
+          image: this.state.image,
+          createdAt: this.state.createdAt.valueOf()
+        },
+        this.state.oldImage
+      );
     }
   };
   render() {

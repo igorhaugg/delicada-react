@@ -23,7 +23,7 @@ export const CompanySummary = props => {
 const mapStateToProps = state => {
   const company = selectCompany(state.company, state.filters);
   return {
-    company: company
+    company
   };
 };
 

@@ -9,8 +9,8 @@ import MenuAdmin from '../MenuAdmin';
 import { confirmAlert } from 'react-confirm-alert';
 
 export class CategoryEditPage extends React.Component {
-  onSubmit = category => {
-    this.props.startEditCategory(this.props.category.id, category);
+  onSubmit = (category, oldImage) => {
+    this.props.startEditCategory(this.props.category.id, category, oldImage);
     this.props.history.push('/category');
   };
   onRemove = () => {
@@ -46,6 +46,7 @@ export class CategoryEditPage extends React.Component {
             <CategoryForm
               category={this.props.category}
               onSubmit={this.onSubmit}
+              editForm={true}
             />
             <button
               className="button button--secondary"
@@ -67,8 +68,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditCategory: (id, category) =>
-    dispatch(startEditCategory(id, category)),
+  startEditCategory: (id, category, oldImage) =>
+    dispatch(startEditCategory(id, category, oldImage)),
   startRemoveCategory: data => dispatch(startRemoveCategory(data))
 });
 

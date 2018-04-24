@@ -9,7 +9,7 @@ const CategoryAdminPage = () => (
     <MenuAdmin />
     <section className="dashboard__content">
       <CategoriesSummary />
-      <CategoryListFilters />
+      {/* <CategoryListFilters /> */}
       <CategoryList />
     </section>
   </main>

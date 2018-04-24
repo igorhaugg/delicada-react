@@ -49,18 +49,12 @@ firebase.auth().onAuthStateChanged(user => {
         history.push('/category');
       }
     });
-    // store.dispatch(startSetProducts()).then(() => {
-    //   renderApp();
-    //   if (history.location.pathname === '/') {
-    //     history.push('/product');
-    //   }
-    // });
-    // store.dispatch(startSetClients()).then(() => {
-    //   renderApp();
-    //   if (history.location.pathname === '/') {
-    //     history.push('/client');
-    //   }
-    // });
+    store.dispatch(startSetProducts()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/product');
+      }
+    });
   } else {
     store.dispatch(logout());
     renderApp();

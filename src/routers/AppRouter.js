@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../components/admin/DashboardPage';
+import HomePage from '../components/admin/HomePage';
 import CategoryAdminPage from '../components/admin/categories/CategoryAdminPage';
 import CategoryAddPage from '../components/admin/categories/CategoryAddPage';
 import CategoryEditPage from '../components/admin/categories/CategoryEditPage';
@@ -24,6 +25,7 @@ const AppRouter = () => (
     <div>
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
+        <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <PrivateRoute
           path="/category"

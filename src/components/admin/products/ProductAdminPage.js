@@ -9,7 +9,7 @@ const ProductAdminPage = () => (
     <MenuAdmin />
     <section className="dashboard__content">
       <ProductsSummary />
-      <ProductListFilters />
+      {/* <ProductListFilters /> */}
       <ProductList />
     </section>
   </main>

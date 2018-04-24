@@ -1,5 +1,6 @@
 import uuid from 'uuid';
-import database from '../firebase/firebase';
+import database, { storage } from '../firebase/firebase';
+import firebase from 'firebase';
 
 export const addProduct = product => ({
   type: 'ADD_PRODUCT',
@@ -51,15 +52,39 @@ export const removeProduct = ({ id } = {}) => ({
   id
 });
 
+const removeProductFirebase = async (uid, id, dispatch) => {
+  let removed = await removeImage(uid, id);
+  return database
+    .ref(`users/${uid}/products/${id}`)
+    .remove()
+    .then(() => {
+      dispatch(removeProduct({ id }));
+    });
+};
+
+const removeImage = (uid, id) => {
+  let url = null;
+  const imageToRemove = database
+    .ref(`users/${uid}/products/${id}/image`)
+    .once('value')
+    .then(snapshot => {
+      url = firebase.storage().refFromURL(snapshot.val());
+      url
+        .delete()
+        .then(() => {
+          console.log('deleted');
+        })
+        .catch(error => {
+          console.log('error: ' + error);
+        });
+    });
+  return imageToRemove;
+};
+
 export const startRemoveProduct = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    return database
-      .ref(`users/${uid}/products/${id}`)
-      .remove()
-      .then(() => {
-        dispatch(removeProduct({ id }));
-      });
+    return removeProductFirebase(uid, id, dispatch);
   };
 };
 
@@ -101,7 +126,6 @@ export const startSetProducts = () => {
             ...childSnapshot.val()
           });
         });
-
         dispatch(setProducts(products));
       });
   };

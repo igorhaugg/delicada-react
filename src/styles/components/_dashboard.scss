@@ -1,6 +1,5 @@
 .dashboard {
   display: flex;
-  flex-direction: column;
   @media (min-width: $desktop-breakpoint) {
     flex-direction: row;
   }
@@ -8,14 +7,10 @@
 
 .dashboard__menu {
   background-color: $light-blue;
-  flex: 4;
+  flex: 1;
   @media (min-width: $desktop-breakpoint) {
-    flex: 1;
-    min-height: calc(100vh - 104px);
-  }
-  @media (max-width: 900px) {
-    flex: 2;
-    min-height: calc(100vh - 104px);
+    min-height: 100vh;
+    // min-height: calc(100vh - 104px);
   }
 }
 
@@ -42,6 +37,12 @@
   background-color: $off-white;
   flex: 2;
   text-align: center;
+}
+
+.dashboard__image-home {
+  background-color: #e8cad6;
+  height: 100%;
+  width: 100%;
 }
 
 .chart {

@@ -1,5 +1,6 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
+import firebase from 'firebase';
 
 export const addCategory = category => ({
   type: 'ADD_CATEGORY',
@@ -36,15 +37,39 @@ export const removeCategory = ({ id } = {}) => ({
   id
 });
 
+const removeCategoryFirebase = async (uid, id, dispatch) => {
+  let removed = await removeImage(uid, id);
+  return database
+    .ref(`users/${uid}/categories/${id}`)
+    .remove()
+    .then(() => {
+      dispatch(removeCategory({ id }));
+    });
+};
+
+export const removeImage = (uid, id) => {
+  let url = null;
+  const imageToRemove = database
+    .ref(`users/${uid}/categories/${id}/image`)
+    .once('value')
+    .then(snapshot => {
+      url = firebase.storage().refFromURL(snapshot.val());
+      url
+        .delete()
+        .then(() => {
+          console.log('deleted');
+        })
+        .catch(error => {
+          console.log('error: ' + error);
+        });
+    });
+  return imageToRemove;
+};
+
 export const startRemoveCategory = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    return database
-      .ref(`users/${uid}/categories/${id}`)
-      .remove()
-      .then(() => {
-        dispatch(removeCategory({ id }));
-      });
+    return removeCategoryFirebase(uid, id, dispatch);
   };
 };
 
@@ -54,7 +79,18 @@ export const editCategory = (id, updates) => ({
   updates
 });
 
-export const startEditCategory = (id, updates) => {
+export const startEditCategory = (id, updates, oldImage) => {
+  if (oldImage) {
+    const imageToRemove = firebase.storage().refFromURL(oldImage);
+    imageToRemove
+      .delete()
+      .then(() => {
+        //console.log('deleted');
+      })
+      .catch(error => {
+        console.log('error: ' + error);
+      });
+  }
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database

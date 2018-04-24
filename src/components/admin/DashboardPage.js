@@ -24,9 +24,10 @@ class DashboardPage extends React.Component {
 
   getChartDataProducts() {
     const val = [
-      ...this.props.categories.map(category => category.name).sort((a, b) => {
-        return a.name < b.name ? -1 : 1;
-      })
+      ...this.props.categories.map(category => category.name)
+      // .sort((a, b) => {
+      //   return a.name < b.name ? -1 : 1;
+      // })
     ];
     const amount = Object.values(this.props.amount);
     const colors = [
@@ -54,9 +55,10 @@ class DashboardPage extends React.Component {
 
   getChartDataSales() {
     const val = [
-      ...this.props.categories.map(category => category.name).sort((a, b) => {
-        return a.name < b.name ? -1 : 1;
-      })
+      ...this.props.categories.map(category => category.name)
+      // .sort((a, b) => {
+      //   return a.name < b.name ? -1 : 1;
+      // })
     ];
     const amount = Object.values(this.props.amount);
     const colors = [

@@ -1,16 +1,13 @@
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  @media (min-width: $desktop-breakpoint) {
-    justify-content: space-between;
-    min-height: 100%;
-  }
+  justify-content: space-between;
+  min-height: 100%;
 }
 
 .menu__items {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   > * {
@@ -24,19 +21,25 @@
     margin-left: $s-size;
     margin-right: $s-size;
   }
+  span {
+    display: none;
+  }
   a:hover {
     font-weight: 700;
   }
   @media (min-width: $desktop-breakpoint) {
-    flex-direction: column;
     > * {
       padding: $s-size 0;
+    }
+    span {
+      display: inline-block;
     }
   }
 }
 
 .menu__header {
   background-color: $dark-blue;
+  width: 100%;
   h3 {
     border-bottom: 1px solid lighten($dark-blue, 7%);
     padding-bottom: $s-size;
@@ -58,6 +61,7 @@
   border-right: 5px solid red;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
   font-weight: 700;
+  width: 100%;
 }
 
 .flip {

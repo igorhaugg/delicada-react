@@ -6,7 +6,7 @@ import { startLogout } from '../../actions/auth';
 export const Header = ({ startLogout }) => (
   <header className="header">
     <div className="header__content">
-      <Link className="header__title" to="/dashboard">
+      <Link className="header__title" to="/home">
         <h1>Delicada Mulher</h1>
       </Link>
       <button
