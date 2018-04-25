@@ -45,19 +45,10 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetCategories());
     store.dispatch(startSetCompany()).then(() => {
       renderApp();
-      if (history.location.pathname === '/') {
-        history.push('/category');
-      }
-    });
-    store.dispatch(startSetProducts()).then(() => {
-      renderApp();
-      if (history.location.pathname === '/') {
-        history.push('/product');
-      }
     });
   } else {
     store.dispatch(logout());
     renderApp();
-    history.push('/');
+    // history.push('/login');
   }
 });

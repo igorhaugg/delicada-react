@@ -32,12 +32,24 @@ export default class CategoryForm extends React.Component {
     if (this.props.editForm) {
       this.setState({ oldImage: this.state.image });
     }
-    firebase
-      .storage()
-      .ref('images/categories')
-      .child(filename)
-      .getDownloadURL()
-      .then(url => this.setState({ image: url, showLoading: false }));
+    if (
+      filename.endsWith('.jpeg') ||
+      filename.endsWith('.jpg') ||
+      filename.endsWith('.png') ||
+      filename.endsWith('.gif')
+    ) {
+      firebase
+        .storage()
+        .ref('images/categories')
+        .child(filename)
+        .getDownloadURL()
+        .then(url => this.setState({ image: url, showLoading: false }));
+    } else {
+      this.setState({
+        showLoading: false,
+        error: 'Please select a valid image (jpeg, jpg, png).'
+      });
+    }
   };
   onDateChange = createdAt => {
     if (createdAt) {

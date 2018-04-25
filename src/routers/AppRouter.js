@@ -13,10 +13,12 @@ import ClientAdminPage from '../components/admin/clients/ClientAdminPage';
 import ClientAddPage from '../components/admin/clients/ClientAddPage';
 import ClientEditPage from '../components/admin/clients/ClientEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
+import IndexPage from '../components/site/IndexPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import SpecialRoute from './SpecialRoute';
 
 export const history = createHistory();
 
@@ -24,7 +26,8 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <PublicRoute path="/" component={LoginPage} exact={true} />
+        <PublicRoute path="/" component={IndexPage} exact={true} />
+        <SpecialRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <PrivateRoute

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
-export const PublicRoute = ({
+export const SpecialRoute = ({
   isAuthenticated,
   component: Component,
   ...rest
@@ -10,7 +10,7 @@ export const PublicRoute = ({
   <Route
     {...rest}
     component={props =>
-      isAuthenticated ? <Component {...props} /> : <Component {...props} />
+      isAuthenticated ? <Redirect to="/home" /> : <Component {...props} />
     }
   />
 );
@@ -19,4 +19,4 @@ const mapStateToProps = state => ({
   isAuthenticated: !!state.auth.uid
 });
 
-export default connect(mapStateToProps)(PublicRoute);
+export default connect(mapStateToProps)(SpecialRoute);
