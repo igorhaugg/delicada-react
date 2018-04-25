@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = props => {
+  const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
   return (
     <header>
       <div className="header__name">Delicada Mulher</div>
@@ -15,10 +18,19 @@ const Header = () => {
         <ul>
           <li>F</li>
           <li>I</li>
+          <li>
+            <Link to="/login">
+              <i className={iconLogged} />
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
   );
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  isAuthenticated: !!state.auth.uid
+});
+
+export default connect(mapStateToProps)(Header);
