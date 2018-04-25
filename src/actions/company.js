@@ -32,12 +32,14 @@ export const startAddCompany = (companyData = {}) => {
       instagram,
       whatsapp,
       phone,
+      email,
       description,
       image,
       createdAt
     };
+    let removeAll = startRemoveCompanies(dispatch);
     return database
-      .ref(`users/${uid}/companies`)
+      .ref(`companies`)
       .push(company)
       .then(ref => {
         dispatch(
@@ -50,22 +52,18 @@ export const startAddCompany = (companyData = {}) => {
   };
 };
 
-export const editCompany = (id, updates) => ({
-  type: 'EDIT_COMPANY',
-  id,
-  updates
+export const removeCompanies = ({ id } = {}) => ({
+  type: 'REMOVE_COMPANIES',
+  id
 });
 
-export const startEditCompany = (id, updates) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return database
-      .ref(`users/${uid}/companies/${id}`)
-      .update(updates)
-      .then(() => {
-        dispatch(editCompany(id, updates));
-      });
-  };
+const startRemoveCompanies = async dispatch => {
+  return database
+    .ref(`companies`)
+    .remove()
+    .then(() => {
+      dispatch(removeCompanies());
+    });
 };
 
 export const setCompanies = companies => ({
@@ -77,7 +75,7 @@ export const startSetCompany = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database
-      .ref(`users/${uid}/companies`)
+      .ref(`companies`)
       .once('value')
       .then(snapshot => {
         const companies = [];

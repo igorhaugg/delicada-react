@@ -19,7 +19,7 @@ export const startAddCategory = (categoryData = {}) => {
     const category = { name, description, image, createdAt };
 
     return database
-      .ref(`users/${uid}/categories`)
+      .ref(`categories`)
       .push(category)
       .then(ref => {
         dispatch(
@@ -40,7 +40,7 @@ export const removeCategory = ({ id } = {}) => ({
 const removeCategoryFirebase = async (uid, id, dispatch) => {
   let removed = await removeImage(uid, id);
   return database
-    .ref(`users/${uid}/categories/${id}`)
+    .ref(`categories/${id}`)
     .remove()
     .then(() => {
       dispatch(removeCategory({ id }));
@@ -50,7 +50,7 @@ const removeCategoryFirebase = async (uid, id, dispatch) => {
 export const removeImage = (uid, id) => {
   let url = null;
   const imageToRemove = database
-    .ref(`users/${uid}/categories/${id}/image`)
+    .ref(`categories/${id}/image`)
     .once('value')
     .then(snapshot => {
       url = firebase.storage().refFromURL(snapshot.val());
@@ -94,7 +94,7 @@ export const startEditCategory = (id, updates, oldImage) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database
-      .ref(`users/${uid}/categories/${id}`)
+      .ref(`categories/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editCategory(id, updates));
@@ -111,7 +111,7 @@ export const startSetCategories = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database
-      .ref(`users/${uid}/categories`)
+      .ref(`categories`)
       .once('value')
       .then(snapshot => {
         const categories = [];

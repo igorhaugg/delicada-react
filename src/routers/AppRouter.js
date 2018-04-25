@@ -13,6 +13,7 @@ import ClientAdminPage from '../components/admin/clients/ClientAdminPage';
 import ClientAddPage from '../components/admin/clients/ClientAddPage';
 import ClientEditPage from '../components/admin/clients/ClientEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
+import HelpPage from '../components/admin/HelpPage';
 import IndexPage from '../components/site/IndexPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
@@ -52,6 +53,7 @@ const AppRouter = () => (
           component={CompanyAdminPage}
           exact={true}
         />
+        <PublicRoute path="/help" component={HelpPage} exact={true} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

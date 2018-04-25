@@ -80,7 +80,7 @@ export class MenuAdmin extends React.Component {
               <i className="fas fa-info-circle" /> <span>Company</span>
             </Link>
             <Link
-              to="/"
+              to="/home"
               className={classNames({
                 active: location.pathname === '/messages'
               })}
@@ -90,10 +90,15 @@ export class MenuAdmin extends React.Component {
             </Link>
           </div>
           <div className="menu__items">
-            <Link to="/">
+            <Link
+              to="/help"
+              className={classNames({
+                active: location.pathname === '/help'
+              })}
+            >
               <i className="fas fa-question-circle" /> <span>Help</span>
             </Link>
-            <Link to="/" onClick={this.props.startLogout}>
+            <Link to="/login" onClick={this.props.startLogout}>
               <i className="fas fa-sign-out-alt" /> <span>Logout</span>
             </Link>
           </div>
