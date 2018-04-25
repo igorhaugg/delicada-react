@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 export const addCompany = company => ({
@@ -8,7 +7,6 @@ export const addCompany = company => ({
 
 export const startAddCompany = (companyData = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     const {
       name = '',
       owner = '',
@@ -73,7 +71,6 @@ export const setCompanies = companies => ({
 
 export const startSetCompany = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`companies`)
       .once('value')

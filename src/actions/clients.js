@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 export const addClient = client => ({
@@ -8,7 +7,6 @@ export const addClient = client => ({
 
 export const startAddClient = (clientData = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     const {
       name = '',
       address = '',
@@ -49,7 +47,6 @@ export const removeClient = ({ id } = {}) => ({
 
 export const startRemoveClient = ({ id } = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`clients/${id}`)
       .remove()
@@ -67,7 +64,6 @@ export const editClient = (id, updates) => ({
 
 export const startEditClient = (id, updates) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`clients/${id}`)
       .update(updates)
@@ -84,7 +80,6 @@ export const setClients = clients => ({
 
 export const startSetClients = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`clients`)
       .once('value')

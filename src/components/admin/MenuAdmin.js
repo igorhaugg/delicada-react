@@ -80,7 +80,7 @@ export class MenuAdmin extends React.Component {
               <i className="fas fa-info-circle" /> <span>Company</span>
             </Link>
             <Link
-              to="/home"
+              to="/messages"
               className={classNames({
                 active: location.pathname === '/messages'
               })}

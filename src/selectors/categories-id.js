@@ -4,7 +4,8 @@ const getId = (products, categories, { text, sortBy, startDate, endDate }) => {
       let count = 0;
       for (let i = 0; i < products.length; i++) {
         if (category.id === products[i].category_id) {
-          count++;
+          count = +count + +products[i].amount; // parseInt(count) === +count
+          // count++;
         }
       }
       return count;

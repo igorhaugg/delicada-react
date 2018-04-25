@@ -1,7 +1,7 @@
 import React from 'react';
-import MenuAdmin from './MenuAdmin';
+import MenuAdmin from '../MenuAdmin';
 
-const HelpPage = () => (
+const HelpAdminPage = () => (
   <main className="dashboard">
     <MenuAdmin />
     <section className="dashboard__content">
@@ -21,4 +21,4 @@ const HelpPage = () => (
   </main>
 );
 
-export default HelpPage;
+export default HelpAdminPage;

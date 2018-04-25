@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 import firebase from 'firebase';
 
@@ -9,7 +8,6 @@ export const addCategory = category => ({
 
 export const startAddCategory = (categoryData = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     const {
       name = '',
       description = '',
@@ -37,8 +35,8 @@ export const removeCategory = ({ id } = {}) => ({
   id
 });
 
-const removeCategoryFirebase = async (uid, id, dispatch) => {
-  let removed = await removeImage(uid, id);
+const removeCategoryFirebase = async (id, dispatch) => {
+  let removed = await removeImage(id);
   return database
     .ref(`categories/${id}`)
     .remove()
@@ -47,7 +45,7 @@ const removeCategoryFirebase = async (uid, id, dispatch) => {
     });
 };
 
-export const removeImage = (uid, id) => {
+export const removeImage = id => {
   let url = null;
   const imageToRemove = database
     .ref(`categories/${id}/image`)
@@ -68,8 +66,7 @@ export const removeImage = (uid, id) => {
 
 export const startRemoveCategory = ({ id } = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return removeCategoryFirebase(uid, id, dispatch);
+    return removeCategoryFirebase(id, dispatch);
   };
 };
 
@@ -92,7 +89,6 @@ export const startEditCategory = (id, updates, oldImage) => {
       });
   }
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`categories/${id}`)
       .update(updates)
@@ -109,7 +105,6 @@ export const setCategories = categories => ({
 
 export const startSetCategories = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`categories`)
       .once('value')

@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 const IndexPage = () => {
   return (
     <div>
-      <p>Teste</p>
+      <Header />
       <p>pagina</p>
     </div>
   );

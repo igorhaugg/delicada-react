@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database, { storage } from '../firebase/firebase';
 import firebase from 'firebase';
 
@@ -9,7 +8,6 @@ export const addProduct = product => ({
 
 export const startAddProduct = (productData = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     const {
       category_id = '',
       name = '',
@@ -52,8 +50,8 @@ export const removeProduct = ({ id } = {}) => ({
   id
 });
 
-const removeProductFirebase = async (uid, id, dispatch) => {
-  let removed = await removeImage(uid, id);
+const removeProductFirebase = async (id, dispatch) => {
+  let removed = await removeImage(id);
   return database
     .ref(`products/${id}`)
     .remove()
@@ -62,7 +60,7 @@ const removeProductFirebase = async (uid, id, dispatch) => {
     });
 };
 
-const removeImage = (uid, id) => {
+const removeImage = id => {
   let url = null;
   const imageToRemove = database
     .ref(`products/${id}/image`)
@@ -83,8 +81,7 @@ const removeImage = (uid, id) => {
 
 export const startRemoveProduct = ({ id } = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return removeProductFirebase(uid, id, dispatch);
+    return removeProductFirebase(id, dispatch);
   };
 };
 
@@ -107,7 +104,6 @@ export const startEditProduct = (id, updates, oldImage) => {
       });
   }
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`products/${id}`)
       .update(updates)
@@ -124,7 +120,6 @@ export const setProducts = products => ({
 
 export const startSetProducts = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
     return database
       .ref(`products`)
       .once('value')

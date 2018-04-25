@@ -10,8 +10,11 @@ const ProductListItem = ({ id, name, image, price_sell, createdAt }) => (
       <span className="list-item__sub-title">
         {moment(createdAt).format('MMMM Do, YYYY')}
       </span>
+      <br />
+      <span className="list-item__sub-title">
+        Price Sell: <strong>R{numeral(price_sell).format('$0,0.00')}</strong>
+      </span>
     </div>
-    <div>R{numeral(price_sell).format('$0,0.00')}</div>
     <h3 className="list-item__data">
       <img className="list-item__image" src={image} />
     </h3>
