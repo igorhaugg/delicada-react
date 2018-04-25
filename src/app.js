@@ -52,3 +52,16 @@ firebase.auth().onAuthStateChanged(user => {
     // history.push('/login');
   }
 });
+
+var marcar_checkbox = function(id) {
+  if ($('input[data-id-turma=' + id + ']').attr('checked')) {
+    $('.' + id).removeAttr('checked');
+    var inputs = $('input[type=text]');
+    console.log(inputs);
+    if ($.trim($('nota_' + id).val()) == '') {
+      console.log('nota_' + id);
+    } else {
+      $('.' + id).attr('checked', true);
+    }
+  } else $('.' + id).removeAttr('checked');
+};
