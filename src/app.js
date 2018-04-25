@@ -39,6 +39,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
+    // if (user && user.email === 'igor-haugg@hotmail.com') {
     store.dispatch(login(user.uid));
     store.dispatch(startSetProducts());
     store.dispatch(startSetClients());
