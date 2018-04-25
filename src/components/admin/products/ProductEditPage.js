@@ -9,8 +9,8 @@ import MenuAdmin from '../MenuAdmin';
 import { confirmAlert } from 'react-confirm-alert';
 
 export class ProductEditPage extends React.Component {
-  onSubmit = product => {
-    this.props.startEditProduct(this.props.product.id, product);
+  onSubmit = (product, oldImage) => {
+    this.props.startEditProduct(this.props.product.id, product, oldImage);
     this.props.history.push('/product');
   };
   onRemove = () => {
@@ -46,6 +46,7 @@ export class ProductEditPage extends React.Component {
             <ProductForm
               product={this.props.product}
               onSubmit={this.onSubmit}
+              editForm={true}
             />
             <button
               className="button button--secondary"
@@ -65,7 +66,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditProduct: (id, product) => dispatch(startEditProduct(id, product)),
+  startEditProduct: (id, product, oldImage) =>
+    dispatch(startEditProduct(id, product, oldImage)),
   startRemoveProduct: data => dispatch(startRemoveProduct(data))
 });
 

@@ -42,8 +42,8 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(login(user.uid));
     store.dispatch(startSetProducts());
     store.dispatch(startSetClients());
-    store.dispatch(startSetCompany());
-    store.dispatch(startSetCategories()).then(() => {
+    store.dispatch(startSetCategories());
+    store.dispatch(startSetCompany()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
         history.push('/category');

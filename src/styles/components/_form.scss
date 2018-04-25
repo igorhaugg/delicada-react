@@ -9,6 +9,18 @@
 .form__group {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  > *:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: $m-size;
+  }
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+    > *:not(:last-child) {
+      margin-right: $m-size;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .form__error {

@@ -57,7 +57,7 @@ export const removeImage = (uid, id) => {
       url
         .delete()
         .then(() => {
-          console.log('deleted');
+          // console.log('deleted');
         })
         .catch(error => {
           console.log('error: ' + error);

@@ -9,11 +9,22 @@ export const CompanySummary = props => {
     <div className="page-header">
       <div className="content-container--company">
         <h1 className="page-header__title">
-          {props.company[0].name ? props.company[0].name : 'Delicada Mulher'}
+          {props.company[0] && props.company[0].name
+            ? props.company[0].name
+            : 'Company Name'}
         </h1>
         <div className="page-header__owner">
-          <img className="button__image" src="/images/favicon.png" />
-          {props.company[0].owner ? props.company[0].owner : 'Owner Name'}
+          <img
+            className="button__image"
+            src={
+              props.company[0] && props.company[0].image
+                ? props.company[0].image
+                : '/images/default-user.png'
+            }
+          />
+          {props.company[0] && props.company[0].owner
+            ? props.company[0].owner
+            : 'Owner Name'}
         </div>
       </div>
     </div>

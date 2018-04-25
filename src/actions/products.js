@@ -94,7 +94,18 @@ export const editProduct = (id, updates) => ({
   updates
 });
 
-export const startEditProduct = (id, updates) => {
+export const startEditProduct = (id, updates, oldImage) => {
+  if (oldImage) {
+    const imageToRemove = firebase.storage().refFromURL(oldImage);
+    imageToRemove
+      .delete()
+      .then(() => {
+        //console.log('deleted');
+      })
+      .catch(error => {
+        console.log('error: ' + error);
+      });
+  }
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database

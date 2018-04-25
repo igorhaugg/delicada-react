@@ -29,8 +29,23 @@ export class CategoryEditPage extends React.Component {
     });
   };
   onClickRemove = () => {
-    this.props.startRemoveCategory({ id: this.props.category.id });
-    this.props.history.push('/category');
+    const hasProducts = this.props.products.find(
+      product => product.category_id === this.props.category.id
+    );
+    if (hasProducts) {
+      confirmAlert({
+        title: 'Access denied!',
+        message: 'You can not remove a category that is being used.',
+        buttons: [
+          {
+            label: 'Ok'
+          }
+        ]
+      });
+    } else {
+      this.props.startRemoveCategory({ id: this.props.category.id });
+      this.props.history.push('/category');
+    }
   };
   render() {
     return (
@@ -64,7 +79,8 @@ export class CategoryEditPage extends React.Component {
 const mapStateToProps = (state, props) => ({
   category: state.categories.find(
     category => category.id === props.match.params.id
-  )
+  ),
+  products: state.products
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

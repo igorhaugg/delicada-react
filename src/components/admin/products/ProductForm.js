@@ -22,7 +22,8 @@ export class ExpenseForm extends React.Component {
       createdAt: props.product ? moment(props.product.createdAt) : moment(),
       calendarFocused: false,
       showLoading: false,
-      error: ''
+      error: '',
+      oldImage: null
     };
   }
   onNameChange = e => {
@@ -59,6 +60,9 @@ export class ExpenseForm extends React.Component {
   };
   onUploadStart = () => this.setState({ showLoading: true });
   onUploadSuccess = filename => {
+    if (this.props.editForm) {
+      this.setState({ oldImage: this.state.image });
+    }
     firebase
       .storage()
       .ref('images/products')
@@ -92,17 +96,20 @@ export class ExpenseForm extends React.Component {
       }));
     } else {
       this.setState(() => ({ error: '' }));
-      this.props.onSubmit({
-        category_id: this.state.category_id,
-        name: this.state.name,
-        description: this.state.description,
-        image: this.state.image,
-        size: this.state.size,
-        price_sell: parseFloat(this.state.price_sell, 10),
-        price_buy: parseFloat(this.state.price_buy, 10),
-        amount: this.state.amount,
-        createdAt: this.state.createdAt.valueOf()
-      });
+      this.props.onSubmit(
+        {
+          category_id: this.state.category_id,
+          name: this.state.name,
+          description: this.state.description,
+          image: this.state.image,
+          size: this.state.size,
+          price_sell: parseFloat(this.state.price_sell, 10),
+          price_buy: parseFloat(this.state.price_buy, 10),
+          amount: this.state.amount,
+          createdAt: this.state.createdAt.valueOf()
+        },
+        this.state.oldImage
+      );
     }
   };
   render() {
