@@ -8,7 +8,7 @@ import { confirmAlert } from 'react-confirm-alert';
 export class ClientEditPage extends React.Component {
   onSubmit = client => {
     this.props.startEditClient(this.props.client.id, client);
-    this.props.history.push('/client');
+    this.props.history.push('/admin/client');
   };
   onRemove = () => {
     confirmAlert({
@@ -27,7 +27,7 @@ export class ClientEditPage extends React.Component {
   };
   onClickRemove = () => {
     this.props.startRemoveClient({ id: this.props.client.id });
-    this.props.history.push('/client');
+    this.props.history.push('/admin/client');
   };
   render() {
     return (

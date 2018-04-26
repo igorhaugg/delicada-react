@@ -11,7 +11,7 @@ import { confirmAlert } from 'react-confirm-alert';
 export class CategoryEditPage extends React.Component {
   onSubmit = (category, oldImage) => {
     this.props.startEditCategory(this.props.category.id, category, oldImage);
-    this.props.history.push('/category');
+    this.props.history.push('/admin/category');
   };
   onRemove = () => {
     confirmAlert({
@@ -44,7 +44,7 @@ export class CategoryEditPage extends React.Component {
       });
     } else {
       this.props.startRemoveCategory({ id: this.props.category.id });
-      this.props.history.push('/category');
+      this.props.history.push('/admin/category');
     }
   };
   render() {

@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import selectProducts from '../../../selectors/products';
 import selectProductsTotal from '../../../selectors/products-total';
 
-export const ProductsSummary = ({ productCount, productsTotal }) => {
+export const SalesSummary = ({ productCount, productsTotal }) => {
   const productWord = productCount === 1 ? 'product' : 'products';
   const formattedProductsTotal = numeral(productsTotal).format('$0,0.00');
 
@@ -17,8 +17,8 @@ export const ProductsSummary = ({ productCount, productsTotal }) => {
           <span>R{formattedProductsTotal}</span>
         </h1>
         <div className="page-header__actions">
-          <Link className="button" to="/admin/product/create">
-            Add Product
+          <Link className="button" to="/admin/sales/create">
+            Make a Sale
           </Link>
         </div>
       </div>
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ProductsSummary);
+export default connect(mapStateToProps)(SalesSummary);

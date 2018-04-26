@@ -14,7 +14,7 @@ export const ClientsSummary = ({ clientCount }) => {
           Viewing <span>{clientCount}</span> {clientWord}
         </h1>
         <div className="page-header__actions">
-          <Link className="button" to="/client/create">
+          <Link className="button" to="/admin/client/create">
             Add Client
           </Link>
         </div>

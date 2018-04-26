@@ -34,55 +34,63 @@ export class MenuAdmin extends React.Component {
               </div>
             </div>
             <Link
-              to="/home"
-              className={classNames({ active: location.pathname === '/home' })}
+              to="/admin"
+              className={classNames({ active: location.pathname === '/admin' })}
             >
               <i className="fas fa-home" /> <span>Home</span>
             </Link>
             <Link
-              to="/dashboard"
+              to="/admin/dashboard"
               className={classNames({
-                active: location.pathname === '/dashboard'
+                active: location.pathname === '/admin/dashboard'
               })}
             >
               <i className="fas fa-chart-line" /> <span>Summary</span>
             </Link>
             <Link
-              to="/category"
+              to="/admin/category"
               className={classNames({
-                active: location.pathname === '/category'
+                active: location.pathname === '/admin/category'
               })}
             >
               <i className="far fa-list-alt" /> <span>Categories</span>
             </Link>
             <Link
-              to="/product"
+              to="/admin/product"
               className={classNames({
-                active: location.pathname === '/product'
+                active: location.pathname === '/admin/product'
               })}
             >
               <i className="far fa-list-alt" /> <span>Products</span>
             </Link>
             <Link
-              to="/client"
+              to="/admin/client"
               className={classNames({
-                active: location.pathname === '/client'
+                active: location.pathname === '/admin/client'
               })}
             >
               <i className="fas fa-users" /> <span>Clients</span>
             </Link>
             <Link
-              to="/company"
+              to="/admin/sales"
               className={classNames({
-                active: location.pathname === '/company'
+                active: location.pathname === '/admin/sales'
+              })}
+            >
+              <i className="fas fa-shopping-cart" /> <span>Sales</span>
+            </Link>
+            <Link
+              to="/admin/company"
+              className={classNames({
+                active: location.pathname === '/admin/company'
               })}
             >
               <i className="fas fa-info-circle" /> <span>Company</span>
             </Link>
             <Link
-              to="/messages"
+              to="/admin/messages"
               className={classNames({
-                active: location.pathname === '/messages'
+                active: location.pathname === '/admin/messages'
               })}
             >
               <i className="fas fa-comment-alt flip" />
@@ -91,9 +99,9 @@ export class MenuAdmin extends React.Component {
           </div>
           <div className="menu__items">
             <Link
-              to="/help"
+              to="/admin/help"
               className={classNames({
-                active: location.pathname === '/help'
+                active: location.pathname === '/admin/help'
               })}
             >
               <i className="fas fa-question-circle" /> <span>Help</span>

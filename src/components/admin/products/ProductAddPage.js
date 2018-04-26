@@ -7,7 +7,7 @@ import MenuAdmin from '../MenuAdmin';
 export class ProductAddPage extends React.Component {
   onSubmit = product => {
     this.props.startAddProduct(product);
-    this.props.history.push('/product');
+    this.props.history.push('/admin/product');
   };
   render() {
     return (

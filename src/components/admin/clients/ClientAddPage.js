@@ -7,7 +7,7 @@ import MenuAdmin from '../MenuAdmin';
 export class ClientAddPage extends React.Component {
   onSubmit = client => {
     this.props.startAddClient(client);
-    this.props.history.push('/client');
+    this.props.history.push('/admin/client');
   };
   render() {
     return (

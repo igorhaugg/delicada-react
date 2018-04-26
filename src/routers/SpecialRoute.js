@@ -10,7 +10,7 @@ export const SpecialRoute = ({
   <Route
     {...rest}
     component={props =>
-      isAuthenticated ? <Redirect to="/home" /> : <Component {...props} />
+      isAuthenticated ? <Redirect to="/admin" /> : <Component {...props} />
     }
   />
 );

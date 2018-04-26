@@ -12,6 +12,9 @@ import ProductEditPage from '../components/admin/products/ProductEditPage';
 import ClientAdminPage from '../components/admin/clients/ClientAdminPage';
 import ClientAddPage from '../components/admin/clients/ClientAddPage';
 import ClientEditPage from '../components/admin/clients/ClientEditPage';
+import SalesAdminPage from '../components/admin/sales/SalesAdminPage';
+import SalesAddPage from '../components/admin/sales/SalesAddPage';
+// import ClientEditPage from '../components/admin/clients/ClientEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
@@ -30,36 +33,63 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={IndexPage} exact={true} />
         <SpecialRoute path="/login" component={LoginPage} />
-        <PrivateRoute path="/home" component={HomePage} />
-        <PrivateRoute path="/dashboard" component={DashboardPage} />
+        <PrivateRoute path="/admin" component={HomePage} exact={true} />
+        <PrivateRoute path="/admin/dashboard" component={DashboardPage} />
         <PrivateRoute
-          path="/category"
+          path="/admin/category"
           component={CategoryAdminPage}
           exact={true}
         />
-        <PrivateRoute path="/category/create" component={CategoryAddPage} />
-        <PrivateRoute path="/category/edit/:id" component={CategoryEditPage} />
         <PrivateRoute
-          path="/product"
+          path="/admin/category/create"
+          component={CategoryAddPage}
+        />
+        <PrivateRoute
+          path="/admin/category/edit/:id"
+          component={CategoryEditPage}
+        />
+        <PrivateRoute
+          path="/admin/product"
           component={ProductAdminPage}
           exact={true}
         />
-        <PrivateRoute path="/product/create" component={ProductAddPage} />
-        <PrivateRoute path="/product/edit/:id" component={ProductEditPage} />
-        <PrivateRoute path="/client" component={ClientAdminPage} exact={true} />
-        <PrivateRoute path="/client/create" component={ClientAddPage} />
-        <PrivateRoute path="/client/edit/:id" component={ClientEditPage} />
+        <PrivateRoute path="/admin/product/create" component={ProductAddPage} />
         <PrivateRoute
-          path="/company"
+          path="/admin/product/edit/:id"
+          component={ProductEditPage}
+        />
+        <PrivateRoute
+          path="/admin/client"
+          component={ClientAdminPage}
+          exact={true}
+        />
+        <PrivateRoute path="/admin/client/create" component={ClientAddPage} />
+        <PrivateRoute
+          path="/admin/client/edit/:id"
+          component={ClientEditPage}
+        />
+        <PrivateRoute
+          path="/admin/sales"
+          component={SalesAdminPage}
+          exact={true}
+        />
+        <PrivateRoute path="/admin/sales/create" component={SalesAddPage} />
+        {/* <PrivateRoute path="/admin/client/edit/:id" component={ClientEditPage} /> */}
+        <PrivateRoute
+          path="/admin/company"
           component={CompanyAdminPage}
           exact={true}
         />
         <PublicRoute
-          path="/messages"
+          path="/admin/messages"
           component={MessageAdminPage}
           exact={true}
         />
-        <PublicRoute path="/help" component={HelpAdminPage} exact={true} />
+        <PublicRoute
+          path="/admin/help"
+          component={HelpAdminPage}
+          exact={true}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

@@ -14,7 +14,7 @@ export const CategoriesSummary = ({ categoryCount }) => {
           Viewing <span>{categoryCount}</span> {categoryWord}
         </h1>
         <div className="page-header__actions">
-          <Link className="button" to="/category/create">
+          <Link className="button" to="/admin/category/create">
             Add Category
           </Link>
         </div>

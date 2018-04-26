@@ -11,7 +11,7 @@ import { confirmAlert } from 'react-confirm-alert';
 export class ProductEditPage extends React.Component {
   onSubmit = (product, oldImage) => {
     this.props.startEditProduct(this.props.product.id, product, oldImage);
-    this.props.history.push('/product');
+    this.props.history.push('/admin/product');
   };
   onRemove = () => {
     confirmAlert({
@@ -30,7 +30,7 @@ export class ProductEditPage extends React.Component {
   };
   onClickRemove = () => {
     this.props.startRemoveProduct({ id: this.props.product.id });
-    this.props.history.push('/product');
+    this.props.history.push('/admin/product');
   };
   render() {
     return (
