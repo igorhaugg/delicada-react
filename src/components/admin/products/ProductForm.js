@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import selectCategories from '../../../selectors/categories';
 import selectProducts from '../../../selectors/products';
 
-export class ExpenseForm extends React.Component {
+export class ProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -257,4 +257,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ExpenseForm);
+export default connect(mapStateToProps)(ProductForm);

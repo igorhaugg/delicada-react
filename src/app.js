@@ -7,10 +7,8 @@ import { startSetCategories } from './actions/categories';
 import { startSetProducts } from './actions/products';
 import { startSetClients } from './actions/clients';
 import { startSetCompany } from './actions/company';
+import { startSetSales } from './actions/sales';
 import { login, logout } from './actions/auth';
-import getVisibleCategories from './selectors/categories';
-import getVisibleProducts from './selectors/products';
-import getVisibleClients from './selectors/clients';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -44,6 +42,7 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetProducts());
     store.dispatch(startSetClients());
     store.dispatch(startSetCategories());
+    store.dispatch(startSetSales());
     store.dispatch(startSetCompany()).then(() => {
       renderApp();
     });

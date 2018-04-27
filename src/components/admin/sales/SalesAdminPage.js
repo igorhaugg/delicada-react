@@ -1,6 +1,6 @@
 import React from 'react';
-// import CategoryList from './CategoryList';
-// import CategoryListFilters from './CategoryListFilters';
+import SalesList from './SalesList';
+import SalesListFilters from './SalesListFilters';
 import SalesSummary from './SalesSummary';
 import MenuAdmin from '../MenuAdmin';
 
@@ -9,8 +9,8 @@ const SalesAdminPage = () => (
     <MenuAdmin />
     <section className="dashboard__content">
       <SalesSummary />
-      {/* <CategoryListFilters /> */}
-      {/* <CategoryList /> */}
+      <SalesListFilters />
+      <SalesList />
     </section>
   </main>
 );

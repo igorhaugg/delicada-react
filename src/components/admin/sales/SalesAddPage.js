@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import CategoryForm from './CategoryForm';
-import { startAddCategory } from '../../../actions/categories';
+import SalesForm from './SalesForm';
+import { startAddSale } from '../../../actions/sales';
+import { startEditProduct } from '../../../actions/products';
+import selectProducts from '../../../selectors/products-amount';
 import MenuAdmin from '../MenuAdmin';
 
 export class SalesAddPage extends React.Component {
-  onSubmit = category => {
-    this.props.startAddCategory(category);
+  onSubmit = sale => {
+    this.props.startAddSale(sale);
+    const productToUpdate = this.props.products.filter(
+      product => product.id === sale.product_id
+    );
+    const productUpdated = {
+      ...productToUpdate[0],
+      amount: productToUpdate[0].amount - 1
+    };
+    this.props.startEditProduct(productUpdated.id, productUpdated);
     this.props.history.push('/admin/sales');
   };
   render() {
@@ -20,7 +30,7 @@ export class SalesAddPage extends React.Component {
             </div>
           </div>
           <div className="content-container">
-            {/* <CategoryForm onSubmit={this.onSubmit} /> */}
+            <SalesForm onSubmit={this.onSubmit} />
           </div>
         </div>
       </div>
@@ -28,8 +38,16 @@ export class SalesAddPage extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    products: selectProducts(state.products, state.filters)
+  };
+};
+
 const mapDispatchToProps = dispatch => ({
-  startAddCategory: category => dispatch(startAddCategory(category))
+  startEditProduct: (id, product, oldImage) =>
+    dispatch(startEditProduct(id, product, oldImage)),
+  startAddSale: sale => dispatch(startAddSale(sale))
 });
 
-export default connect(undefined, mapDispatchToProps)(SalesAddPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SalesAddPage);
