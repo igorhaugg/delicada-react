@@ -80,12 +80,12 @@ const AppRouter = () => (
           component={CompanyAdminPage}
           exact={true}
         />
-        <PublicRoute
+        <PrivateRoute
           path="/admin/messages"
           component={MessageAdminPage}
           exact={true}
         />
-        <PublicRoute
+        <PrivateRoute
           path="/admin/help"
           component={HelpAdminPage}
           exact={true}

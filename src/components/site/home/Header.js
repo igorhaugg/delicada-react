@@ -5,26 +5,30 @@ import { connect } from 'react-redux';
 const Header = props => {
   const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
   return (
-    <header>
-      <div className="header__name">Delicada Mulher</div>
-      <div className="header__options">
-        <ul>
-          <li>Home</li>
-          <li>Products</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div className="header__sociais">
-        <ul>
-          <li>F</li>
-          <li>I</li>
-          <li>
-            <Link to="/login">
-              <i className={iconLogged} />
-            </Link>
-          </li>
-        </ul>
-      </div>
+    <header className="header">
+      <ul className="header__options">
+        <li>Home</li>
+        <li>Products</li>
+        <li>Contact</li>
+      </ul>
+
+      <ul className="header__sociais">
+        <li>
+          <a className="header__sociais__link" href="">
+            <i className="fab fa-facebook-square" />
+          </a>
+        </li>
+        <li>
+          <a className="header__sociais__link" href="">
+            <i className="fab fa-instagram" />
+          </a>
+        </li>
+        <li>
+          <Link to="/login" className="header__sociais__link">
+            <i className={iconLogged} />
+          </Link>
+        </li>
+      </ul>
     </header>
   );
 };

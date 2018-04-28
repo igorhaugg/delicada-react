@@ -1,0 +1,30 @@
+.header {
+  align-items: center;
+  background-color: $off-white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__options {
+  display: flex;
+  margin-left: $xl-size;
+  padding: 0;
+  > * {
+    font-size: $font-size-small;
+    padding: 0 $s-size;
+    text-transform: uppercase;
+  }
+}
+
+.header__sociais {
+  display: flex;
+  margin-right: $xl-size;
+  > * {
+    font-size: $font-size-small;
+    padding: 0 $s-size / 2;
+  }
+}
+
+.header__sociais__link {
+  color: red;
+}
