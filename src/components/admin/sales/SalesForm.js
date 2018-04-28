@@ -14,8 +14,11 @@ export class SalesForm extends React.Component {
       product_id: props.client ? props.client.product_id : '',
       payment: props.client ? props.client.payment : '',
       status: props.client ? props.client.status : 'open',
+      price: props.client ? props.client.price : '',
+      category_id: props.client ? props.client.category_id : '',
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
       calendarFocused: false,
+      oldProduct: props.editForm ? props.client.product_id : '',
       error: '',
       image: ''
     };
@@ -30,7 +33,9 @@ export class SalesForm extends React.Component {
       product => product.id === product_id
     );
     const image = productSelected[0].image;
-    this.setState(() => ({ product_id, image }));
+    const price = productSelected[0].price_sell;
+    const category_id = productSelected[0].category_id;
+    this.setState(() => ({ product_id, image, price, category_id }));
   };
   onPaymentChange = e => {
     const payment = e.target.value;
@@ -56,13 +61,18 @@ export class SalesForm extends React.Component {
       }));
     } else {
       this.setState(() => ({ error: '' }));
-      this.props.onSubmit({
-        client_id: this.state.client_id,
-        product_id: this.state.product_id,
-        payment: this.state.payment,
-        status: this.state.status,
-        createdAt: this.state.createdAt.valueOf()
-      });
+      this.props.onSubmit(
+        {
+          client_id: this.state.client_id,
+          product_id: this.state.product_id,
+          payment: this.state.payment,
+          status: this.state.status,
+          price: this.state.price,
+          category_id: this.state.category_id,
+          createdAt: this.state.createdAt.valueOf()
+        },
+        this.state.oldProduct
+      );
     }
   };
   render() {
@@ -130,7 +140,9 @@ export class SalesForm extends React.Component {
           {this.state.client_id &&
             this.state.product_id &&
             this.state.payment && (
-              <button className="button">Make the Sale</button>
+              <button className="button">
+                {this.props.editForm ? 'Save' : 'Make the Sale'}
+              </button>
             )}
         </div>
       </form>

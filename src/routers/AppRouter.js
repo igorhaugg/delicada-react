@@ -14,7 +14,7 @@ import ClientAddPage from '../components/admin/clients/ClientAddPage';
 import ClientEditPage from '../components/admin/clients/ClientEditPage';
 import SalesAdminPage from '../components/admin/sales/SalesAdminPage';
 import SalesAddPage from '../components/admin/sales/SalesAddPage';
-// import ClientEditPage from '../components/admin/clients/ClientEditPage';
+import SalesEditPage from '../components/admin/sales/SalesEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
@@ -74,7 +74,7 @@ const AppRouter = () => (
           exact={true}
         />
         <PrivateRoute path="/admin/sales/create" component={SalesAddPage} />
-        {/* <PrivateRoute path="/admin/client/edit/:id" component={ClientEditPage} /> */}
+        <PrivateRoute path="/admin/sales/edit/:id" component={SalesEditPage} />
         <PrivateRoute
           path="/admin/company"
           component={CompanyAdminPage}

@@ -12,12 +12,16 @@ export const startAddSale = (saleData = {}) => {
       product_id = '',
       payment = '',
       status = '',
+      price = '',
+      category_id = '',
       createdAt = 0
     } = saleData;
     const sale = {
       client_id,
       product_id,
       payment,
+      price,
+      category_id,
       status,
       createdAt
     };

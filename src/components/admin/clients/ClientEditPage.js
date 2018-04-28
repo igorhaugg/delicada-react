@@ -16,7 +16,7 @@ export class ClientEditPage extends React.Component {
       message: 'Are you sure to do this.',
       buttons: [
         {
-          label: 'Yes',
+          label: 'Remove',
           onClick: () => this.onClickRemove()
         },
         {

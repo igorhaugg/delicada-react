@@ -4,9 +4,12 @@ import { connect } from 'react-redux';
 import selectCategories from '../../selectors/categories';
 import selectCategoriesId from '../../selectors/categories-id';
 import selectClients from '../../selectors/clients-birth';
+import selectSales from '../../selectors/sales';
+import selectProducts from '../../selectors/products';
 import Chart from './Chart';
 import randomColor from 'randomcolor';
 import ClientListBirthday from './clients/ClientListBirthday';
+import numeral from 'numeral';
 
 class DashboardPage extends React.Component {
   constructor(props) {
@@ -54,13 +57,21 @@ class DashboardPage extends React.Component {
   }
 
   getChartDataSales() {
-    const val = [
-      ...this.props.categories.map(category => category.name)
-      // .sort((a, b) => {
-      //   return a.name < b.name ? -1 : 1;
-      // })
-    ];
-    const amount = Object.values(this.props.amount);
+    const val = [...this.props.categories.map(category => category.name)];
+
+    const totais = this.props.categories.map(category => {
+      let total = 0;
+      const sales = this.props.sales.filter(sale => {
+        if (sale.category_id === category.id) {
+          total += sale.price;
+        }
+      });
+
+      return total;
+      // return numeral(total).format('$0,0.00');
+    });
+
+    const amount = Object.values(totais);
     const colors = [
       ...this.props.categories.map(category =>
         randomColor({
@@ -125,7 +136,9 @@ const mapStateToProps = state => {
   return {
     categories: selectCategories(state.categories, state.filters),
     amount: selectCategoriesId(state.products, state.categories, state.filters),
-    clients: selectClients(state.clients, state.filters)
+    clients: selectClients(state.clients, state.filters),
+    sales: selectSales(state.sales, state.filters),
+    products: selectProducts(state.products, state.filters)
   };
 };
 
