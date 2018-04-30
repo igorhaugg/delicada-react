@@ -23,6 +23,11 @@
   }
 }
 
+.form__group--checkbox {
+  align-items: center;
+  display: flex;
+}
+
 .form__error {
   margin: 0 0 $m-size 0;
   font-style: italic;

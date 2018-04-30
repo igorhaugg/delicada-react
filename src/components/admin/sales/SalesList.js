@@ -29,7 +29,7 @@ export const SalesList = props => (
               ...sale,
               name: clientName[0].name,
               image: productInfo[0].image,
-              price: productInfo[0].price_sell
+              price: sale.price
             };
             return <SalesListItem key={sale.id} {...saleNew} />;
           }

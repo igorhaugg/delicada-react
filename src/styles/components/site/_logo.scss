@@ -1,0 +1,14 @@
+.logo {
+  padding: $l-size * 3 0 $l-size 0;
+  width: 100%;
+}
+
+.logo__title {
+  font-family: 'Kurale', serif;
+  font-size: $font-size-xlarge;
+}
+
+.logo__subtitle {
+  color: $grey;
+  font-size: $font-size-large;
+}

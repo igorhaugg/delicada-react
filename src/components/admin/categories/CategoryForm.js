@@ -107,7 +107,17 @@ export default class CategoryForm extends React.Component {
           numberOfMonths={1}
           isOutsideRange={() => false}
         />
+        <div className="form__group--checkbox">
+          <input
+            type="checkbox"
+            name="visible"
+            value="visible"
+            className="checkbox"
+          />
+          <label htmlFor="visible">Show on front page</label>
+        </div>
         <label className="label button">
+          <i class="fas fa-cloud-upload-alt icon__file" />
           Select your file
           <FileUploader
             accept="image/*"
@@ -119,17 +129,14 @@ export default class CategoryForm extends React.Component {
             onUploadSuccess={this.onUploadSuccess}
           />
         </label>
-
         {this.state.showLoading && (
           <div className="loader__small">
             <img className="loader__image" src="/images/loader.gif" />
           </div>
         )}
-
         {this.state.image && (
           <img className="list-item__image" src={this.state.image} />
         )}
-
         <div>
           {this.state.image &&
             this.state.name &&

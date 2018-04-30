@@ -1,12 +1,15 @@
-import React from 'react';
-import Header from './Header';
+import React, { Fragment } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import Main from './Main';
 
 const IndexPage = () => {
   return (
-    <div>
+    <Fragment>
       <Header />
-      <p>pagina</p>
-    </div>
+      <Main />
+      <Footer />
+    </Fragment>
   );
 };
 

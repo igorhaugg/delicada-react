@@ -41,13 +41,16 @@
 .menu__header {
   background-color: $dark-blue;
   width: 100%;
-  h3 {
-    border-bottom: 1px solid lighten($dark-blue, 7%);
-    padding-bottom: $s-size;
-    text-align: center;
+  a {
+    color: inherit;
   }
 }
 
+.menu__title {
+  border-bottom: 1px solid lighten($dark-blue, 7%);
+  padding-bottom: $s-size;
+  text-align: center;
+}
 .menu_header--user {
   align-items: center;
   display: flex;

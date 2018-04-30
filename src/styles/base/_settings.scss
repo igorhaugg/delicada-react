@@ -4,8 +4,14 @@ $grey: #666;
 $blue: #1c88bf;
 $dark-blue: #131925;
 $light-blue: lighten($dark-blue, 25%);
-// $dark-blue: #364051;
 $off-white: #f7f7f7;
+
+// Colors site
+$header_border: #ececec;
+$header_background: #ffffff;
+$main-background: #237b90;
+$main-color: #f891a0;
+
 // Font Size
 $font-size-xlarge: 5rem;
 $font-size-large: 1.8rem;
@@ -20,3 +26,5 @@ $desktop-breakpoint: 45rem;
 $s-time: 0.2s;
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Mr+De+Haviland');
+// @import url('https://fonts.googleapis.com/css?family=Sura:400,700');
+@import url('https://fonts.googleapis.com/css?family=Kurale');

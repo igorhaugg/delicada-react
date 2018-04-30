@@ -13,10 +13,20 @@
 
 .label {
   @extend .text-input;
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-right: $s-size;
+  transform: scale(1.5);
 }
 
 .textarea {
   @extend .text-input;
   height: 10rem;
   resize: vertical;
+}
+
+.icon__file {
+  margin-right: $s-size;
 }

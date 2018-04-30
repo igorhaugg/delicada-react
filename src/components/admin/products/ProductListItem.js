@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
 
-const ProductListItem = ({ id, name, image, price_sell, createdAt }) => (
+const ProductListItem = ({
+  id,
+  name,
+  image,
+  price_sell,
+  amount,
+  createdAt
+}) => (
   <Link className="list-item" to={`/admin/product/edit/${id}`}>
     <div>
       <h3 className="list-item__title">{name}</h3>
@@ -13,6 +20,10 @@ const ProductListItem = ({ id, name, image, price_sell, createdAt }) => (
       <br />
       <span className="list-item__sub-title">
         Price Sell: <strong>R{numeral(price_sell).format('$0,0.00')}</strong>
+      </span>
+      <br />
+      <span className="list-item__sub-title">
+        Amount: <strong>{amount}</strong>
       </span>
     </div>
     <h3 className="list-item__data">

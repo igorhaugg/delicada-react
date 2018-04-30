@@ -72,6 +72,7 @@ class DashboardPage extends React.Component {
     });
 
     const amount = Object.values(totais);
+
     const colors = [
       ...this.props.categories.map(category =>
         randomColor({

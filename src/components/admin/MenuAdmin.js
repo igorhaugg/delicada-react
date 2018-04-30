@@ -12,20 +12,24 @@ export class MenuAdmin extends React.Component {
         <div className="menu">
           <div className="menu__items">
             <div className="menu__header">
-              <h3>
-                {this.props.company[0] && this.props.company[0].name
-                  ? this.props.company[0].name
-                  : 'Company Name'}
+              <h3 className="menu__title">
+                <Link to="/">
+                  {this.props.company[0] && this.props.company[0].name
+                    ? this.props.company[0].name
+                    : 'Company Name'}
+                </Link>
               </h3>
               <div className="menu_header--user">
-                <img
-                  className="button__image"
-                  src={
-                    this.props.company[0] && this.props.company[0].image
-                      ? this.props.company[0].image
-                      : '/images/default-user.png'
-                  }
-                />
+                <Link to="/admin/company">
+                  <img
+                    className="button__image"
+                    src={
+                      this.props.company[0] && this.props.company[0].image
+                        ? this.props.company[0].image
+                        : '/images/default-user.png'
+                    }
+                  />
+                </Link>
                 <span>
                   {this.props.company[0] && this.props.company[0].owner
                     ? this.props.company[0].owner
