@@ -37,7 +37,6 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    // if (user && user.email === 'igor-haugg@hotmail.com') {
     store.dispatch(login(user.uid));
     store.dispatch(startSetProducts());
     store.dispatch(startSetClients());
@@ -48,7 +47,11 @@ firebase.auth().onAuthStateChanged(user => {
     });
   } else {
     store.dispatch(logout());
-    renderApp();
+    store.dispatch(startSetProducts());
+    store.dispatch(startSetCategories());
+    store.dispatch(startSetCompany()).then(() => {
+      renderApp();
+    });
     // history.push('/login');
   }
 });
