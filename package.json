@@ -13,6 +13,7 @@
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
+    "animate.css": "^3.6.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -36,6 +37,7 @@
     "randomcolor": "^0.5.3",
     "react": "^16.3.2",
     "react-addons-shallow-compare": "^15.6.0",
+    "react-animated-css": "^1.0.4",
     "react-chartjs-2": "^2.7.0",
     "react-confirm-alert": "^2.0.2",
     "react-dates": "^12.7.0",
@@ -44,6 +46,7 @@
     "react-modal": "^2.2.2",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
+    "react-social-icons": "^2.8.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",

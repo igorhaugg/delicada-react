@@ -27,15 +27,15 @@
 }
 
 .help__title {
-  font-size: $font-size-large;
+  font-size: $font-size-medium;
   @media (min-width: $desktop-breakpoint) {
-    font-size: $font-size-large * 2;
+    font-size: $font-size-medium * 2;
   }
 }
 
 .help__email {
   font-size: $font-size-small / 1.5;
   @media (min-width: $desktop-breakpoint) {
-    font-size: $font-size-large;
+    font-size: $font-size-medium;
   }
 }

@@ -1,12 +1,15 @@
 import React from 'react';
+import { Animated } from 'react-animated-css';
 
 const Banner = () => {
   return (
-    <div className="banner wrapper">
-      <span />
-      <span />
-      <span />
-    </div>
+    <Animated animationIn="fadeInUp" animationInDelay={500} isVisible={true}>
+      <div className="banner wrapper">
+        <span />
+        <span />
+        <span />
+      </div>
+    </Animated>
   );
 };
 

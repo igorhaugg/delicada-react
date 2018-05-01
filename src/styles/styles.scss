@@ -1,7 +1,7 @@
 @import './base/settings';
 @import './base/base';
 @import './components/admin/box-layout';
-@import './components/admin/button';
+@import './components/shared/button';
 @import './components/admin/header';
 @import './components/admin/content-container';
 @import './components/admin/page-header';
@@ -20,3 +20,4 @@
 @import './components/site/footer';
 @import './components/site/logo';
 @import './components/site/banner';
+@import './components/site/section';

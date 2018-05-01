@@ -10,6 +10,7 @@ import { startSetCompany } from './actions/company';
 import { startSetSales } from './actions/sales';
 import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
+import 'animate.css/animate.css';
 import './styles/styles.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import 'react-dates/lib/css/_datepicker.css';

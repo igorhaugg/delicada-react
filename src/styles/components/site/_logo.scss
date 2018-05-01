@@ -4,11 +4,11 @@
 }
 
 .logo__title {
-  font-family: 'Kurale', serif;
+  font-family: $logo-font;
   font-size: $font-size-xlarge;
 }
 
 .logo__subtitle {
   color: $grey;
-  font-size: $font-size-large;
+  font-size: $font-size-medium;
 }

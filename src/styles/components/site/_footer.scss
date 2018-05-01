@@ -1,12 +1,4 @@
-.footer__sociais {
-  display: flex;
-  margin-right: $xl-size;
-  > * {
-    font-size: $font-size-small;
-    padding: 0 $s-size / 2;
-  }
-}
-
-.footer__sociais__link {
-  color: red;
+.footer {
+  background-color: $main-background;
+  height: 50rem;
 }

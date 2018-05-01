@@ -3,7 +3,9 @@
   border-bottom: 1px solid $header_border;
   box-shadow: 1px 1px 1px 1px $header_border;
   display: flex;
+  padding: $s-size 0;
   position: fixed;
+  z-index: 2;
   width: 100%;
 }
 
@@ -47,10 +49,12 @@
     border: 1px solid $header_border;
     color: $grey;
     padding: $s-size;
-    transition: color $s-time ease-in-out, background-color $s-time ease-in-out;
+    transition: color $s-time ease-in-out, background-color $s-time ease-in-out,
+      border $s-time ease-in-out;
 
     &:hover {
       background-color: $main-color;
+      border: 1px solid $main-color;
       color: #f9e8ef;
     }
   }

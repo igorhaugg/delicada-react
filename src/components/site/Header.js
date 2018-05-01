@@ -20,14 +20,14 @@ const Header = props => {
             </ul>
           </li>
         </Link>
+        <Link to="/categories">
+          <li className="header__option">Categorias</li>
+        </Link>
         <Link to="/">
           <li className="header__option">Contato</li>
         </Link>
         <Link to="/">
           <li className="header__option">Sobre</li>
-        </Link>
-        <Link to="/">
-          <li className="header__option">Link 5</li>
         </Link>
       </ul>
     </header>
