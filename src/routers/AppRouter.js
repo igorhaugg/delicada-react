@@ -18,7 +18,7 @@ import SalesEditPage from '../components/admin/sales/SalesEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
-import IndexPage from '../components/site/home/IndexPage';
+import IndexPage from '../components/site/IndexPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';

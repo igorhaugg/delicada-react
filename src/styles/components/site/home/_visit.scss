@@ -1,0 +1,16 @@
+.visit {
+  background-color: $section-secondary;
+  height: 40rem;
+  justify-content: space-between;
+  padding: $xl-size 0;
+  width: 100%;
+}
+
+.visit__title {
+  @extend .title-home;
+  margin-bottom: 0;
+}
+
+.visit__details {
+  @extend .details-home;
+}

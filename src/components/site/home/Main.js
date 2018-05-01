@@ -1,20 +1,20 @@
 import React from 'react';
 import Banner from './Banner';
 import Logo from './Logo';
-import Products from './Products';
+import Latest from './Latest';
 import Visit from './Visit';
-import Shopping from './Shopping';
-import Sociais from './Sociais';
+import Brands from './Brands';
+import Social from './Social';
 
 const IndexPage = () => {
   return (
     <main className="wrapper">
       <Logo />
       <Banner />
-      <Products />
+      <Latest />
       <Visit />
-      <Shopping />
-      <Sociais />
+      <Brands />
+      <Social />
     </main>
   );
 };

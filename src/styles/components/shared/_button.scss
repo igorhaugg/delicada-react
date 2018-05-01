@@ -31,6 +31,16 @@
 
 .button--home {
   background: $main-color;
+  border: 2px solid transparent;
   padding: $s-size $l-size * 2;
   text-transform: uppercase;
+  transition: all $s-time ease-in-out;
+}
+
+.button--home-hover {
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid $main-color;
+    color: $main-color;
+  }
 }

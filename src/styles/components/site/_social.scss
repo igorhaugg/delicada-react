@@ -1,0 +1,23 @@
+.social {
+  background-color: #f9e8ef;
+  padding: $xl-size 0 0 0;
+  width: 100%;
+}
+
+.social__title {
+  @extend .title-home;
+}
+
+.social__details {
+  @extend .details-home;
+}
+
+.social__list {
+  display: flex;
+  margin-bottom: $xl-size;
+  margin-top: $l-size;
+  > * {
+    font-size: $font-size-small;
+    padding: 0 $s-size / 2;
+  }
+}

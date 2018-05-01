@@ -21,13 +21,16 @@
   font-size: $font-size-small;
   font-weight: 500;
   letter-spacing: 2px;
-  padding: 0 $l-size;
+  padding: 0 $s-size/2;
   cursor: pointer;
   text-transform: uppercase;
   transition: color $s-time ease-in-out;
 
   &:hover {
     color: $main-color;
+  }
+  @media (min-width: $tablet-breakpoint) {
+    padding: 0 $l-size;
   }
 }
 

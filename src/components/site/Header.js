@@ -20,9 +20,6 @@ const Header = props => {
             </ul>
           </li>
         </Link>
-        <Link to="/categories">
-          <li className="header__option">Categorias</li>
-        </Link>
         <Link to="/">
           <li className="header__option">Contato</li>
         </Link>

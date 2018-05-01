@@ -1,4 +1,47 @@
 .footer {
-  background-color: $main-background;
-  height: 50rem;
+  background-color: black;
+  flex-direction: row;
+  height: 30rem;
+}
+
+.footer__brand,
+.footer__links,
+.footer__contact {
+  flex: 1;
+  height: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__brand {
+  border-right: 1px solid $grey;
+}
+
+.footer__image {
+  @extend .image-size-home__small;
+}
+
+.footer__links {
+  border-right: 1px solid $grey;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__column {
+  display: flex;
+  justify-content: space-between;
+  padding: $l-size;
+  width: 100%;
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.color-link {
+  color: $dark-grey;
 }

@@ -1,0 +1,52 @@
+.title-home {
+  border-bottom: 3px solid $main-color;
+  font-family: $title-font;
+  font-size: $font-size-large;
+  margin-bottom: $l-size;
+  text-transform: capitalize;
+}
+
+.details-home {
+  color: #237b90;
+  font-size: $font-size-titles;
+  text-align: center;
+}
+
+.image-size-home__big {
+  height: 100%;
+  object-fit: fill;
+  transition: all $s-time ease-in-out;
+  width: 100%;
+}
+
+.image-size-home__small {
+  height: 12rem;
+  // object-fit: fill;
+  transition: all $s-time ease-in-out;
+  width: 15rem;
+}
+
+.image-overlay-home {
+  height: 30rem;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 30rem;
+}
+
+.image-overlay-hover-home {
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+  transform: scale3d(1.1, 1.1, 1);
+}
+
+.image-overlay-before-after-home {
+  content: '';
+  background: rgba(100, 96, 102, 0.3);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}

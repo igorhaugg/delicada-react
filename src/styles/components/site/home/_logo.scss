@@ -5,7 +5,10 @@
 
 .logo__title {
   font-family: $logo-font;
-  font-size: $font-size-xlarge;
+  font-size: $font-size-large;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: $font-size-xlarge;
+  }
 }
 
 .logo__subtitle {

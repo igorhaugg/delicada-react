@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import selectProducts from '../../../selectors/products';
 import { Animated } from 'react-animated-css';
 
-class Products extends React.Component {
+class Latest extends React.Component {
   state = {
     onoff: true
   };
@@ -24,26 +24,26 @@ class Products extends React.Component {
   }
   render() {
     return (
-      <div className="wrapper section section--padding-bottom">
-        <h3 className="section__title">Novidades</h3>
-        <div className="wrapper section__list">
+      <div className="wrapper latest">
+        <h3 className="latest__title">Novidades</h3>
+        <div className="wrapper latest__list">
           {this.props.products
             .slice(
               0,
-              this.props.products.length >= 3 ? 3 : this.props.products.length
+              this.props.products.length >= 4 ? 4 : this.props.products.length
             )
             .map(product => {
               return (
                 <div key={product.id}>
                   <Link to="/" className="wrapper">
-                    <div className="section__image__overlay">
+                    <div className="latest__image__overlay">
                       <img
-                        className="section__image"
+                        className="latest__image"
                         src={product.image}
                         alt=""
                       />
                     </div>
-                    <span className="section__description">{product.name}</span>
+                    <span className="latest__description">{product.name}</span>
                   </Link>
                 </div>
               );
@@ -67,4 +67,4 @@ const mapStateToProps = state => ({
   products: selectProducts(state.products, state.filters)
 });
 
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps)(Latest);
