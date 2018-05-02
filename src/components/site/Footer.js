@@ -1,58 +1,71 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setCategoryFilter } from '../../actions/filters';
 
 const Footer = props => {
-  const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
+  // const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
+  const onCategoryChange = id => {
+    if (id) {
+      props.setCategoryFilter(id);
+    }
+  };
   return (
     <footer className="footer wrapper">
       <div className="footer__links">
         <span className="footer__title">Mais Informações</span>
-        <div className="footer__column">
-          <ul>
-            <li>
-              <Link to="/" className="color-link">
-                <i className="fas fa-home" /> Início
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="color-link">
-                <i className="fas fa-shopping-cart" /> Sobre
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" className="color-link">
-                <i className={iconLogged} /> Login
-              </Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to="/products" className="color-link">
-                <i className="fas fa-shopping-cart" /> Produtos
-              </Link>
-              <ul>
-                {props.categories.map(category => (
-                  <li key={category.id} className="color-link">
-                    &nbsp; <i className="fas fa-angle-right" />
-                    &nbsp;
-                    {category.name}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <ul className="footer__list">
+          <li>
+            <Link to="/" className="color-link">
+              <i className="fas fa-angle-right" /> Início
+            </Link>
+          </li>
+          <li className="color-link">
+            <i className="fas fa-angle-right" /> Formas de Pagamento
+            <ul className="sub-link">
+              <li className="color-link">- Cartão de Crédito</li>
+              <li className="color-link">- Dinheiro</li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/about" className="color-link">
+              <i className="fas fa-angle-right" /> Sobre
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="color-link">
+              <i className="fas fa-angle-right" /> Login
+            </Link>
+          </li>
+        </ul>
       </div>
-      <div className="footer__brand">
-        <span className="footer__title">Formas de Pagamento</span>
-        {/* <img className="footer__image" src="/images/logo.png" alt="" /> */}
-        <i className="fab fa-cc-mastercard" />
-        <i className="fab fa-cc-visa" />
+      <div className="footer__products">
+        <span className="footer__title">Produtos</span>
+        <ul className="footer__list">
+          {props.categories.map(category => (
+            <li key={category.id} onClick={() => onCategoryChange(category.id)}>
+              <Link to="/products" className="color-link">
+                <i className="fas fa-angle-right" />
+                &nbsp;
+                {category.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="footer__contact">
         <span className="footer__title">Contato</span>
-        <img className="footer__image" src="/images/avatar.png" alt="" />
+        <ul className="footer__list">
+          <li className="color-link">
+            <i className="fab fa-whatsapp" /> 959465121
+          </li>
+          <li className="color-link">
+            <i className="fas fa-envelope" /> email@email.com
+          </li>
+          <li className="color-link">
+            <i className="fas fa-location-arrow" /> Ijuí - RS
+          </li>
+        </ul>
       </div>
     </footer>
   );
@@ -63,4 +76,8 @@ const mapStateToProps = state => ({
   categories: state.categories
 });
 
-export default connect(mapStateToProps)(Footer);
+const mapDispatchToProps = dispatch => ({
+  setCategoryFilter: category => dispatch(setCategoryFilter(category))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

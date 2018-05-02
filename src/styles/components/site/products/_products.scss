@@ -1,0 +1,28 @@
+.products {
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 90vw;
+}
+
+.products-size {
+  min-height: 75vh;
+}
+
+.products__item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20rem;
+}
+
+.products__item-image {
+  height: 15rem;
+  width: 15rem;
+}
+.products__item-details {
+  color: $grey;
+  width: 15rem;
+}

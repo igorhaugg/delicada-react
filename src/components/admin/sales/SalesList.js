@@ -24,7 +24,7 @@ export const SalesList = props => (
           const productInfo = props.products.filter(
             product => product.id === sale.product_id
           );
-          if (clientName[0]) {
+          if (clientName[0] && productInfo[0]) {
             const saleNew = {
               ...sale,
               name: clientName[0].name,

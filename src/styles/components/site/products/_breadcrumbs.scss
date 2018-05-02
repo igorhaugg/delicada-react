@@ -1,0 +1,11 @@
+.breadcrumbs {
+  flex-direction: row;
+  justify-content: center;
+  padding: $l-size * 2 0 $l-size 0;
+  width: 90vw;
+}
+
+.breadcrumbs__item {
+  color: $grey;
+  padding: $s-size;
+}

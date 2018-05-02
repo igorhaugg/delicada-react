@@ -1,19 +1,18 @@
 .footer {
   align-items: flex-start;
-  background-color: #171316;
+  background-color: #f8f8f5;
   flex-direction: row;
   flex-wrap: wrap;
-  min-height: 35rem;
+  min-height: 50rem;
+  padding: $xl-size;
 }
 
-.footer__brand,
+.footer__products,
 .footer__links,
 .footer__contact {
-  // flex: 1;
-
-  align-items: center;
   display: flex;
   flex-direction: column;
+  padding: $s-size;
   padding-top: $xl-size;
   @media (min-width: $desktop-breakpoint) {
     flex: 1;
@@ -29,14 +28,29 @@
 }
 
 .footer__title {
-  color: $off-white;
-  font-size: $font-size-titles;
-  padding-bottom: $m-size;
+  border-bottom: 1px solid lighten($grey, 10%);
+  color: $grey;
+  font-size: $font-size-small;
+  padding-bottom: $s-size / 2;
+  margin-bottom: $s-size;
+  text-transform: uppercase;
+}
+
+.footer__list {
+  > li {
+    padding: 0.2rem 0;
+  }
 }
 
 .color-link {
-  color: $off-white;
+  color: $grey;
+  font-size: $font-size-small;
+  transition: color $s-time ease-in-out;
   &:hover {
     color: $main-color;
   }
+}
+
+.sub-link {
+  padding-left: $m-size;
 }

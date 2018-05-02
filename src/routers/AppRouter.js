@@ -19,6 +19,7 @@ import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
 import IndexPage from '../components/site/IndexPage';
+import ProductsPage from '../components/site/ProductsPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -32,6 +33,7 @@ const AppRouter = () => (
     <div>
       <Switch>
         <PublicRoute path="/" component={IndexPage} exact={true} />
+        <PublicRoute path="/products" component={ProductsPage} exact={true} />
         <SpecialRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/admin" component={HomePage} exact={true} />
         <PrivateRoute path="/admin/dashboard" component={DashboardPage} />

@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setCategoryFilter } from '../../actions/filters';
 
 const Header = props => {
   const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
+  const onCategoryChange = id => {
+    if (id) {
+      props.setCategoryFilter(id);
+    }
+  };
   return (
     <header className="header">
       <ul className="header__nav">
@@ -15,7 +21,12 @@ const Header = props => {
             Produtos <i className="fas fa-angle-down" />
             <ul className="header__dropdown">
               {props.categories.map(category => (
-                <li key={category.id}>{category.name}</li>
+                <li
+                  onClick={() => onCategoryChange(category.id)}
+                  key={category.id}
+                >
+                  {category.name}
+                </li>
               ))}
             </ul>
           </li>
@@ -36,4 +47,8 @@ const mapStateToProps = state => ({
   categories: state.categories
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  setCategoryFilter: category => dispatch(setCategoryFilter(category))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

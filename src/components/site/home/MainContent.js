@@ -6,7 +6,7 @@ import Visit from './Visit';
 import Brands from './Brands';
 import Social from './Social';
 
-const IndexPage = () => {
+const MainContent = () => {
   return (
     <main className="wrapper">
       <Logo />
@@ -19,4 +19,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default MainContent;

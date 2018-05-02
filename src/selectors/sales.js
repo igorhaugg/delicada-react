@@ -32,7 +32,7 @@ const getVisibleSales = (
       if (sortBy === 'date') {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === 'name') {
-        return a.name > b.name ? 1 : -1;
+        return a.name > b.name ? -1 : 1;
       }
     });
 };
