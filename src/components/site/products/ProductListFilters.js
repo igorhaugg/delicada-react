@@ -28,6 +28,11 @@ export class ProductListFilters extends React.Component {
       this.props.setCategoryFilter(e.target.value);
     }
   };
+  componentWillUnmount() {
+    this.props.setCategoryFilter('');
+    this.props.sortByDate();
+    this.props.setTextFilter('');
+  }
   render() {
     return (
       <div className="wrapper products">

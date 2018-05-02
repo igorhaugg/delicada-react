@@ -1,23 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
+import { setProductFilter } from '../../../actions/filters';
 
-const ProductListItem = ({ id, name, image, price_sell, size, createdAt }) => (
-  <Link className="products__item" to={`/products/${id}`}>
-    <img className="products__item-image" src={image} />
-    <div className="products__item-details">
-      <span>{name}</span>
-      <br />
-      <span>
-        Preço: <strong>R{numeral(price_sell).format('$0,0.00')}</strong>
-      </span>
-      <br />
-      <span>
-        Tamanho: <strong>{size}</strong>
-      </span>
-    </div>
-  </Link>
-);
+class ProductListItem extends React.Component {
+  onProductChange = id => {
+    if (id) {
+      this.props.setProductFilter(id);
+    }
+  };
+  render() {
+    return (
+      <Link
+        className="products__item"
+        to={`/products/details`}
+        onClick={this.onProductChange(this.props.id)}
+      >
+        <img className="products__item-image" src={this.props.image} />
+        <div className="products__item-details">
+          <span>{this.props.name}</span>
+          <br />
+          <span>
+            Preço:
+            <strong>R{numeral(this.props.price_sell).format('$0,0.00')}</strong>
+          </span>
+          <br />
+          <span>
+            Tamanho: <strong>{this.props.size}</strong>
+          </span>
+        </div>
+      </Link>
+    );
+  }
+}
 
-export default ProductListItem;
+const mapDispatchToProps = dispatch => ({
+  setProductFilter: product => dispatch(setProductFilter(product))
+});
+
+export default connect(null, mapDispatchToProps)(ProductListItem);
