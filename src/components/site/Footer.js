@@ -6,11 +6,8 @@ const Footer = props => {
   const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
   return (
     <footer className="footer wrapper">
-      <div className="footer__brand">
-        <img className="footer__image" src="/images/logo.png" alt="" />
-      </div>
       <div className="footer__links">
-        <p>Mais Informações</p>
+        <span className="footer__title">Mais Informações</span>
         <div className="footer__column">
           <ul>
             <li>
@@ -36,7 +33,7 @@ const Footer = props => {
               </Link>
               <ul>
                 {props.categories.map(category => (
-                  <li key={category.id}>
+                  <li key={category.id} className="color-link">
                     &nbsp; <i className="fas fa-angle-right" />
                     &nbsp;
                     {category.name}
@@ -47,8 +44,14 @@ const Footer = props => {
           </ul>
         </div>
       </div>
+      <div className="footer__brand">
+        <span className="footer__title">Formas de Pagamento</span>
+        {/* <img className="footer__image" src="/images/logo.png" alt="" /> */}
+        <i className="fab fa-cc-mastercard" />
+        <i className="fab fa-cc-visa" />
+      </div>
       <div className="footer__contact">
-        <span>Contato</span>
+        <span className="footer__title">Contato</span>
         <img className="footer__image" src="/images/avatar.png" alt="" />
       </div>
     </footer>

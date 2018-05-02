@@ -8,7 +8,7 @@ const IndexPage = () => {
     <Fragment>
       <Header />
       <Main />
-      {/* <Footer /> */}
+      <Footer />
     </Fragment>
   );
 };
