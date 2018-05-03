@@ -5,5 +5,3 @@ public/dist/styles.css
 public/dist/styles.css.map
 /.env.test
 /.env.development
-/.package.json
-/.package-lock.json
