@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import MainContent from './products/MainContent';
+import Details from './products/Details';
 
-class ProductsPage extends React.Component {
+class ProductsDetailPage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -11,11 +11,10 @@ class ProductsPage extends React.Component {
     return (
       <Fragment>
         <Header />
-        <MainContent />
+        <Details />
         <Footer />
       </Fragment>
     );
   }
 }
-
-export default ProductsPage;
+export default ProductsDetailPage;

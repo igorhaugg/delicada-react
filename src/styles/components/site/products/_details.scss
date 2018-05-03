@@ -1,0 +1,38 @@
+.details {
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  width: 90vw;
+}
+
+.details__image {
+  flex-basis: 60%;
+  height: 40rem;
+  width: 30rem;
+  @media (min-width: $desktop-breakpoint) {
+    flex-basis: 50%;
+  }
+}
+
+.details__info {
+  flex-basis: 50%;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  font-size: $font-size-titles;
+
+  > * {
+    padding-bottom: $s-size;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    height: 40rem;
+  }
+}
+
+.details__description {
+  padding-bottom: $s-size;
+  padding-top: $s-size;
+  text-align: center;
+}

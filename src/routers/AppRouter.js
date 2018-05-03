@@ -20,7 +20,7 @@ import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
 import IndexPage from '../components/site/IndexPage';
 import ProductsPage from '../components/site/ProductsPage';
-import ProductDetail from '../components/site/products/ProductDetail';
+import ProductsDetailPage from '../components/site/ProductsDetailPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -35,7 +35,7 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={IndexPage} exact={true} />
         <PublicRoute path="/products" component={ProductsPage} exact={true} />
-        <PublicRoute path="/products/details" component={ProductDetail} />
+        <PublicRoute path="/products/details" component={ProductsDetailPage} />
         <SpecialRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/admin" component={HomePage} exact={true} />
         <PrivateRoute path="/admin/dashboard" component={DashboardPage} />

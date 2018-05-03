@@ -6,8 +6,7 @@ import { Animated } from 'react-animated-css';
 
 class Latest extends React.Component {
   state = {
-    onoff: true,
-    intervalId: ''
+    onoff: true
   };
 
   getInitialState() {
@@ -16,8 +15,8 @@ class Latest extends React.Component {
     };
   }
 
-  componentDidMount() {
-    let intervalId = setInterval(() => {
+  componentWillMount() {
+    this.intervalId = setInterval(() => {
       this.setState({
         onoff: !this.state.onoff
       });
@@ -25,7 +24,7 @@ class Latest extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.intervalId);
+    clearInterval(this.intervalId);
   }
 
   render() {

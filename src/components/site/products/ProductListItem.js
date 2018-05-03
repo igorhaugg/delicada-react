@@ -6,17 +6,12 @@ import numeral from 'numeral';
 import { setProductFilter } from '../../../actions/filters';
 
 class ProductListItem extends React.Component {
-  onProductChange = id => {
-    if (id) {
-      this.props.setProductFilter(id);
-    }
-  };
   render() {
     return (
       <Link
         className="products__item"
         to={`/products/details`}
-        onClick={this.onProductChange(this.props.id)}
+        onClick={() => this.props.setProductFilter(this.props.id)}
       >
         <img className="products__item-image" src={this.props.image} />
         <div className="products__item-details">
