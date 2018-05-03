@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import selectProducts from '../../../selectors/products';
+import { setProductFilter } from '../../../actions/filters';
 import { Animated } from 'react-animated-css';
 
 class Latest extends React.Component {
@@ -40,7 +41,11 @@ class Latest extends React.Component {
             .map(product => {
               return (
                 <div key={product.id}>
-                  <Link to="/" className="wrapper">
+                  <Link
+                    to="/products/details"
+                    className="wrapper"
+                    onClick={() => this.props.setProductFilter(product.id)}
+                  >
                     <div className="latest__image__overlay">
                       <img
                         className="latest__image"
@@ -72,4 +77,8 @@ const mapStateToProps = state => ({
   products: selectProducts(state.products, state.filters)
 });
 
-export default connect(mapStateToProps)(Latest);
+const mapDispatchToProps = dispatch => ({
+  setProductFilter: product => dispatch(setProductFilter(product))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Latest);

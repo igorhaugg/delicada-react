@@ -9,6 +9,15 @@ import selectProducts from '../../../selectors/products-name';
 import { setProductFilter } from '../../../actions/filters';
 import Breadcrumbs from './Breadcrumbs';
 
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon
+} from 'react-share';
+
 class Details extends React.Component {
   state = {
     onoff: true
@@ -48,7 +57,6 @@ class Details extends React.Component {
                 <div className="details__info">
                   <span>{product.name}</span>
                   <span>
-                    Preço:
                     <strong>
                       R{numeral(product.price_sell).format('$0,0.00')}
                     </strong>
@@ -65,9 +73,34 @@ class Details extends React.Component {
                   <span className="details__description">
                     {product.description}
                   </span>
+                  <span className="details__description">
+                    Compartilhe nas redes sociais:
+                  </span>
                   <div className="details__share">
-                    <span>Facebook</span>
-                    <span>Instagram</span>
+                    <span>
+                      <TwitterShareButton
+                        url={'https://delicada-mulher.firebaseapp.com/products'}
+                        title={'Confira na loja delicada mulher!'}
+                      >
+                        <TwitterIcon size={32} round />
+                      </TwitterShareButton>
+                    </span>
+                    <span>
+                      <FacebookShareButton
+                        url={'https://delicada-mulher.firebaseapp.com/products'}
+                        title={'Confira na loja delicada mulher!'}
+                      >
+                        <FacebookIcon size={32} round />
+                      </FacebookShareButton>
+                    </span>
+                    <span>
+                      <WhatsappShareButton
+                        url={'https://delicada-mulher.firebaseapp.com/products'}
+                        title={'Confira na loja delicada mulher!'}
+                      >
+                        <WhatsappIcon size={32} round />
+                      </WhatsappShareButton>
+                    </span>
                   </div>
                 </div>
               </div>

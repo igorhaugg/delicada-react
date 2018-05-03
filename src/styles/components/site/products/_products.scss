@@ -4,12 +4,6 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 90vw;
-  @media (min-width: $tablet-breakpoint) {
-    justify-content: center;
-  }
-  @media (min-width: $desktop-breakpoint) {
-    justify-content: flex-start;
-  }
 }
 
 .products-size {

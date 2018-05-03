@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import MainContent from './products/MainContent';
+import Social from './Social';
 
 class ProductsPage extends React.Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class ProductsPage extends React.Component {
       <Fragment>
         <Header />
         <MainContent />
+        <Social />
         <Footer />
       </Fragment>
     );

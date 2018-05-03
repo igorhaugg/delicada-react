@@ -4,7 +4,6 @@ import Logo from './Logo';
 import Latest from './Latest';
 import Visit from './Visit';
 import Brands from './Brands';
-import Social from './Social';
 
 const MainContent = () => {
   return (
@@ -14,7 +13,6 @@ const MainContent = () => {
       <Latest />
       <Visit />
       <Brands />
-      <Social />
     </main>
   );
 };

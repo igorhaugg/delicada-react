@@ -10,6 +10,7 @@
   width: 30rem;
   @media (min-width: $desktop-breakpoint) {
     flex-basis: 50%;
+    width: 25rem;
   }
 }
 
@@ -35,4 +36,11 @@
   padding-bottom: $s-size;
   padding-top: $s-size;
   text-align: center;
+}
+
+.details__share {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
