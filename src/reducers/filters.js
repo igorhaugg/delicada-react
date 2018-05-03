@@ -21,11 +21,6 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
         ...state,
         category: action.category
       };
-    case 'SET_PRODUCT_FILTER':
-      return {
-        ...state,
-        product: action.product
-      };
     case 'SORT_BY_AMOUNT':
       return {
         ...state,

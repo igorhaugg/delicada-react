@@ -8,11 +8,6 @@ export const setCategoryFilter = (category = '') => ({
   category
 });
 
-export const setProductFilter = (product = '') => ({
-  type: 'SET_PRODUCT_FILTER',
-  product
-});
-
 export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });

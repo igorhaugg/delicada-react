@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
 import moment from 'moment';
 import numeral from 'numeral';
+import { withRouter } from 'react-router';
 
 import selectProducts from '../../../selectors/products-name';
-import { setProductFilter } from '../../../actions/filters';
 import Breadcrumbs from './Breadcrumbs';
 
 import {
@@ -38,18 +38,17 @@ class Details extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.setProductFilter('');
     clearInterval(this.intervalId);
   }
   render() {
     let product = null;
-    if (this.props.products[0]) {
-      product = this.props.products[0];
+    if (this.props.product) {
+      product = this.props.product;
     }
     return (
       <div>
         <main className="wrapper">
-          {this.props.products[0] ? (
+          {this.props.product ? (
             <Fragment>
               <Breadcrumbs product={product.name} />
               <div className="wrapper details">
@@ -66,7 +65,7 @@ class Details extends React.Component {
                     animationOut="tada"
                     isVisible={this.state.onoff}
                   >
-                    <Link className="button button--home" to="/products">
+                    <Link className="button button--home" to="/contact">
                       Pedir
                     </Link>
                   </Animated>
@@ -79,26 +78,38 @@ class Details extends React.Component {
                   <div className="details__share">
                     <span>
                       <TwitterShareButton
-                        url={'https://delicada-mulher.firebaseapp.com/products'}
-                        title={'Confira na loja delicada mulher!'}
+                        url={`https://delicada-mulher.firebaseapp.com/products/${
+                          product.id
+                        }`}
+                        quote={`Confira na loja delicada mulher, ${
+                          product.name
+                        }!`}
                       >
-                        <TwitterIcon size={32} round />
+                        <TwitterIcon size={54} round />
                       </TwitterShareButton>
                     </span>
                     <span>
                       <FacebookShareButton
-                        url={'https://delicada-mulher.firebaseapp.com/products'}
-                        title={'Confira na loja delicada mulher!'}
+                        url={`https://delicada-mulher.firebaseapp.com/products/${
+                          product.id
+                        }`}
+                        quote={`Confira na loja delicada mulher, ${
+                          product.name
+                        }!`}
                       >
-                        <FacebookIcon size={32} round />
+                        <FacebookIcon size={54} round />
                       </FacebookShareButton>
                     </span>
                     <span>
                       <WhatsappShareButton
-                        url={'https://delicada-mulher.firebaseapp.com/products'}
-                        title={'Confira na loja delicada mulher!'}
+                        url={`https://delicada-mulher.firebaseapp.com/products/${
+                          product.id
+                        }`}
+                        quote={`Confira na loja delicada mulher, ${
+                          product.name
+                        }!`}
                       >
-                        <WhatsappIcon size={32} round />
+                        <WhatsappIcon size={54} round />
                       </WhatsappShareButton>
                     </span>
                   </div>
@@ -114,13 +125,8 @@ class Details extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  filters: state.filters,
-  products: selectProducts(state.products, state.filters)
+const mapStateToProps = (state, props) => ({
+  product: state.products.find(product => product.id === props.match.params.id)
 });
 
-const mapDispatchToProps = dispatch => ({
-  setProductFilter: product => dispatch(setProductFilter(product))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default withRouter(connect(mapStateToProps)(Details));
