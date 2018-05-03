@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
 import moment from 'moment';
 import numeral from 'numeral';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import selectProducts from '../../../selectors/products-name';
 import Breadcrumbs from './Breadcrumbs';
