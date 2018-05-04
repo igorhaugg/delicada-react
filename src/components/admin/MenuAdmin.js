@@ -92,9 +92,9 @@ export class MenuAdmin extends React.Component {
               <i className="fas fa-info-circle" /> <span>Company</span>
             </Link>
             <Link
-              to="/admin/messages"
+              to="/admin/contacts"
               className={classNames({
-                active: location.pathname === '/admin/messages'
+                active: location.pathname === '/admin/contacts'
               })}
             >
               <i className="fas fa-comment-alt flip" />

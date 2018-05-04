@@ -7,7 +7,7 @@ import numeral from 'numeral';
 import { withRouter } from 'react-router-dom';
 
 import selectProducts from '../../../selectors/products-name';
-import Breadcrumbs from './Breadcrumbs';
+import Breadcrumbs from '../Breadcrumbs';
 
 import {
   FacebookShareButton,
@@ -40,19 +40,22 @@ class Details extends React.Component {
   componentWillUnmount() {
     clearInterval(this.intervalId);
   }
+
   render() {
     let product = null;
-    // let formatedNumber = null;
     if (this.props.product) {
       product = this.props.product;
-      // formatedNumber = numeral(product.price_sell).format('$0,0.00');
     }
     return (
       <div>
         <main className="wrapper">
           {this.props.product ? (
             <Fragment>
-              <Breadcrumbs product={product.name} />
+              <Breadcrumbs
+                product={product.name}
+                route="/products"
+                title="Produtos"
+              />
               <div className="wrapper details">
                 <img className="details__image" src={product.image} />
                 <div className="details__info">

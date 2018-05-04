@@ -8,8 +8,8 @@ const Breadcrumbs = props => {
         Início
       </Link>
       <span className="breadcrumbs__separator">»</span>
-      <Link className="breadcrumbs__item" to="/products">
-        Products
+      <Link className="breadcrumbs__item" to={props.route}>
+        {props.title}
       </Link>
       {props.product ? (
         <Fragment>

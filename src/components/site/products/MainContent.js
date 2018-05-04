@@ -1,12 +1,12 @@
 import React from 'react';
-import Breadcrumbs from './Breadcrumbs';
+import Breadcrumbs from '../Breadcrumbs';
 import ProductListFilters from './ProductListFilters';
 import ProductList from './ProductList';
 
 const MainContent = () => {
   return (
     <main className="wrapper">
-      <Breadcrumbs />
+      <Breadcrumbs route="/products" title="Produtos" />
       <ProductListFilters />
       <ProductList />
     </main>

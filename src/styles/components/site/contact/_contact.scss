@@ -1,0 +1,16 @@
+.contact {
+  flex-direction: row;
+  width: 90vw;
+}
+
+.contact__details,
+.contact__form {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 30rem;
+  > * {
+    padding: $m-size;
+  }
+}

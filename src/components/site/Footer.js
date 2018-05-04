@@ -78,14 +78,14 @@ const Footer = props => {
           <span className="color-link">Copyright 2018</span>
           <span className="copyright__names">
             <a href="https://igorhaugg.github.io/portfolio/" target="_blank">
-              Igor Haugg
-            </a>{' '}
-            <span className="color-link">e </span>
+              Igor Haugg&nbsp;
+            </a>
+            <span className="color-link">e</span>
             <a
               href="https://marciadasilva.github.io/portfolio/"
               target="_blank"
             >
-              Márcia da Silva
+              &nbsp;Márcia da Silva
             </a>
           </span>
         </div>

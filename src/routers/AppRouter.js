@@ -16,11 +16,12 @@ import SalesAdminPage from '../components/admin/sales/SalesAdminPage';
 import SalesAddPage from '../components/admin/sales/SalesAddPage';
 import SalesEditPage from '../components/admin/sales/SalesEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
-import MessageAdminPage from '../components/admin/messages/MessageAdminPage';
+import ContactsAdminPage from '../components/admin/contacts/ContactsAdminPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
 import IndexPage from '../components/site/IndexPage';
 import ProductsPage from '../components/site/ProductsPage';
 import ProductsDetailPage from '../components/site/ProductsDetailPage';
+import ContactPage from '../components/site/ContactPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -36,6 +37,7 @@ const AppRouter = () => (
         <PublicRoute path="/" component={IndexPage} exact={true} />
         <PublicRoute path="/products" component={ProductsPage} exact={true} />
         <PublicRoute path="/products/:id" component={ProductsDetailPage} />
+        <PublicRoute path="/contact" component={ContactPage} />
         <SpecialRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/admin" component={HomePage} exact={true} />
         <PrivateRoute path="/admin/dashboard" component={DashboardPage} />
@@ -85,8 +87,8 @@ const AppRouter = () => (
           exact={true}
         />
         <PrivateRoute
-          path="/admin/messages"
-          component={MessageAdminPage}
+          path="/admin/contacts"
+          component={ContactsAdminPage}
           exact={true}
         />
         <PrivateRoute

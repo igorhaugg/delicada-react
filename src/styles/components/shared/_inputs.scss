@@ -40,6 +40,13 @@
   resize: vertical;
 }
 
+.textarea-site {
+  @extend .text-input-site;
+  height: 10rem;
+  padding: $s-size/2;
+  resize: vertical;
+}
+
 .icon__file {
   margin-right: $s-size;
 }

@@ -31,10 +31,10 @@ const Header = props => {
             </ul>
           </li>
         </Link>
-        <Link to="/">
+        <Link to="/contact">
           <li className="header__option">Contato</li>
         </Link>
-        <Link to="/">
+        <Link to="/about">
           <li className="header__option">Sobre</li>
         </Link>
       </ul>
