@@ -1,16 +1,17 @@
 .details {
   flex-direction: row;
   flex-wrap: wrap-reverse;
+  padding-bottom: $xl-size;
   width: 90vw;
 }
 
 .details__image {
   flex-basis: 60%;
-  height: 40rem;
-  width: 30rem;
+  height: 50rem;
+  width: 80vw;
   @media (min-width: $desktop-breakpoint) {
     flex-basis: 50%;
-    width: 25rem;
+    width: 20rem;
   }
 }
 
@@ -43,7 +44,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 75vw;
   > * {
     padding: $s-size / 2;
+  }
+  @media (min-width: $desktop-breakpoint) {
+    width: 100%;
   }
 }
