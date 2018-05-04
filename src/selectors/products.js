@@ -20,6 +20,8 @@ const getVisibleProducts = (products, { text, sortBy }) => {
           return a.createdAt < b.createdAt ? 1 : -1;
         } else if (sortBy === 'price') {
           return a.price_sell < b.price_sell ? -1 : 1;
+        } else if (sortBy === 'price-reverse') {
+          return a.price_sell > b.price_sell ? 1 : -1;
         } else if (sortBy === 'name') {
           return a.name > b.name ? -1 : 1;
         }

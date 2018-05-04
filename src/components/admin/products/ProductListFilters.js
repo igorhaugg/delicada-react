@@ -5,6 +5,7 @@ import {
   setTextFilter,
   sortByDate,
   sortByPrice,
+  sortByPriceReverse,
   sortByName,
   setStartDate,
   setEndDate
@@ -29,6 +30,8 @@ export class ProductListFilters extends React.Component {
       this.props.sortByDate();
     } else if (e.target.value === 'price') {
       this.props.sortByPrice();
+    } else if (e.target.value === 'price-reverse') {
+      this.props.sortByPriceReverse();
     } else if (e.target.value === 'name') {
       this.props.sortByName();
     }
@@ -54,7 +57,8 @@ export class ProductListFilters extends React.Component {
             >
               <option value="date">Date</option>
               <option value="name">Name</option>
-              <option value="price">Price</option>
+              <option value="price">Maior Price</option>
+              <option value="price-reverse">Menor Price</option>
             </select>
           </div>
           <div className="input-group__item">
@@ -83,6 +87,7 @@ const mapDispatchToProps = dispatch => ({
   setTextFilter: text => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
   sortByPrice: () => dispatch(sortByPrice()),
+  sortByPriceReverse: () => dispatch(sortByPriceReverse()),
   sortByName: () => dispatch(sortByName()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))

@@ -1,8 +1,10 @@
 .products {
   align-items: flex-start;
+  border-bottom: 1px solid $links-color;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: $m-size;
   width: 90vw;
 }
 
@@ -33,8 +35,13 @@
 }
 .products__item-details {
   color: $grey;
+  text-align: center;
   width: 25rem;
   @media (min-width: $desktop-breakpoint) {
-    width: 15rem;
+    width: 20rem;
   }
+}
+
+.products__input {
+  margin-bottom: $m-size;
 }

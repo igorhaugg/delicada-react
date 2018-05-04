@@ -9,16 +9,21 @@ class ProductListItem extends React.Component {
       <Link className="products__item" to={`/products/${this.props.id}`}>
         <img className="products__item-image" src={this.props.image} />
         <div className="products__item-details">
-          <span>{this.props.name}</span>
-          <br />
           <span>
-            Preço:
-            <strong>R{numeral(this.props.price_sell).format('$0,0.00')}</strong>
+            {this.props.name} - <strong>{this.props.size}</strong>
           </span>
           <br />
-          <span>
-            Tamanho: <strong>{this.props.size}</strong>
-          </span>
+          <small>
+            Preço: &nbsp;
+            <strong>
+              <span>R$</span>
+              {this.props.price_sell
+                .toFixed(2)
+                .toString()
+                .replace('.', ',')}
+            </strong>
+          </small>
+          <br />
         </div>
       </Link>
     );

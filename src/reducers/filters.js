@@ -31,6 +31,11 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'price'
       };
+    case 'SORT_BY_PRICE_REVERSE':
+      return {
+        ...state,
+        sortBy: 'price-reverse'
+      };
     case 'SORT_BY_NAME':
       return {
         ...state,

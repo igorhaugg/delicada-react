@@ -20,6 +20,10 @@ export const sortByPrice = () => ({
   type: 'SORT_BY_PRICE'
 });
 
+export const sortByPriceReverse = () => ({
+  type: 'SORT_BY_PRICE_REVERSE'
+});
+
 export const sortByName = () => ({
   type: 'SORT_BY_NAME'
 });

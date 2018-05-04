@@ -6,6 +6,7 @@ import {
   setCategoryFilter,
   sortByDate,
   sortByPrice,
+  sortByPriceReverse,
   sortByName
 } from '../../../actions/filters';
 import selectProducts from '../../../selectors/products';
@@ -19,6 +20,8 @@ export class ProductListFilters extends React.Component {
       this.props.sortByDate();
     } else if (e.target.value === 'price') {
       this.props.sortByPrice();
+    } else if (e.target.value === 'price-reverse') {
+      this.props.sortByPriceReverse();
     } else if (e.target.value === 'name') {
       this.props.sortByName();
     }
@@ -36,7 +39,7 @@ export class ProductListFilters extends React.Component {
   render() {
     return (
       <div className="wrapper products">
-        <div className="input-group">
+        <div className="input-group products__input">
           <div className="input-group__item">
             <input
               type="text"
@@ -54,7 +57,8 @@ export class ProductListFilters extends React.Component {
             >
               <option value="date">Data</option>
               <option value="name">Nome</option>
-              <option value="price">Preço</option>
+              <option value="price">Maior Preço</option>
+              <option value="price-reverse">Menor Preço</option>
             </select>
           </div>
           <div className="input-group__item">
@@ -88,6 +92,7 @@ const mapDispatchToProps = dispatch => ({
   setCategoryFilter: category => dispatch(setCategoryFilter(category)),
   sortByDate: () => dispatch(sortByDate()),
   sortByPrice: () => dispatch(sortByPrice()),
+  sortByPriceReverse: () => dispatch(sortByPriceReverse()),
   sortByName: () => dispatch(sortByName())
 });
 
