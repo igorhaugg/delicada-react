@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   padding: 0;
   @media (min-width: $desktop-breakpoint) {
-    min-height: 50rem;
+    min-height: 40rem;
     padding: $xl-size;
   }
 }
@@ -64,4 +64,24 @@
 
 .sub-link {
   padding-left: $m-size;
+}
+
+.copyright {
+  background-color: #f8f8f5;
+}
+
+.copyright__border {
+  border-top: 1px solid rgba(148, 141, 136, 0.3);
+  display: flex;
+  justify-content: space-around;
+  padding: $m-size $xl-size;
+  width: 90%;
+}
+
+.copyright__names a {
+  color: #6d6d5d;
+  transition: color $s-time ease-in-out;
+  &:hover {
+    color: darken(#6d6d5d, 25%);
+  }
 }

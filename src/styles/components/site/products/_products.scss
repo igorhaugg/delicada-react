@@ -1,6 +1,6 @@
 .products {
   align-items: flex-start;
-  border-bottom: 1px solid $links-color;
+  border-bottom: 1px solid rgba(148, 141, 136, 0.3);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,6 +9,7 @@
 }
 
 .products-size {
+  border: none;
   justify-content: space-between;
   min-height: 75vh;
 }
