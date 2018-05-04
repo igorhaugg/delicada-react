@@ -7,8 +7,21 @@
   width: 100%;
 }
 
+.text-input-site {
+  border: 1px solid #cacccd;
+  height: 35px;
+  font-size: $font-size-medium;
+  font-weight: 300;
+  padding: 0 $s-size / 2;
+  width: 100%;
+}
+
 .select {
   @extend .text-input;
+}
+
+.select--site {
+  @extend .text-input-site;
 }
 
 .label {

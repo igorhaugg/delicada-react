@@ -40,15 +40,15 @@ export class ProductListFilters extends React.Component {
           <div className="input-group__item">
             <input
               type="text"
-              className="text-input"
-              placeholder="Search products"
+              className="text-input-site"
+              placeholder="Procurar um produto"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />
           </div>
           <div className="input-group__item">
             <select
-              className="select"
+              className="select--site"
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
             >
@@ -58,7 +58,7 @@ export class ProductListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
-            <select className="select" onChange={this.onCategoryChange}>
+            <select className="select--site" onChange={this.onCategoryChange}>
               <option key="default" value="default">
                 Categoria
               </option>

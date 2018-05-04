@@ -7,7 +7,7 @@
 }
 
 .products-size {
-  justify-content: center;
+  justify-content: space-between;
   min-height: 75vh;
 }
 
@@ -27,8 +27,8 @@
   height: 25rem;
   width: 25rem;
   @media (min-width: $desktop-breakpoint) {
-    height: 15rem;
-    width: 15rem;
+    height: 20rem;
+    width: 20rem;
   }
 }
 .products__item-details {
