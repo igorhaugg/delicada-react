@@ -52,3 +52,11 @@
     width: 100%;
   }
 }
+
+.details__numbers {
+  font-family: $numbers-font;
+  font-size: $font-size-xlarge;
+  span {
+    font-size: $font-size-large;
+  }
+}

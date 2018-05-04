@@ -1,4 +1,5 @@
 .breadcrumbs {
+  align-items: center;
   flex-direction: row;
   justify-content: center;
   padding: $l-size * 2 0 $l-size 0;
@@ -6,6 +7,13 @@
 }
 
 .breadcrumbs__item {
-  color: $grey;
+  color: $links-color;
+  font-family: $breadcrumbs-font;
+  font-size: $font-size-medium;
   padding: $s-size;
+}
+
+.breadcrumbs__separator {
+  @extend .breadcrumbs__item;
+  padding: $s-size 0;
 }

@@ -34,7 +34,7 @@
 
 .footer__title {
   border-bottom: 1px solid lighten($grey, 10%);
-  color: $grey;
+  color: #6d6d5d;
   font-size: $font-size-medium;
   padding-bottom: $s-size / 2;
   margin-bottom: $s-size;
@@ -51,7 +51,7 @@
 }
 
 .color-link {
-  color: $grey;
+  color: $links-color;
   font-size: $font-size-medium;
   transition: color $s-time ease-in-out;
   &:hover {

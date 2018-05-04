@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 const Breadcrumbs = props => {
@@ -7,15 +7,15 @@ const Breadcrumbs = props => {
       <Link className="breadcrumbs__item" to="/">
         Início
       </Link>
-      /
+      <span className="breadcrumbs__separator">»</span>
       <Link className="breadcrumbs__item" to="/products">
         Products
       </Link>
       {props.product ? (
-        <div>
-          <span>/</span>
+        <Fragment>
+          <span className="breadcrumbs__separator">»</span>
           <span className="breadcrumbs__item">{props.product}</span>
-        </div>
+        </Fragment>
       ) : null}
     </div>
   );

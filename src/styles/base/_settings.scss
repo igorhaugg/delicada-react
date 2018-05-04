@@ -12,7 +12,7 @@ $header_background: #ffffff;
 $main-background: #237b90;
 $main-color: #f891a0;
 $section-secondary: #c1dee7;
-
+$links-color: #948d88;
 // Font Size
 $font-size-xlarge: 5rem;
 $font-size-large: 3.6rem;
@@ -33,6 +33,12 @@ $s-time: 0.2s;
 @import url('https://fonts.googleapis.com/css?family=Kurale');
 @import url('https://fonts.googleapis.com/css?family=Alegreya:400,700');
 @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:400,700');
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti');
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
 $logo-font: 'Kurale', serif;
 $title-font: 'Arima Madurai', serif;
+$breadcrumbs-font: 'Calligraffitti', serif;
+$site-font: 'Quicksand', sans-serif;
+$numbers-font: 'Alegreya', sans-serif;

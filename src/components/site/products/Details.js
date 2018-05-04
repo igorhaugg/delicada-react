@@ -42,8 +42,10 @@ class Details extends React.Component {
   }
   render() {
     let product = null;
+    // let formatedNumber = null;
     if (this.props.product) {
       product = this.props.product;
+      // formatedNumber = numeral(product.price_sell).format('$0,0.00');
     }
     return (
       <div>
@@ -55,9 +57,13 @@ class Details extends React.Component {
                 <img className="details__image" src={product.image} />
                 <div className="details__info">
                   <span>{product.name}</span>
-                  <span>
+                  <span className="details__numbers">
                     <strong>
-                      R{numeral(product.price_sell).format('$0,0.00')}
+                      <span>R$</span>
+                      {product.price_sell
+                        .toFixed(2)
+                        .toString()
+                        .replace('.', ',')}
                     </strong>
                   </span>
                   <Animated
