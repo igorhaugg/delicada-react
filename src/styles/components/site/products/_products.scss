@@ -10,7 +10,7 @@
 
 .products-size {
   border: none;
-  justify-content: space-between;
+  // justify-content: space-between;
   min-height: 75vh;
 }
 
@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: $s-size;
   padding-bottom: $m-size;
   width: 30rem;
   @media (min-width: $desktop-breakpoint) {
