@@ -14,7 +14,7 @@ export class MainContent extends React.Component {
       message: 'Mensagem enviada com sucesso.',
       buttons: [
         {
-          label: 'Remove'
+          label: 'Ok'
         }
       ]
     });
