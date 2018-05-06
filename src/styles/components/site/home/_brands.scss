@@ -13,13 +13,13 @@
   margin-bottom: $l-size;
   width: 90vw;
   @media (min-width: $desktop-breakpoint) {
-    justify-content: space-between;
+    justify-content: space-around;
   }
   > * {
-    padding: $s-size;
-    @media (min-width: $desktop-breakpoint) {
-      padding: 0;
-    }
+    margin: $s-size 0;
+    // @media (min-width: $desktop-breakpoint) {
+    //   padding: 0;
+    // }
   }
 }
 

@@ -1,16 +1,38 @@
 .contact {
-  flex-direction: row;
+  flex-direction: column;
+  margin-bottom: $m-size;
   width: 90vw;
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+  }
 }
 
 .contact__details,
 .contact__form {
   display: flex;
-  flex-basis: 50%;
   flex-direction: column;
-  justify-content: center;
   min-height: 30rem;
+  width: 100%;
   > * {
     padding: $m-size;
+  }
+  @media (min-width: $desktop-breakpoint) {
+    flex-basis: 50%;
+  }
+}
+
+.contact__details {
+  font-size: $font-size-titles;
+
+  > span:first-child() {
+    font-weight: bold;
+  }
+}
+
+.contact__number {
+  align-items: center;
+  display: flex;
+  span {
+    padding-left: $s-size;
   }
 }

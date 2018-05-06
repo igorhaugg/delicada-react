@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { WhatsappIcon } from 'react-share';
 
 export class Contact extends React.Component {
   constructor(props) {
@@ -58,7 +59,10 @@ export class Contact extends React.Component {
           <span>
             Fique a vontade para nos enviar uma mensagens e iremos lhe ajudar!
           </span>
-          <span>Whatsapp: </span>
+          <span>Whatsapp</span>
+          <span className="contact__number">
+            <WhatsappIcon size={54} round /> <span>99945345421</span>
+          </span>
         </div>
         <div className="contact__form">
           <form className="form" onSubmit={this.onSubmit}>

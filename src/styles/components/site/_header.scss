@@ -26,11 +26,21 @@
   text-transform: uppercase;
   transition: color $s-time ease-in-out;
 
+  svg {
+    opacity: 0;
+  }
+
   &:hover {
     color: $main-color;
   }
   @media (min-width: $tablet-breakpoint) {
     padding: 0 $l-size;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    svg {
+      opacity: 1;
+    }
   }
 }
 
