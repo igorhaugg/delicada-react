@@ -54,7 +54,7 @@ export class MenuAdmin extends React.Component {
                 active: location.pathname.includes('dashboard')
               })}
             >
-              <i className="fas fa-chart-line" /> <span>Resumo</span>
+              <i className="fas fa-chart-area" /> <span>Resumo</span>
             </Link>
             <Link
               to="/admin/category"
@@ -87,6 +87,14 @@ export class MenuAdmin extends React.Component {
               })}
             >
               <i className="fas fa-shopping-cart" /> <span>Vendas</span>
+            </Link>
+            <Link
+              to="/admin/promotions"
+              className={classNames({
+                active: location.pathname.includes('promotions')
+              })}
+            >
+              <i className="far fa-calendar-alt" /> <span>Promoções</span>
             </Link>
             <Link
               to="/admin/company"

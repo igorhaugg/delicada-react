@@ -17,6 +17,9 @@ import SalesAddPage from '../components/admin/sales/SalesAddPage';
 import SalesEditPage from '../components/admin/sales/SalesEditPage';
 import CompanyAdminPage from '../components/admin/companies/CompanyAdminPage';
 import ContactsAdminPage from '../components/admin/contacts/ContactsAdminPage';
+import PromotionsAdminPage from '../components/admin/promotions/PromotionsAdminPage';
+import PromotionsAddPage from '../components/admin/promotions/PromotionsAddPage';
+import PromotionsEditPage from '../components/admin/promotions/PromotionsEditPage';
 import HelpAdminPage from '../components/admin/help/HelpAdminPage';
 import IndexPage from '../components/site/IndexPage';
 import ProductsPage from '../components/site/ProductsPage';
@@ -81,6 +84,19 @@ const AppRouter = () => (
         />
         <PrivateRoute path="/admin/sales/create" component={SalesAddPage} />
         <PrivateRoute path="/admin/sales/edit/:id" component={SalesEditPage} />
+        <PrivateRoute
+          path="/admin/promotions"
+          component={PromotionsAdminPage}
+          exact={true}
+        />
+        <PrivateRoute
+          path="/admin/promotions/create"
+          component={PromotionsAddPage}
+        />
+        <PrivateRoute
+          path="/admin/promotions/edit/:id"
+          component={PromotionsEditPage}
+        />
         <PrivateRoute
           path="/admin/company"
           component={CompanyAdminPage}

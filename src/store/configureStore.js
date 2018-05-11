@@ -8,6 +8,7 @@ import clientsReducer from '../reducers/clients';
 import companyReducer from '../reducers/company';
 import salesReducer from '../reducers/sales';
 import contactsReducer from '../reducers/contacts';
+import promotionsReducer from '../reducers/promotions';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -21,6 +22,7 @@ export default () => {
       company: companyReducer,
       sales: salesReducer,
       contacts: contactsReducer,
+      promotions: promotionsReducer,
       auth: authReducer
     }),
     composeEnhancers(applyMiddleware(thunk))

@@ -9,6 +9,7 @@ import { startSetClients } from './actions/clients';
 import { startSetCompany } from './actions/company';
 import { startSetSales } from './actions/sales';
 import { startSetContacts } from './actions/contacts';
+import { startSetPromotions } from './actions/promotions';
 import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import 'animate.css/animate.css';
@@ -45,6 +46,7 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetCategories());
     store.dispatch(startSetSales());
     store.dispatch(startSetContacts());
+    store.dispatch(startSetPromotions());
     store.dispatch(startSetCompany()).then(() => {
       renderApp();
     });
@@ -53,9 +55,9 @@ firebase.auth().onAuthStateChanged(user => {
     store.dispatch(startSetProducts());
     store.dispatch(startSetCategories());
     store.dispatch(startSetContacts());
+    store.dispatch(startSetPromotions());
     store.dispatch(startSetCompany()).then(() => {
       renderApp();
     });
-    // history.push('/login');
   }
 });
