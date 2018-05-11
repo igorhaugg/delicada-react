@@ -1,6 +1,8 @@
 import React from 'react';
-import Banner from './Banner';
+
 import Logo from './Logo';
+import Banner from './Banner';
+import Promotions from './Promotions';
 import Latest from './Latest';
 import Visit from './Visit';
 import Brands from './Brands';
@@ -10,6 +12,7 @@ const MainContent = () => {
     <main className="wrapper">
       <Logo />
       <Banner />
+      <Promotions />
       <Latest />
       <Visit />
       <Brands />

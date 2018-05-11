@@ -1,0 +1,14 @@
+.promotions {
+  background-color: $main-color;
+  margin-top: $xl-size;
+  min-height: 30rem;
+  text-align: center;
+  width: 100vw;
+}
+
+.promotions__description {
+  font-family: $title-font;
+  font-size: 2.7rem;
+  font-weight: 700;
+  padding: $s-size;
+}
