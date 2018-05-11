@@ -6,13 +6,14 @@ import numeral from 'numeral';
 const SalesListItem = ({ id, createdAt, name, image, price }) => (
   <Link className="list-item" to={`/admin/sales/edit/${id}`}>
     <div>
-      <h3 className="list-item__title">Bought by: {name}</h3>
+      <h3 className="list-item__title">{name}</h3>
       <span className="list-item__sub-title">
-        At: {moment(createdAt).format('MMMM Do, YYYY')}
+        Compra realizada em:
+        <strong> {moment(createdAt).format('DD/MM/YYYY')}</strong>
       </span>
       <br />
       <span className="list-item__sub-title">
-        Price paid: <strong>R{numeral(price).format('$0,0.00')}</strong>
+        Preço pago: <strong>R{numeral(price).format('$0,0.00')}</strong>
       </span>
     </div>
     <h3 className="list-item__data">

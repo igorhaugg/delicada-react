@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ClientForm from './ClientForm';
-import { startEditClient, startRemoveClient } from '../../../actions/clients';
-import MenuAdmin from '../MenuAdmin';
 import { confirmAlert } from 'react-confirm-alert';
+
+import ClientForm from './ClientForm';
+import MenuAdmin from '../MenuAdmin';
+import { startEditClient, startRemoveClient } from '../../../actions/clients';
 
 export class ClientEditPage extends React.Component {
   onSubmit = client => {
@@ -12,15 +13,15 @@ export class ClientEditPage extends React.Component {
   };
   onRemove = () => {
     confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
+      title: 'Confirmar',
+      message: 'Você tem certeza?',
       buttons: [
         {
-          label: 'Remove',
+          label: 'Remover',
           onClick: () => this.onClickRemove()
         },
         {
-          label: 'No'
+          label: 'Cancelar'
         }
       ]
     });
@@ -36,7 +37,7 @@ export class ClientEditPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Edit Client</h1>
+              <h1 className="page-header__title">Editar Cliente</h1>
             </div>
           </div>
           <div className="content-container">
@@ -45,7 +46,7 @@ export class ClientEditPage extends React.Component {
               className="button button--secondary"
               onClick={this.onRemove}
             >
-              Remove Client
+              Remover
             </button>
           </div>
         </div>

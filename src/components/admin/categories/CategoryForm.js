@@ -1,8 +1,9 @@
 import React from 'react';
-import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
-import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
+import moment from 'moment';
+import FileUploader from 'react-firebase-file-uploader';
+import { SingleDatePicker } from 'react-dates';
+
 import database from '../../../firebase/firebase';
 
 export default class CategoryForm extends React.Component {
@@ -47,7 +48,7 @@ export default class CategoryForm extends React.Component {
     } else {
       this.setState({
         showLoading: false,
-        error: 'Please select a valid image (jpeg, jpg, png).'
+        error: 'Por favor selecione uma imagem nos formatos (jpeg, jpg, png).'
       });
     }
   };
@@ -63,7 +64,7 @@ export default class CategoryForm extends React.Component {
     e.preventDefault();
     if (!this.state.description || !this.state.name || !this.state.image) {
       this.setState(() => ({
-        error: 'Please provide name, description and image.'
+        error: 'Por favor adicione um nome, descrição e imagem.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -84,7 +85,7 @@ export default class CategoryForm extends React.Component {
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Nome"
           autoFocus
           className="text-input"
           value={this.state.name}
@@ -93,7 +94,7 @@ export default class CategoryForm extends React.Component {
         />
         <input
           type="text"
-          placeholder="Description"
+          placeholder="Descrição"
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
@@ -107,18 +108,9 @@ export default class CategoryForm extends React.Component {
           numberOfMonths={1}
           isOutsideRange={() => false}
         />
-        {/* <div className="form__group--checkbox">
-          <input
-            type="checkbox"
-            name="visible"
-            value="visible"
-            className="checkbox"
-          />
-          <label htmlFor="visible">Show on front page</label>
-        </div> */}
         <label className="label button">
           <i className="fas fa-cloud-upload-alt icon__file" />
-          Select your file
+          Selecionar imagem
           <FileUploader
             accept="image/*"
             name="image"
@@ -141,7 +133,9 @@ export default class CategoryForm extends React.Component {
           {this.state.image &&
             this.state.name &&
             this.state.description && (
-              <button className="button">Save Category</button>
+              <button className="button">
+                {this.props.editForm ? 'Salvar' : 'Confirmar'}
+              </button>
             )}
         </div>
       </form>

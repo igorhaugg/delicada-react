@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
+
 import {
   setTextFilter,
   sortByDate,
@@ -38,7 +39,7 @@ export class SalesListFilters extends React.Component {
             <input
               type="text"
               className="text-input"
-              placeholder="Search sales"
+              placeholder="Pesquisar"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />
@@ -49,8 +50,8 @@ export class SalesListFilters extends React.Component {
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
             >
-              <option value="date">Date</option>
-              <option value="name">Name</option>
+              <option value="date">Data</option>
+              <option value="name">Nome</option>
             </select>
           </div>
           <div className="input-group__item">

@@ -1,9 +1,9 @@
 import React from 'react';
-import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
-import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
+import moment from 'moment';
 import { confirmAlert } from 'react-confirm-alert';
+import { SingleDatePicker } from 'react-dates';
 
 export default class CompanyForm extends React.Component {
   constructor(props) {
@@ -83,7 +83,7 @@ export default class CompanyForm extends React.Component {
     e.preventDefault();
     if (!this.state.name) {
       this.setState(() => ({
-        error: 'Please provide at least the name of the company.'
+        error: 'Por favor informe pelo menos o nome da empresa.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -103,8 +103,8 @@ export default class CompanyForm extends React.Component {
       });
 
       confirmAlert({
-        title: 'Alert',
-        message: 'Saved.',
+        title: 'Alerta',
+        message: 'Salvo com sucesso.',
         buttons: [
           {
             label: 'Ok'
@@ -119,7 +119,7 @@ export default class CompanyForm extends React.Component {
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Nome da empresa"
           autoFocus
           className="text-input"
           value={this.state.name}
@@ -128,7 +128,7 @@ export default class CompanyForm extends React.Component {
         />
         <input
           type="text"
-          placeholder="Owner"
+          placeholder="Nome do dono da empresa"
           className="text-input"
           value={this.state.owner}
           onChange={this.onOwnerChange}
@@ -136,13 +136,13 @@ export default class CompanyForm extends React.Component {
         />
         <input
           type="text"
-          placeholder="Address"
+          placeholder="Endereço"
           className="text-input"
           value={this.state.address}
           onChange={this.onAddressChange}
         />
         <textarea
-          placeholder="Add a text for the about us page."
+          placeholder="Texto sobre a empresa."
           className="textarea"
           value={this.state.about}
           onChange={this.onAboutChange}
@@ -170,7 +170,7 @@ export default class CompanyForm extends React.Component {
         />
         <input
           type="text"
-          placeholder="Phone"
+          placeholder="Telefone"
           className="text-input"
           value={this.state.phone}
           onChange={this.onPhoneChange}
@@ -183,13 +183,13 @@ export default class CompanyForm extends React.Component {
           onChange={this.onEmailChange}
         />
         <textarea
-          placeholder="Add a text for company description."
+          placeholder="Texto de descrição da empresa."
           className="textarea"
           value={this.state.description}
           onChange={this.onDescriptionChange}
         />
         <label className="label button">
-          Select your file
+          Selecionar foto para o perfil
           <FileUploader
             accept="image/*"
             name="image"
@@ -210,7 +210,9 @@ export default class CompanyForm extends React.Component {
         {this.state.image && (
           <img className="list-item__image" src={this.state.image} />
         )}
-        <div>{this.state.name && <button className="button">Save</button>}</div>
+        <div>
+          {this.state.name && <button className="button">Confirmar</button>}
+        </div>
       </form>
     );
   }

@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SalesForm from './SalesForm';
-import { startEditSale, startRemoveSale } from '../../../actions/sales';
-import MenuAdmin from '../MenuAdmin';
 import { confirmAlert } from 'react-confirm-alert';
+
+import MenuAdmin from '../MenuAdmin';
+import SalesForm from './SalesForm';
 import selectProducts from '../../../selectors/products-amount';
 import selectSales from '../../../selectors/sales';
 import { startEditProduct } from '../../../actions/products';
+import { startEditSale, startRemoveSale } from '../../../actions/sales';
 
 export class SalesEditPage extends React.Component {
   onSubmit = (sales, oldProduct) => {
@@ -37,15 +38,15 @@ export class SalesEditPage extends React.Component {
   };
   onRemove = () => {
     confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
+      title: 'Confirmar',
+      message: 'Você tem certeza?',
       buttons: [
         {
-          label: 'Remove',
+          label: 'Remover',
           onClick: () => this.onClickRemove()
         },
         {
-          label: 'No'
+          label: 'Cancelar'
         }
       ]
     });
@@ -75,7 +76,7 @@ export class SalesEditPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Edit Sale</h1>
+              <h1 className="page-header__title">Editar Venda</h1>
             </div>
           </div>
           <div className="content-container">
@@ -89,7 +90,7 @@ export class SalesEditPage extends React.Component {
               className="button button--secondary"
               onClick={this.onRemove}
             >
-              Remove Sale
+              Remover
             </button>
           </div>
         </div>

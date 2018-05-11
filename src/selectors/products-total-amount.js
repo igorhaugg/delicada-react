@@ -1,5 +1,5 @@
 export default products => {
   return products
-    .map(product => product.price_sell * product.amount)
+    .map(product => +product.amount)
     .reduce((sum, value) => sum + value, 0);
 };

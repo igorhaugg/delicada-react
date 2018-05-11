@@ -1,15 +1,14 @@
 import React from 'react';
-import ProductList from './ProductList';
-import ProductListFilters from './ProductListFilters';
-import ProductsSummary from './ProductsSummary';
+
 import MenuAdmin from '../MenuAdmin';
+import ProductList from './ProductList';
+import ProductsSummary from './ProductsSummary';
 
 const ProductAdminPage = () => (
   <main className="dashboard">
     <MenuAdmin />
     <section className="dashboard__content">
       <ProductsSummary />
-      {/* <ProductListFilters /> */}
       <ProductList />
     </section>
   </main>

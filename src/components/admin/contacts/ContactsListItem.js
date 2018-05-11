@@ -8,11 +8,15 @@ const ContactsListItem = props => (
         {props.contact.name} - {props.contact.email}
       </h3>
       {props.contact.phone ? (
-        <p className="list-item__sub-title">Telefone: {props.contact.phone}</p>
+        <p className="list-item__sub-title">
+          Telefone: <strong>{props.contact.phone}</strong>
+        </p>
       ) : (
         ''
       )}
-      <p className="list-item__sub-title">Mensagem: {props.contact.message}</p>
+      <p className="list-item__sub-title">
+        Mensagem: <strong>{props.contact.message}</strong>
+      </p>
     </div>
     <button className="button" onClick={() => props.onRead(props.contact)}>
       Marcar como Lido

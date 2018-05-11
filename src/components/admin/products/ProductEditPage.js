@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
+
 import ProductForm from './ProductForm';
+import MenuAdmin from '../MenuAdmin';
 import {
   startEditProduct,
   startRemoveProduct
 } from '../../../actions/products';
-import MenuAdmin from '../MenuAdmin';
-import { confirmAlert } from 'react-confirm-alert';
 
 export class ProductEditPage extends React.Component {
   onSubmit = (product, oldImage) => {
@@ -15,15 +16,15 @@ export class ProductEditPage extends React.Component {
   };
   onRemove = () => {
     confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
+      title: 'Confirmar',
+      message: 'Você tem certeza?',
       buttons: [
         {
-          label: 'Remove',
+          label: 'Remover',
           onClick: () => this.onClickRemove()
         },
         {
-          label: 'No'
+          label: 'Cancelar'
         }
       ]
     });
@@ -39,7 +40,7 @@ export class ProductEditPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Edit Product</h1>
+              <h1 className="page-header__title">Editar Produto</h1>
             </div>
           </div>
           <div className="content-container">
@@ -52,7 +53,7 @@ export class ProductEditPage extends React.Component {
               className="button button--secondary"
               onClick={this.onRemove}
             >
-              Remove Product
+              Remover
             </button>
           </div>
         </div>

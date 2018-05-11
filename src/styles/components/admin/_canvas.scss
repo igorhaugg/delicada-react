@@ -4,5 +4,9 @@ canvas {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
   height: 300px !important;
   margin: 0 auto;
-  width: 600px !important;
+  width: 70vw !important;
+  @media (min-width: $desktop-breakpoint) {
+    height: 300px !important;
+    width: 600px !important;
+  }
 }

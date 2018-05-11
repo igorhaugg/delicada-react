@@ -15,15 +15,17 @@ const ProductListItem = ({
     <div>
       <h3 className="list-item__title">{name}</h3>
       <span className="list-item__sub-title">
-        {moment(createdAt).format('MMMM Do, YYYY')}
+        Cadastrado realizado:
+        <strong> {moment(createdAt).format('DD/MM/YYYY')}</strong>
       </span>
       <br />
       <span className="list-item__sub-title">
-        Price Sell: <strong>R{numeral(price_sell).format('$0,0.00')}</strong>
+        Preço de venda:
+        <strong> R{numeral(price_sell).format('$0,0.00')}</strong>
       </span>
       <br />
       <span className="list-item__sub-title">
-        Amount: <strong>{amount}</strong>
+        Quantidade:<strong> {amount}</strong>
       </span>
     </div>
     <h3 className="list-item__data">

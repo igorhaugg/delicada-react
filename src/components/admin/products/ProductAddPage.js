@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import MenuAdmin from '../MenuAdmin';
 import ProductForm from './ProductForm';
 import { startAddProduct } from '../../../actions/products';
-import MenuAdmin from '../MenuAdmin';
 
 export class ProductAddPage extends React.Component {
   onSubmit = product => {
@@ -16,7 +17,7 @@ export class ProductAddPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Add Product</h1>
+              <h1 className="page-header__title">Adicionar Produto</h1>
             </div>
           </div>
           <div className="content-container">

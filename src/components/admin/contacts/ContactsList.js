@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import ContactsListItem from './ContactsListItem';
 import selectContacts from '../../../selectors/contacts';
 import { startEditContact } from '../../../actions/contacts';
@@ -13,13 +14,13 @@ export class ContactsList extends React.Component {
     return (
       <div className="content-container">
         <div className="list-header">
-          <div className="show-for-mobile">Contacts</div>
-          <div className="show-for-desktop">Contact</div>
+          <div className="show-for-mobile">Mensagens</div>
+          <div className="show-for-desktop">Mensagem</div>
         </div>
         <div className="list-body">
           {this.props.contacts.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>No contacts</span>
+              <span>Nenhuma mensagem recebida</span>
             </div>
           ) : (
             this.props.contacts.map(contact => {

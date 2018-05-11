@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CompanySummary from './CompanySummary';
 import CompanyInfo from './CompanyInfo';
 import MenuAdmin from '../MenuAdmin';

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import ClientForm from './ClientForm';
-import { startAddClient } from '../../../actions/clients';
 import MenuAdmin from '../MenuAdmin';
+import { startAddClient } from '../../../actions/clients';
 
 export class ClientAddPage extends React.Component {
   onSubmit = client => {
@@ -16,7 +17,7 @@ export class ClientAddPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Add Client</h1>
+              <h1 className="page-header__title">Adicionar Cliente</h1>
             </div>
           </div>
           <div className="content-container">

@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
+
 import CategoryForm from './CategoryForm';
+import MenuAdmin from '../MenuAdmin';
 import {
   startEditCategory,
   startRemoveCategory
 } from '../../../actions/categories';
-import MenuAdmin from '../MenuAdmin';
-import { confirmAlert } from 'react-confirm-alert';
 
 export class CategoryEditPage extends React.Component {
   onSubmit = (category, oldImage) => {
@@ -15,15 +16,15 @@ export class CategoryEditPage extends React.Component {
   };
   onRemove = () => {
     confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
+      title: 'Confirmar',
+      message: 'Você tem certeza?',
       buttons: [
         {
-          label: 'Remove',
+          label: 'Remover',
           onClick: () => this.onClickRemove()
         },
         {
-          label: 'No'
+          label: 'Cancelar'
         }
       ]
     });
@@ -34,8 +35,9 @@ export class CategoryEditPage extends React.Component {
     );
     if (hasProducts) {
       confirmAlert({
-        title: 'Access denied!',
-        message: 'You can not remove a category that is being used.',
+        title: 'Acesso negado!',
+        message:
+          'Não é possível remover uma categoria que possui produtos cadastrados.',
         buttons: [
           {
             label: 'Ok'
@@ -54,7 +56,7 @@ export class CategoryEditPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Edit Category</h1>
+              <h1 className="page-header__title">Editar Categoria</h1>
             </div>
           </div>
           <div className="content-container">
@@ -67,7 +69,7 @@ export class CategoryEditPage extends React.Component {
               className="button button--secondary"
               onClick={this.onRemove}
             >
-              Remove Category
+              Remover
             </button>
           </div>
         </div>

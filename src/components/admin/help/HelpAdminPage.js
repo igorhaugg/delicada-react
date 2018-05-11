@@ -1,4 +1,5 @@
 import React from 'react';
+
 import MenuAdmin from '../MenuAdmin';
 
 const HelpAdminPage = () => (
@@ -12,7 +13,7 @@ const HelpAdminPage = () => (
           alt="dashboard background"
         />
         <div className="help__box">
-          <h2 className="help__title">Contact</h2>
+          <h2 className="help__title">Contato</h2>
           <p className="help__email">igor-haugg@hotmail.com</p>
           <p className="help__email">marcia.dasilva1410@gmail.com</p>
         </div>

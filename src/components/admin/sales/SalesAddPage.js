@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import MenuAdmin from '../MenuAdmin';
 import SalesForm from './SalesForm';
+import selectProducts from '../../../selectors/products-amount';
 import { startAddSale } from '../../../actions/sales';
 import { startEditProduct } from '../../../actions/products';
-import selectProducts from '../../../selectors/products-amount';
-import MenuAdmin from '../MenuAdmin';
 
 export class SalesAddPage extends React.Component {
   onSubmit = sale => {
@@ -26,7 +27,7 @@ export class SalesAddPage extends React.Component {
         <div className="dashboard__content">
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Register a Sale</h1>
+              <h1 className="page-header__title">Adicionar uma venda</h1>
             </div>
           </div>
           <div className="content-container">

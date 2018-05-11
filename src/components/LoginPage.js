@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { startLogin } from '../actions/auth';
 
 export class LoginPage extends React.Component {
@@ -22,7 +23,7 @@ export class LoginPage extends React.Component {
     e.preventDefault();
     if (!this.state.email || !this.state.password) {
       this.setState(() => ({
-        error: 'Please provide email and password.'
+        error: 'Por favor informe email e senha.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -48,7 +49,7 @@ export class LoginPage extends React.Component {
             />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Senha"
               className="text-input"
               value={this.state.password}
               onChange={this.onPasswordChange}

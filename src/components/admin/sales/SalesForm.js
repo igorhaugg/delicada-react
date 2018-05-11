@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
 import { connect } from 'react-redux';
+import { SingleDatePicker } from 'react-dates';
+
 import selectClients from '../../../selectors/clients';
 import selectProducts from '../../../selectors/products-amount';
 import selectSales from '../../../selectors/sales';
@@ -57,7 +58,7 @@ export class SalesForm extends React.Component {
       !this.state.payment
     ) {
       this.setState(() => ({
-        error: 'Please select a client, product and payment.'
+        error: 'Por favor adicione um cliente, produto e forma de pagamento.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -86,7 +87,7 @@ export class SalesForm extends React.Component {
           value={this.state.client_id}
         >
           <option key="null" value="null">
-            Select client
+            Selecionar cliente
           </option>
           {this.props.clients.map(client => {
             return (
@@ -103,7 +104,7 @@ export class SalesForm extends React.Component {
           value={this.state.product_id}
         >
           <option key="null" value="null">
-            Select product
+            Selecionar produto
           </option>
           {this.props.products.map(product => {
             return (
@@ -120,7 +121,7 @@ export class SalesForm extends React.Component {
 
         <input
           type="text"
-          placeholder="Payment"
+          placeholder="Forma de pagamento"
           className="text-input"
           value={this.state.payment}
           onChange={this.onPaymentChange}
@@ -141,7 +142,7 @@ export class SalesForm extends React.Component {
             this.state.product_id &&
             this.state.payment && (
               <button className="button">
-                {this.props.editForm ? 'Save' : 'Make the Sale'}
+                {this.props.editForm ? 'Salvar' : 'Confirmar'}
               </button>
             )}
         </div>

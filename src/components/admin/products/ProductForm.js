@@ -1,9 +1,10 @@
 import React from 'react';
-import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
-import FileUploader from 'react-firebase-file-uploader';
 import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
+import moment from 'moment';
 import { connect } from 'react-redux';
+import { SingleDatePicker } from 'react-dates';
+
 import selectCategories from '../../../selectors/categories';
 import selectProducts from '../../../selectors/products';
 
@@ -78,7 +79,7 @@ export class ProductForm extends React.Component {
     } else {
       this.setState({
         showLoading: false,
-        error: 'Please select a valid image (jpeg, jpg, png).'
+        error: 'Por favor selecione uma imagem nos formatos (jpeg, jpg, png).'
       });
     }
   };
@@ -103,8 +104,7 @@ export class ProductForm extends React.Component {
       !this.state.image
     ) {
       this.setState(() => ({
-        error:
-          'Please provide name, description, size, price sell, price buy, amount, image and select a category.'
+        error: 'Por favor preencha todos os campos.'
       }));
     } else {
       this.setState(() => ({ error: '' }));
@@ -130,7 +130,7 @@ export class ProductForm extends React.Component {
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Nome"
           autoFocus
           className="text-input"
           value={this.state.name}
@@ -140,7 +140,7 @@ export class ProductForm extends React.Component {
 
         <input
           type="text"
-          placeholder="Description"
+          placeholder="Descrição"
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
@@ -153,7 +153,7 @@ export class ProductForm extends React.Component {
           value={this.state.category_id}
         >
           <option key="null" value="null">
-            Select category
+            Selecionar Categoria
           </option>
           {this.props.categories.map(category => {
             return (
@@ -166,7 +166,7 @@ export class ProductForm extends React.Component {
 
         <input
           type="text"
-          placeholder="Size"
+          placeholder="Tamanho"
           className="text-input"
           value={this.state.size}
           onChange={this.onSizeChange}
@@ -176,7 +176,7 @@ export class ProductForm extends React.Component {
         <div className="form__group">
           <input
             type="text"
-            placeholder="Price buy"
+            placeholder="Preço de compra"
             className="text-input"
             value={this.state.price_buy}
             onChange={this.onPriceBuyChange}
@@ -184,7 +184,7 @@ export class ProductForm extends React.Component {
           />
           <input
             type="text"
-            placeholder="Price sell"
+            placeholder="Preço de venda"
             className="text-input"
             value={this.state.price_sell}
             onChange={this.onPriceSellChange}
@@ -192,7 +192,7 @@ export class ProductForm extends React.Component {
           />
           <input
             type="number"
-            placeholder="Amount"
+            placeholder="Quantidade"
             className="text-input"
             value={this.state.amount}
             onChange={this.onAmountChange}
@@ -210,7 +210,7 @@ export class ProductForm extends React.Component {
         />
 
         <label className="label button">
-          Select your file
+          Selecionar imagem
           <FileUploader
             accept="image/*"
             name="image"
@@ -242,7 +242,9 @@ export class ProductForm extends React.Component {
             this.state.image &&
             this.state.amount &&
             this.state.image && (
-              <button className="button">Save Product</button>
+              <button className="button">
+                {this.props.editForm ? 'Salvar' : 'Confirmar'}
+              </button>
             )}
         </div>
       </form>

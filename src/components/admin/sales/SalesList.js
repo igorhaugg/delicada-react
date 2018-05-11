@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import SalesListItem from './SalesListItem';
 import selectSales from '../../../selectors/sales';
 import selectClients from '../../../selectors/clients';
@@ -8,13 +9,13 @@ import selectProducts from '../../../selectors/products';
 export const SalesList = props => (
   <div className="content-container">
     <div className="list-header">
-      <div className="show-for-mobile">Sales</div>
-      <div className="show-for-desktop">Sale</div>
+      <div className="show-for-mobile">Vendas</div>
+      <div className="show-for-desktop">Venda</div>
     </div>
     <div className="list-body">
       {props.sales.length === 0 ? (
         <div className="list-item list-item--message">
-          <span>No sales</span>
+          <span>Nenhuma venda cadastrada</span>
         </div>
       ) : (
         props.sales.map(sale => {

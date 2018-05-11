@@ -50,3 +50,15 @@
 .icon__file {
   margin-right: $s-size;
 }
+
+input:invalid {
+  box-shadow: none;
+}
+
+input:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+input:-moz-ui-invalid {
+  box-shadow: none;
+}

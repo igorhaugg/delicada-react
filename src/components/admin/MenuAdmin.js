@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { startLogout } from '../../actions/auth';
+import { Link } from 'react-router-dom';
+
 import selectCompany from '../../selectors/company';
+import { startLogout } from '../../actions/auth';
 
 export class MenuAdmin extends React.Component {
   render() {
@@ -16,7 +17,7 @@ export class MenuAdmin extends React.Component {
                 <Link to="/">
                   {this.props.company[0] && this.props.company[0].name
                     ? this.props.company[0].name
-                    : 'Company Name'}
+                    : 'Nome da Empresa'}
                 </Link>
               </h3>
               <div className="menu_header--user">
@@ -33,85 +34,88 @@ export class MenuAdmin extends React.Component {
                 <span>
                   {this.props.company[0] && this.props.company[0].owner
                     ? this.props.company[0].owner
-                    : 'Owner Name'}
+                    : 'Usuário'}
                 </span>
               </div>
             </div>
             <Link
               to="/admin"
-              className={classNames({ active: location.pathname === '/admin' })}
+              className={classNames({
+                active:
+                  location.pathname === '/admin/' ||
+                  location.pathname === '/admin'
+              })}
             >
-              <i className="fas fa-home" /> <span>Home</span>
+              <i className="fas fa-home" /> <span>Início</span>
             </Link>
             <Link
               to="/admin/dashboard"
               className={classNames({
-                active: location.pathname === '/admin/dashboard'
+                active: location.pathname.includes('dashboard')
               })}
             >
-              <i className="fas fa-chart-line" /> <span>Summary</span>
+              <i className="fas fa-chart-line" /> <span>Resumo</span>
             </Link>
             <Link
               to="/admin/category"
               className={classNames({
-                active: location.pathname === '/admin/category'
+                active: location.pathname.includes('category')
               })}
             >
-              <i className="far fa-list-alt" /> <span>Categories</span>
+              <i className="far fa-list-alt" /> <span>Categorias</span>
             </Link>
             <Link
               to="/admin/product"
               className={classNames({
-                active: location.pathname === '/admin/product'
+                active: location.pathname.includes('product')
               })}
             >
-              <i className="far fa-list-alt" /> <span>Products</span>
+              <i className="far fa-list-alt" /> <span>Produtos</span>
             </Link>
             <Link
               to="/admin/client"
               className={classNames({
-                active: location.pathname === '/admin/client'
+                active: location.pathname.includes('client')
               })}
             >
-              <i className="fas fa-users" /> <span>Clients</span>
+              <i className="fas fa-users" /> <span>Clientes</span>
             </Link>
             <Link
               to="/admin/sales"
               className={classNames({
-                active: location.pathname === '/admin/sales'
+                active: location.pathname.includes('sales')
               })}
             >
-              <i className="fas fa-shopping-cart" /> <span>Sales</span>
+              <i className="fas fa-shopping-cart" /> <span>Vendas</span>
             </Link>
             <Link
               to="/admin/company"
               className={classNames({
-                active: location.pathname === '/admin/company'
+                active: location.pathname.includes('company')
               })}
             >
-              <i className="fas fa-info-circle" /> <span>Company</span>
+              <i className="fas fa-info-circle" /> <span>Empresa</span>
             </Link>
             <Link
               to="/admin/contacts"
               className={classNames({
-                active: location.pathname === '/admin/contacts'
+                active: location.pathname.includes('contacts')
               })}
             >
               <i className="fas fa-comment-alt flip" />
-              <span>Messages</span>
+              <span>Mensagens</span>
             </Link>
-          </div>
-          <div className="menu__items">
+
             <Link
               to="/admin/help"
               className={classNames({
-                active: location.pathname === '/admin/help'
+                active: location.pathname.includes('help')
               })}
             >
-              <i className="fas fa-question-circle" /> <span>Help</span>
+              <i className="fas fa-question-circle" /> <span>Ajuda</span>
             </Link>
             <Link to="/login" onClick={this.props.startLogout}>
-              <i className="fas fa-sign-out-alt" /> <span>Logout</span>
+              <i className="fas fa-sign-out-alt" /> <span>Sair</span>
             </Link>
           </div>
         </div>

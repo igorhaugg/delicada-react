@@ -1,15 +1,16 @@
 import React from 'react';
-import MenuAdmin from './MenuAdmin';
+import numeral from 'numeral';
+import randomColor from 'randomcolor';
 import { connect } from 'react-redux';
+
+import Chart from './Chart';
+import ClientListBirthday from './clients/ClientListBirthday';
+import MenuAdmin from './MenuAdmin';
 import selectCategories from '../../selectors/categories';
 import selectCategoriesId from '../../selectors/categories-id';
 import selectClients from '../../selectors/clients-birth';
-import selectSales from '../../selectors/sales';
 import selectProducts from '../../selectors/products';
-import Chart from './Chart';
-import randomColor from 'randomcolor';
-import ClientListBirthday from './clients/ClientListBirthday';
-import numeral from 'numeral';
+import selectSales from '../../selectors/sales';
 
 class DashboardPage extends React.Component {
   constructor(props) {
@@ -105,21 +106,21 @@ class DashboardPage extends React.Component {
             <Chart
               type="pie"
               chartData={this.state.chartDataProducts}
-              title="Amount of products"
+              title="Quantidade de produtos"
               legendPosition="bottom"
             />
             <Chart
               type="bar"
               chartData={this.state.chartDataSales}
-              title="Amount of sales"
+              title="Vendas realizadas por período"
               legendPosition="bottom"
             />
           </div>
           <div className="dashboard__birthday">
-            <h1>Birthdays of the month!</h1>
+            <h1>Clientes de Aniversário este mês!</h1>
             {this.props.clients.length === 0 ? (
               <div className="list-item list-item--message">
-                <span>No clients</span>
+                <span>Nenhum cliente</span>
               </div>
             ) : (
               this.props.clients.map(client => {

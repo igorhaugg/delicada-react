@@ -1,6 +1,6 @@
 import React from 'react';
+
 import CategoryList from './CategoryList';
-import CategoryListFilters from './CategoryListFilters';
 import CategoriesSummary from './CategoriesSummary';
 import MenuAdmin from '../MenuAdmin';
 
@@ -9,7 +9,6 @@ const CategoryAdminPage = () => (
     <MenuAdmin />
     <section className="dashboard__content">
       <CategoriesSummary />
-      {/* <CategoryListFilters /> */}
       <CategoryList />
     </section>
   </main>
