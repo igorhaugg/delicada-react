@@ -1,12 +1,20 @@
-canvas {
+.chart {
   background-color: #eff7ff;
   border-radius: 2%;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
   height: 300px !important;
-  margin: 0 auto;
+  margin: $m-size auto;
   width: 70vw !important;
   @media (min-width: $desktop-breakpoint) {
     height: 300px !important;
     width: 600px !important;
   }
+}
+
+.canvas-particles {
+  background-color: black;
+  height: 100vh !important;
+  position: absolute;
+  z-index: -1;
+  width: 100vw !important;
 }

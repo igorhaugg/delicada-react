@@ -1,0 +1,33 @@
+.notfound {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 1px #ddd, 0 0px 5px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 20rem;
+  min-width: 30rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  > * {
+    padding: $s-size 0;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    min-width: 40rem;
+  }
+}
+
+.notfound__title {
+  color: white;
+  font-family: $title-font;
+  font-size: $font-size-titles;
+}
+
+.notfound__buttons {
+  > * {
+    margin: 0 $s-size;
+  }
+}
