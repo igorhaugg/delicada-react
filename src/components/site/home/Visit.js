@@ -9,7 +9,7 @@ const Visit = () => {
         <p>Gostou de algum de nossos produtos? </p>
         <p>Agende uma visita e nós entraremos em contato</p>
       </div>
-      <Link className="button button--home button--home-hover" to="/products">
+      <Link className="button button--home button--home-hover" to="/contact">
         Agendar
       </Link>
     </div>

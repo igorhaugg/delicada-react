@@ -16,7 +16,10 @@ const Brands = () => {
           <img className="brands__image" src="/images/shopping3.png" alt="" />
         </div>
         <div className="brands__image__overlay">
-          <img className="brands__image" src="/images/shopping1.png" alt="" />
+          <img className="brands__image" src="/images/shopping4.png" alt="" />
+        </div>
+        <div className="brands__image__overlay">
+          <img className="brands__image" src="/images/shopping5.png" alt="" />
         </div>
       </div>
     </div>

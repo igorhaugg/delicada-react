@@ -17,17 +17,29 @@
   }
   > * {
     margin: $s-size 0;
-    // @media (min-width: $desktop-breakpoint) {
-    //   padding: 0;
-    // }
   }
 }
 
 .brands__image__overlay {
-  @extend .image-overlay-home;
+  height: 25rem;
+  margin: 1rem;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 75vw;
 
   &:hover .brands__image {
     @extend .image-overlay-hover-home;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    height: 25rem;
+    width: 60vw;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    height: 20rem;
+    width: 20rem;
   }
 }
 

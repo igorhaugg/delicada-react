@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 
@@ -12,8 +13,28 @@ import {
 
 export class SalesListFilters extends React.Component {
   state = {
-    calendarFocused: null
+    calendarFocused: null,
+    startDate: ''
   };
+  componentWillMount() {
+    const sales = this.props.allSales
+      .map(sale => sale.createdAt)
+      .sort((a, b) => {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      });
+
+    const month = moment(sales[0]).month();
+    const startDate = moment()
+      .month(month)
+      .date(1);
+
+    const startDateFinal = moment(startDate);
+
+    this.setState({
+      startDate: startDateFinal
+    });
+    this.props.setStartDate(startDateFinal);
+  }
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
@@ -56,7 +77,7 @@ export class SalesListFilters extends React.Component {
           </div>
           <div className="input-group__item">
             <DateRangePicker
-              startDate={this.props.filters.startDate}
+              startDate={this.state.startDate}
               endDate={this.props.filters.endDate}
               onDatesChange={this.onDatesChange}
               focusedInput={this.state.calendarFocused}
@@ -73,6 +94,7 @@ export class SalesListFilters extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  allSales: state.sales,
   filters: state.filters
 });
 

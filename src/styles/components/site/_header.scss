@@ -27,7 +27,7 @@
   transition: color $s-time ease-in-out;
 
   svg {
-    opacity: 0;
+    display: none;
   }
 
   &:hover {
@@ -39,7 +39,7 @@
 
   @media (min-width: $desktop-breakpoint) {
     svg {
-      opacity: 1;
+      display: inline-block;
     }
   }
 }
