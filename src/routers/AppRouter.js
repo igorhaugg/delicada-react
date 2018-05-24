@@ -25,6 +25,7 @@ import IndexPage from '../components/site/IndexPage';
 import ProductsPage from '../components/site/ProductsPage';
 import ProductsDetailPage from '../components/site/ProductsDetailPage';
 import ContactPage from '../components/site/ContactPage';
+import AboutPage from '../components/site/AboutPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -38,9 +39,10 @@ const AppRouter = () => (
     <div>
       <Switch>
         <PublicRoute path="/" component={IndexPage} exact={true} />
-        <PublicRoute path="/products" component={ProductsPage} exact={true} />
-        <PublicRoute path="/products/:id" component={ProductsDetailPage} />
-        <PublicRoute path="/contact" component={ContactPage} />
+        <PublicRoute path="/produtos" component={ProductsPage} exact={true} />
+        <PublicRoute path="/produtos/:id" component={ProductsDetailPage} />
+        <PublicRoute path="/contato" component={ContactPage} />
+        <PublicRoute path="/sobre" component={AboutPage} />
         <SpecialRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/admin" component={HomePage} exact={true} />
         <PrivateRoute path="/admin/dashboard" component={DashboardPage} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
+import { WhatsappIcon } from 'react-share';
 
 const Social = () => {
   return (
@@ -10,13 +11,17 @@ const Social = () => {
         <p>Entre em contato pelas nossas redes sociais. </p>
       </div>
       <ul className="social__list">
-        <li>
+        <li className="social__facebook">
           <SocialIcon
             className="social__link"
-            url="https://www.facebook.com/igor.haugg"
+            url="https://www.facebook.com/Delicada-Mulher-Moda-Feminina-1633902576707232/"
           />
         </li>
-        <li>
+        <li className="social__whatsapp">
+          <WhatsappIcon size={50} round />
+          <span>55 99112-9608</span>
+        </li>
+        {/* <li>
           <SocialIcon
             className="social__link"
             url="https://twitter.com/igorhaugg"
@@ -27,7 +32,7 @@ const Social = () => {
             className="social__link"
             url="https://www.instagram.com/marcia.dasilva1410/"
           />
-        </li>
+        </li> */}
       </ul>
     </div>
   );

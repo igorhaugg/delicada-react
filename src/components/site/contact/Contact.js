@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { WhatsappIcon } from 'react-share';
+import { withRouter } from 'react-router-dom';
 
 export class Contact extends React.Component {
   constructor(props) {
@@ -9,7 +10,11 @@ export class Contact extends React.Component {
       name: '',
       email: '',
       phone: '',
-      message: '',
+      message: this.props.location.state
+        ? `Gostaria de comprar o produto: ${
+            this.props.location.state.productSelected
+          }`
+        : '',
       error: '',
       createdAt: moment()
     };
@@ -87,7 +92,7 @@ export class Contact extends React.Component {
               required
             />
             <input
-              type="number"
+              type="text"
               placeholder="Número do telefone"
               className="text-input-site"
               value={this.state.phone}
@@ -110,4 +115,5 @@ export class Contact extends React.Component {
     );
   }
 }
-export default Contact;
+// export default Contact;
+export default withRouter(Contact);

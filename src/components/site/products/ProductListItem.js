@@ -6,7 +6,7 @@ import numeral from 'numeral';
 class ProductListItem extends React.Component {
   render() {
     return (
-      <Link className="products__item" to={`/products/${this.props.id}`}>
+      <Link className="products__item" to={`/produtos/${this.props.id}`}>
         <img className="products__item-image" src={this.props.image} />
         <div className="products__item-details">
           <span>

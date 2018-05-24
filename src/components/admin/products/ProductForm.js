@@ -19,7 +19,7 @@ export class ProductForm extends React.Component {
       size: props.product ? props.product.size : '',
       price_sell: props.product ? props.product.price_sell.toString() : '',
       price_buy: props.product ? props.product.price_buy.toString() : '',
-      amount: props.product ? props.product.amount.toString() : '',
+      amount: props.product ? props.product.amount.toString() : '1',
       createdAt: props.product ? moment(props.product.createdAt) : moment(),
       calendarFocused: false,
       showLoading: false,

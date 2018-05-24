@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setCategoryFilter } from '../../actions/filters';
 
 const Header = props => {
-  const iconLogged = props.isAuthenticated ? 'fas fa-home' : 'fas fa-lock';
   const onCategoryChange = id => {
     if (id) {
       props.setCategoryFilter(id);
@@ -16,7 +15,7 @@ const Header = props => {
         <Link to="/">
           <li className="header__option">Início</li>
         </Link>
-        <Link to="/products">
+        <Link to="/produtos">
           <li className="header__option dropdown">
             Produtos <i className="fas fa-angle-down" />
             <ul className="header__dropdown">
@@ -31,10 +30,10 @@ const Header = props => {
             </ul>
           </li>
         </Link>
-        <Link to="/contact">
+        <Link to="/contato">
           <li className="header__option">Contato</li>
         </Link>
-        <Link to="/about">
+        <Link to="/sobre">
           <li className="header__option">Sobre</li>
         </Link>
       </ul>

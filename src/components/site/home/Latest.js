@@ -40,7 +40,7 @@ class Latest extends React.Component {
             .map(product => {
               return (
                 <div key={product.id}>
-                  <Link to={`/products/${product.id}`} className="wrapper">
+                  <Link to={`/produtos/${product.id}`} className="wrapper">
                     <div className="latest__image__overlay">
                       <img
                         className="latest__image"
@@ -59,7 +59,7 @@ class Latest extends React.Component {
           animationOut="tada"
           isVisible={this.state.onoff}
         >
-          <Link className="button button--home" to="/products">
+          <Link className="button button--home" to="/produtos">
             Mais
           </Link>
         </Animated>

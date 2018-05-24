@@ -6,7 +6,7 @@ import ProductList from './ProductList';
 const MainContent = () => {
   return (
     <main className="wrapper">
-      <Breadcrumbs route="/products" title="Produtos" />
+      <Breadcrumbs route="/produtos" title="Produtos" />
       <ProductListFilters />
       <ProductList />
     </main>

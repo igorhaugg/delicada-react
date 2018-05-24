@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 import selectProducts from '../../../selectors/products-name';
 import Breadcrumbs from '../Breadcrumbs';
+import Contact from '../contact/Contact';
 
 import {
   FacebookShareButton,
@@ -30,7 +31,7 @@ class Details extends React.Component {
             <Fragment>
               <Breadcrumbs
                 product={product.name}
-                route="/products"
+                route="/produtos"
                 title="Produtos"
               />
               <div className="wrapper details">
@@ -47,7 +48,17 @@ class Details extends React.Component {
                     </strong>
                   </span>
 
-                  <Link className="button button--home" to="/contact">
+                  <Link
+                    className="button button--home"
+                    to={{
+                      pathname: '/contato',
+                      state: {
+                        productSelected: `${product.name} no tamanho: ${
+                          product.size
+                        }`
+                      }
+                    }}
+                  >
                     Pedir
                   </Link>
 

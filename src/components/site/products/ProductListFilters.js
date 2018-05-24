@@ -12,6 +12,11 @@ import {
 import selectProducts from '../../../selectors/products';
 
 export class ProductListFilters extends React.Component {
+  state = {
+    category: this.props.filters.category
+      ? this.props.filters.category
+      : 'default'
+  };
   onTextChange = e => {
     this.props.setTextFilter(e.target.value);
   };
@@ -29,10 +34,13 @@ export class ProductListFilters extends React.Component {
   onCategoryChange = e => {
     if (e.target.value) {
       this.props.setCategoryFilter(e.target.value);
+      this.setState({
+        category: e.target.value
+      });
     }
   };
   componentWillUnmount() {
-    this.props.setCategoryFilter('');
+    // this.props.setCategoryFilter('default');
     this.props.sortByDate();
     this.props.setTextFilter('');
   }
@@ -62,8 +70,12 @@ export class ProductListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
-            <select className="select--site" onChange={this.onCategoryChange}>
-              <option key="default" value="default">
+            <select
+              className="select--site"
+              onChange={this.onCategoryChange}
+              value={this.state.category}
+            >
+              <option key="default" value="default" disabled>
                 Categoria
               </option>
               {this.props.categories.map(category => {
@@ -73,6 +85,9 @@ export class ProductListFilters extends React.Component {
                   </option>
                 );
               })}
+              <option key="all" value="all">
+                Todas
+              </option>
             </select>
           </div>
         </div>

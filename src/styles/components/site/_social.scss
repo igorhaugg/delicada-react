@@ -21,3 +21,27 @@
     padding: 0 $s-size / 2;
   }
 }
+
+.social__facebook {
+  padding-left: 11rem;
+}
+
+.social__whatsapp {
+  align-items: center;
+  display: flex;
+  span {
+    background-color: $main-color;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 1px 1px 1px 1px #ececec;
+    color: $main-background;
+    margin-left: 0.6rem;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  &:hover span {
+    opacity: 1;
+  }
+}

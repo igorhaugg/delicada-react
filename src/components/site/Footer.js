@@ -29,7 +29,7 @@ const Footer = props => {
               </ul>
             </li>
             <li>
-              <Link to="/about" className="color-link">
+              <Link to="/sobre" className="color-link">
                 <i className="fas fa-angle-right" /> Sobre
               </Link>
             </li>
@@ -48,7 +48,7 @@ const Footer = props => {
                 key={category.id}
                 onClick={() => onCategoryChange(category.id)}
               >
-                <Link to="/products" className="color-link">
+                <Link to="/produtos" className="color-link">
                   <i className="fas fa-angle-right" />
                   &nbsp;
                   {category.name}
@@ -61,11 +61,13 @@ const Footer = props => {
           <span className="footer__title">Contato</span>
           <ul className="footer__list">
             <li className="color-link">
-              <i className="fab fa-whatsapp" /> 959465121
+              <i className="fab fa-whatsapp" /> 55 99112-9608
             </li>
-            <li className="color-link">
-              <i className="fas fa-envelope" /> email@email.com
-            </li>
+
+            <Link to="/contato" className="color-link">
+              <i className="fas fa-envelope" /> Email
+            </Link>
+
             <li className="color-link">
               <i className="fas fa-location-arrow" /> Ijuí - RS
             </li>

@@ -14,7 +14,7 @@ const getVisibleProducts = (
       }
     })
     .filter(product => {
-      if (category && category !== 'default') {
+      if (category && (category !== 'default' && category !== 'all')) {
         return product.category_id === category;
       } else {
         return product;
@@ -28,7 +28,7 @@ const getVisibleProducts = (
       } else if (sortBy === 'price') {
         return a.price_sell < b.price_sell ? 1 : -1;
       } else if (sortBy === 'name') {
-        return a.name > b.name ? 1 : -1;
+        return a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1;
       }
     });
 };
