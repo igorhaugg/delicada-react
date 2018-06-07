@@ -37,7 +37,11 @@ export default class CategoryForm extends React.Component {
       filename.endsWith('.jpeg') ||
       filename.endsWith('.jpg') ||
       filename.endsWith('.png') ||
-      filename.endsWith('.gif')
+      filename.endsWith('.gif') ||
+      filename.endsWith('.JPEG') ||
+      filename.endsWith('.PNG') ||
+      filename.endsWith('.JPG') ||
+      filename.endsWith('.GIF')
     ) {
       firebase
         .storage()
