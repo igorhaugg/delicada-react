@@ -2,31 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import selectProducts from '../../../selectors/products';
-import { Animated } from 'react-animated-css';
 
 class Latest extends React.Component {
-  state = {
-    onoff: true
-  };
-
-  getInitialState() {
-    return {
-      onoff: this.props.onoff
-    };
-  }
-
-  componentWillMount() {
-    this.intervalId = setInterval(() => {
-      this.setState({
-        onoff: !this.state.onoff
-      });
-    }, 3000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
-
   render() {
     return (
       <div className="wrapper latest">
@@ -54,15 +31,9 @@ class Latest extends React.Component {
               );
             })}
         </div>
-        <Animated
-          animationIn="jello"
-          animationOut="tada"
-          isVisible={this.state.onoff}
-        >
-          <Link className="button button--home" to="/produtos">
-            Mais
-          </Link>
-        </Animated>
+        <Link className="button button--home" to="/produtos">
+          Mais
+        </Link>
       </div>
     );
   }

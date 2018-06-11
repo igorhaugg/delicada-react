@@ -103,6 +103,9 @@ export class ProductForm extends React.Component {
   //   }
   // };
   handleChange = async event => {
+    if (this.props.editForm) {
+      this.setState({ oldImage: this.state.image });
+    }
     this.setState({ image: undefined, showLoading: true });
     const file = event.target.files[0];
 
@@ -118,7 +121,7 @@ export class ProductForm extends React.Component {
     ) {
       let image;
       let resultImage = await new ImageCompressor(file, {
-        quality: 0.6,
+        quality: 0.2,
         success(result) {
           const ref = firebase.storage().ref('images/products');
           const name = +new Date() + '-' + result.name;

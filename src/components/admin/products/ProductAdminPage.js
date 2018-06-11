@@ -15,7 +15,7 @@ class ProductAdminPage extends React.Component {
     return (
       <main className="dashboard">
         <MenuAdmin />
-        <section className="dashboard__content">
+        <section className="dashboard__content dashboard__scroll">
           <ProductsSummary />
           <ProductList />
         </section>
