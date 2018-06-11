@@ -8,6 +8,8 @@ import { SingleDatePicker } from 'react-dates';
 import selectCategories from '../../../selectors/categories';
 import selectProducts from '../../../selectors/products';
 
+import ImageCompressor from 'image-compressor.js';
+
 export class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -59,27 +61,81 @@ export class ProductForm extends React.Component {
     const amount = e.target.value;
     this.setState(() => ({ amount }));
   };
-  onUploadStart = () => this.setState({ showLoading: true });
-  onUploadSuccess = filename => {
-    if (this.props.editForm) {
-      this.setState({ oldImage: this.state.image });
-    }
+  // onUploadStart = () => this.setState({ showLoading: true });
+  // // onUploadSuccess = async filename => {
+  // onUploadSuccess = filename => {
+  //   if (this.props.editForm) {
+  //     this.setState({ oldImage: this.state.image });
+  //   }
+  //   if (
+  //     filename.endsWith('.jpeg') ||
+  //     filename.endsWith('.jpg') ||
+  //     filename.endsWith('.png') ||
+  //     filename.endsWith('.gif') ||
+  //     filename.endsWith('.JPEG') ||
+  //     filename.endsWith('.PNG') ||
+  //     filename.endsWith('.JPG') ||
+  //     filename.endsWith('.GIF')
+  //   ) {
+  //     // const fileThumb = `thumb${filename}`;
+  //     // console.log('começou');
+  //     // console.log(typeof filename);
+  //     // console.log(typeof fileThumb);
+  //     // const teste = await firebase
+  //     //   .storage()
+  //     //   .ref('images/products')
+  //     //   .child(filename);
+  //     // console.log('terminou');
+  //     // teste
+  //     //   .getDownloadURL()
+  //     //   .then(url => this.setState({ image: url, showLoading: false }));
+  //     firebase
+  //       .storage()
+  //       .ref('images/products')
+  //       .child(filename)
+  //       .getDownloadURL()
+  //       .then(url => this.setState({ image: url, showLoading: false }));
+  //   } else {
+  //     this.setState({
+  //       showLoading: false,
+  //       error: 'Por favor selecione uma imagem nos formatos (jpeg, jpg, png).'
+  //     });
+  //   }
+  // };
+  handleChange = async event => {
+    this.setState({ image: undefined, showLoading: true });
+    const file = event.target.files[0];
+
     if (
-      filename.endsWith('.jpeg') ||
-      filename.endsWith('.jpg') ||
-      filename.endsWith('.png') ||
-      filename.endsWith('.gif') ||
-      filename.endsWith('.JPEG') ||
-      filename.endsWith('.PNG') ||
-      filename.endsWith('.JPG') ||
-      filename.endsWith('.GIF')
+      file.name.endsWith('.jpeg') ||
+      file.name.endsWith('.jpg') ||
+      file.name.endsWith('.png') ||
+      file.name.endsWith('.gif') ||
+      file.name.endsWith('.JPEG') ||
+      file.name.endsWith('.PNG') ||
+      file.name.endsWith('.JPG') ||
+      file.name.endsWith('.GIF')
     ) {
-      firebase
-        .storage()
-        .ref('images/products')
-        .child(filename)
-        .getDownloadURL()
-        .then(url => this.setState({ image: url, showLoading: false }));
+      let image;
+      let resultImage = await new ImageCompressor(file, {
+        quality: 0.6,
+        success(result) {
+          const ref = firebase.storage().ref('images/products');
+          const name = +new Date() + '-' + result.name;
+          const metadata = { contentType: result.type };
+          const task = ref.child(name).put(result, metadata);
+          task.then(snapshot => {
+            image = snapshot.downloadURL;
+            return image;
+          });
+        },
+        error(e) {
+          return e;
+        }
+      });
+      setTimeout(() => {
+        this.setState({ image: image, showLoading: false });
+      }, 15000);
     } else {
       this.setState({
         showLoading: false,
@@ -214,15 +270,14 @@ export class ProductForm extends React.Component {
         />
 
         <label className="label button">
+          <i className="fas fa-cloud-upload-alt icon__file" />
           Selecionar imagem
-          <FileUploader
-            accept="image/*"
-            name="image"
-            randomizeFilename
-            hidden
-            storageRef={firebase.storage().ref('images/products')}
-            onUploadStart={this.onUploadStart}
-            onUploadSuccess={this.onUploadSuccess}
+          <input
+            className="input-file"
+            type="file"
+            name="input"
+            placeholder="Imagem"
+            onChange={this.handleChange}
           />
         </label>
 

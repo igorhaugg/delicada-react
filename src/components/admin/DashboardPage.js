@@ -23,6 +23,16 @@ class DashboardPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.title = 'Delicada Mulher - Resumo';
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 2);
+  }
+  componentWillUnmount() {
+    document.title = 'Delicada Mulher';
+  }
+
   componentWillMount() {
     this.getChartDataProducts();
     this.getChartDataSales();

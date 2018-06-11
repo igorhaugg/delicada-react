@@ -6,7 +6,13 @@ import Social from './Social';
 
 class ContactPage extends React.Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
+    document.title = 'Delicada Mulher - Contato';
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 2);
+  }
+  componentWillUnmount() {
+    document.title = 'Delicada Mulher';
   }
   render() {
     return (

@@ -6,7 +6,13 @@ import Social from './Social';
 
 class ProductsDetailPage extends React.Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
+    document.title = 'Delicada Mulher - Produto';
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 2);
+  }
+  componentWillUnmount() {
+    document.title = 'Delicada Mulher';
   }
   render() {
     return (

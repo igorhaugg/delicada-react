@@ -4,14 +4,23 @@ import MenuAdmin from '../MenuAdmin';
 import ProductList from './ProductList';
 import ProductsSummary from './ProductsSummary';
 
-const ProductAdminPage = () => (
-  <main className="dashboard">
-    <MenuAdmin />
-    <section className="dashboard__content">
-      <ProductsSummary />
-      <ProductList />
-    </section>
-  </main>
-);
-
+class ProductAdminPage extends React.Component {
+  componentDidMount() {
+    document.title = 'Delicada Mulher - Produtos';
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 2);
+  }
+  render() {
+    return (
+      <main className="dashboard">
+        <MenuAdmin />
+        <section className="dashboard__content">
+          <ProductsSummary />
+          <ProductList />
+        </section>
+      </main>
+    );
+  }
+}
 export default ProductAdminPage;
