@@ -6,7 +6,8 @@
 }
 
 .details__image {
-  height: 45rem;
+  height: auto;
+  max-height: 45rem;
   width: 80vw;
   @media (min-width: $desktop-breakpoint) {
     width: 45rem;

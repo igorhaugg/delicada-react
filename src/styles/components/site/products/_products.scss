@@ -21,17 +21,18 @@
   justify-content: center;
   margin: $s-size;
   padding-bottom: $m-size;
-  width: 30rem;
-  @media (min-width: $desktop-breakpoint) {
-    width: 20rem;
-  }
+  // width: 30rem;
+  // @media (min-width: $desktop-breakpoint) {
+  //   width: 20rem;
+  // }
 }
 
 .products__item-image {
-  height: 25rem;
-  width: 25rem;
+  height: auto;
+  min-height: 22rem;
+  width: 100%;
   @media (min-width: $desktop-breakpoint) {
-    height: 20rem;
+    height: 19rem;
     width: 20rem;
   }
 }
