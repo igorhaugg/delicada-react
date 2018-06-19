@@ -61,48 +61,7 @@ export class ProductForm extends React.Component {
     const amount = e.target.value;
     this.setState(() => ({ amount }));
   };
-  // onUploadStart = () => this.setState({ showLoading: true });
-  // // onUploadSuccess = async filename => {
-  // onUploadSuccess = filename => {
-  //   if (this.props.editForm) {
-  //     this.setState({ oldImage: this.state.image });
-  //   }
-  //   if (
-  //     filename.endsWith('.jpeg') ||
-  //     filename.endsWith('.jpg') ||
-  //     filename.endsWith('.png') ||
-  //     filename.endsWith('.gif') ||
-  //     filename.endsWith('.JPEG') ||
-  //     filename.endsWith('.PNG') ||
-  //     filename.endsWith('.JPG') ||
-  //     filename.endsWith('.GIF')
-  //   ) {
-  //     // const fileThumb = `thumb${filename}`;
-  //     // console.log('começou');
-  //     // console.log(typeof filename);
-  //     // console.log(typeof fileThumb);
-  //     // const teste = await firebase
-  //     //   .storage()
-  //     //   .ref('images/products')
-  //     //   .child(filename);
-  //     // console.log('terminou');
-  //     // teste
-  //     //   .getDownloadURL()
-  //     //   .then(url => this.setState({ image: url, showLoading: false }));
-  //     firebase
-  //       .storage()
-  //       .ref('images/products')
-  //       .child(filename)
-  //       .getDownloadURL()
-  //       .then(url => this.setState({ image: url, showLoading: false }));
-  //   } else {
-  //     this.setState({
-  //       showLoading: false,
-  //       error: 'Por favor selecione uma imagem nos formatos (jpeg, jpg, png).'
-  //     });
-  //   }
-  // };
-  handleChange = async event => {
+  handleChange = event => {
     if (this.props.editForm) {
       this.setState({ oldImage: this.state.image });
     }
@@ -120,25 +79,28 @@ export class ProductForm extends React.Component {
       file.name.endsWith('.GIF')
     ) {
       let image;
-      let resultImage = await new ImageCompressor(file, {
-        quality: 0.2,
-        success(result) {
-          const ref = firebase.storage().ref('images/products');
-          const name = +new Date() + '-' + result.name;
-          const metadata = { contentType: result.type };
-          const task = ref.child(name).put(result, metadata);
-          task.then(snapshot => {
-            image = snapshot.downloadURL;
-            return image;
-          });
-        },
-        error(e) {
-          return e;
-        }
+      let p1 = new Promise(function(resolve, reject) {
+        new ImageCompressor(file, {
+          quality: 0.2,
+          success(result) {
+            const ref = firebase.storage().ref('images/products');
+            const name = +new Date() + '-' + result.name;
+            const metadata = { contentType: result.type };
+            const task = ref.child(name).put(result, metadata);
+            task.then(snapshot => {
+              image = snapshot.downloadURL;
+              return resolve(image);
+            });
+          },
+          error(e) {
+            reject(e);
+          }
+        });
       });
-      setTimeout(() => {
+
+      p1.then(() => {
         this.setState({ image: image, showLoading: false });
-      }, 15000);
+      });
     } else {
       this.setState({
         showLoading: false,
