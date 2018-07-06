@@ -14,7 +14,9 @@
 
 .image-size-home__big {
   height: 100%;
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all $s-time ease-in-out;
   transition: all $s-time ease-in-out;
   width: 100%;
 }
@@ -22,6 +24,7 @@
 .image-size-home__small {
   height: 12rem;
   // object-fit: fill;
+  -webkit-transition: all $s-time ease-in-out;
   transition: all $s-time ease-in-out;
   width: 15rem;
 }

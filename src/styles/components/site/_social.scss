@@ -13,6 +13,8 @@
 }
 
 .social__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: $xl-size;
   margin-top: $l-size;
@@ -27,17 +29,23 @@
 }
 
 .social__whatsapp {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   span {
     background-color: $main-color;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    box-shadow: 1px 1px 1px 1px #ececec;
+    -webkit-box-shadow: 1px 1px 1px 1px #ececec;
+            box-shadow: 1px 1px 1px 1px #ececec;
     color: $main-background;
     margin-left: 0.6rem;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     opacity: 0;
+    -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
   }
 

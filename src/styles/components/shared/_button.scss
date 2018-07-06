@@ -17,7 +17,11 @@
 }
 
 .button__profile {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -35,6 +39,7 @@
   padding: $s-size $l-size * 2;
   letter-spacing: 2px;
   text-transform: uppercase;
+  -webkit-transition: all $s-time ease-in-out;
   transition: all $s-time ease-in-out;
 }
 

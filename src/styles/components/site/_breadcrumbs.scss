@@ -1,7 +1,14 @@
 .breadcrumbs {
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: $l-size * 2 0 $l-size 0;
   width: 90vw;
 }

@@ -1,8 +1,14 @@
 .footer {
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   background-color: #f8f8f5;
-  flex-direction: row;
-  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 0;
   @media (min-width: $desktop-breakpoint) {
     min-height: 40rem;
@@ -13,16 +19,25 @@
 .footer__products,
 .footer__links,
 .footer__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-basis: 80%;
-  flex-direction: column;
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: $l-size;
   @media (min-width: $tablet-breakpoint) {
-    flex-basis: 60%;
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
     padding-top: $xl-size;
   }
   @media (min-width: $desktop-breakpoint) {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: $s-size;
     padding-top: $xl-size;
   }
@@ -53,6 +68,7 @@
 .color-link {
   color: $links-color;
   font-size: $font-size-medium;
+  -webkit-transition: color $s-time ease-in-out;
   transition: color $s-time ease-in-out;
   &:hover {
     color: $main-color;
@@ -72,15 +88,20 @@
 
 .copyright__border {
   border-top: 1px solid rgba(148, 141, 136, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding: $m-size $xl-size;
   width: 90%;
 }
 
 .copyright__names a {
   color: #6d6d5d;
+  -webkit-transition: color $s-time ease-in-out;
   transition: color $s-time ease-in-out;
   &:hover {
     color: darken(#6d6d5d, 25%);

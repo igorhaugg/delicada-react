@@ -1,7 +1,9 @@
 .visit {
   background-color: $section-secondary;
   height: 40rem;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: $xl-size 0;
   width: 100%;
 }

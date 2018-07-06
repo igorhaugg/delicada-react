@@ -31,7 +31,8 @@
 
 .checkbox {
   margin-right: $s-size;
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .textarea {
@@ -56,7 +57,8 @@
 }
 
 input:invalid {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 input:-moz-submit-invalid {

@@ -8,12 +8,17 @@
 }
 
 .latest__list {
-  flex-direction: row;
-  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-bottom: $l-size;
   width: 90vw;
   @media (min-width: $desktop-breakpoint) {
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   > * {
     padding: $s-size;
@@ -46,6 +51,7 @@
   padding: $s-size;
   text-align: center;
   text-transform: uppercase;
+  -webkit-transition: color $s-time ease-in-out;
   transition: color $s-time ease-in-out;
   width: 100%;
 

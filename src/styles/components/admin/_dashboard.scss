@@ -1,13 +1,20 @@
 .dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   @media (min-width: $desktop-breakpoint) {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 
 .dashboard__menu {
   background-color: $light-blue;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   @media (min-width: $desktop-breakpoint) {
     min-height: 100vh;
     // min-height: calc(100vh - 104px);
@@ -15,7 +22,9 @@
 }
 
 .dashboard__content {
-  flex: 6;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
   min-height: 100vh;
   h1 {
     text-align: center;
@@ -41,14 +50,23 @@
 }
 
 .dashboard__content--home {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 6;
-  flex-wrap: wrap-reverse;
-  justify-content: center;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .dashboard__info {
-  flex: 5;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   padding: $s-size;
   @media (min-width: $desktop-breakpoint) {
     padding: $s-size 0;
@@ -57,7 +75,9 @@
 
 .dashboard__birthday {
   background-color: $off-white;
-  flex: 2;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   padding-left: $s-size;
   padding-right: $s-size;
   text-align: center;
@@ -70,26 +90,42 @@
 // }
 
 .dashboard__image-home {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: url('/images/dashboard.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100vh;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 60rem;
   width: 100%;
 }
 
 .dashboard__card-alert {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #f4f4f4;
-  box-shadow: 0px 3px 3rem rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 3rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 3rem rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 15rem;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   // opacity: 0.8;
   text-align: center;
   width: 25rem;
