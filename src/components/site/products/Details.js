@@ -30,14 +30,14 @@ class Details extends React.Component {
           {this.props.product ? (
             <Fragment>
               <Breadcrumbs
-                product={product.name}
+                product={product.description}
                 route="/produtos"
                 title="Produtos"
               />
               <div className="wrapper details">
                 <img className="details__image" src={product.image} />
                 <div className="details__info">
-                  <span>{product.name}</span>
+                  <span>{product.description}</span>
                   <span className="details__numbers">
                     <strong>
                       <span>R$</span>
@@ -53,7 +53,7 @@ class Details extends React.Component {
                     to={{
                       pathname: '/contato',
                       state: {
-                        productSelected: `${product.name} no tamanho: ${
+                        productSelected: `${product.description} no tamanho: ${
                           product.size
                         }`
                       }
@@ -62,9 +62,6 @@ class Details extends React.Component {
                     Pedir
                   </Link>
 
-                  <span className="details__description">
-                    {product.description}
-                  </span>
                   <span className="details__description">
                     Compartilhe nas redes sociais:
                   </span>

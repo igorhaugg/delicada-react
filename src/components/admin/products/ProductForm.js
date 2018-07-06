@@ -15,7 +15,6 @@ export class ProductForm extends React.Component {
     super(props);
     this.state = {
       category_id: props.product ? props.product.category_id : '',
-      name: props.product ? props.product.name : '',
       description: props.product ? props.product.description : '',
       image: props.product ? props.product.image : '',
       size: props.product ? props.product.size : '',
@@ -29,10 +28,6 @@ export class ProductForm extends React.Component {
       oldImage: null
     };
   }
-  onNameChange = e => {
-    const name = e.target.value;
-    this.setState(() => ({ name }));
-  };
   onDescriptionChange = e => {
     const description = e.target.value;
     this.setState(() => ({ description }));
@@ -121,7 +116,6 @@ export class ProductForm extends React.Component {
     if (
       !this.state.description ||
       !this.state.category_id ||
-      !this.state.name ||
       !this.state.size ||
       !this.state.price_sell ||
       !this.state.price_buy ||
@@ -136,8 +130,7 @@ export class ProductForm extends React.Component {
       this.props.onSubmit(
         {
           category_id: this.state.category_id,
-          name: this.capitalizeFirstLetter(this.state.name),
-          description: this.state.description,
+          description: this.capitalizeFirstLetter(this.state.description),
           image: this.state.image,
           size: this.state.size,
           price_sell: parseFloat(this.state.price_sell, 10),
@@ -157,15 +150,6 @@ export class ProductForm extends React.Component {
     return (
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error">{this.state.error}</p>}
-        <input
-          type="text"
-          placeholder="Nome"
-          autoFocus
-          className="text-input"
-          value={this.state.name}
-          onChange={this.onNameChange}
-          required
-        />
 
         <input
           type="text"
@@ -263,7 +247,6 @@ export class ProductForm extends React.Component {
         <div>
           {this.state.description &&
             this.state.category_id &&
-            this.state.name &&
             this.state.size &&
             this.state.price_sell &&
             this.state.price_buy &&

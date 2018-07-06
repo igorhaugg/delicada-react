@@ -7,7 +7,7 @@ const getVisibleProducts = (
   return products
     .filter(product => {
       if (product.amount > 0) {
-        const textMatch = product.name
+        const textMatch = product.description
           .toLowerCase()
           .includes(text.toLowerCase());
         return textMatch;

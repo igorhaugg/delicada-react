@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import numeral from 'numeral';
 import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 
@@ -109,7 +110,9 @@ export class SalesForm extends React.Component {
           {this.props.products.map(product => {
             return (
               <option key={product.id} value={product.id}>
-                {product.name}
+                {product.description}, Tamanho: {product.size}, Preço: R{numeral(
+                  product.price_sell
+                ).format('$0,0.00')}
               </option>
             );
           })}

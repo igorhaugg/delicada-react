@@ -5,7 +5,7 @@ import numeral from 'numeral';
 
 const ProductListItem = ({
   id,
-  name,
+  description,
   image,
   price_sell,
   amount,
@@ -13,7 +13,7 @@ const ProductListItem = ({
 }) => (
   <Link className="list-item" to={`/admin/product/edit/${id}`}>
     <div>
-      <h3 className="list-item__title">{name}</h3>
+      <h3 className="list-item__title">{description}</h3>
       <span className="list-item__sub-title">
         Cadastrado realizado:
         <strong> {moment(createdAt).format('DD/MM/YYYY')}</strong>

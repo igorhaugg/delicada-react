@@ -10,7 +10,7 @@ class ProductListItem extends React.Component {
         <img className="products__item-image" src={this.props.image} />
         <div className="products__item-details">
           <span>
-            {this.props.name} - <strong>{this.props.size}</strong>
+            {this.props.description} - <strong>{this.props.size}</strong>
           </span>
           <br />
           <small>

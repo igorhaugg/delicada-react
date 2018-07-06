@@ -25,7 +25,9 @@ class Latest extends React.Component {
                         alt=""
                       />
                     </div>
-                    <span className="latest__description">{product.name}</span>
+                    <span className="latest__description">
+                      {product.description}
+                    </span>
                   </Link>
                 </div>
               );
