@@ -136,7 +136,7 @@ export class ProductForm extends React.Component {
       this.props.onSubmit(
         {
           category_id: this.state.category_id,
-          name: this.state.name,
+          name: this.capitalizeFirstLetter(this.state.name),
           description: this.state.description,
           image: this.state.image,
           size: this.state.size,
@@ -148,6 +148,10 @@ export class ProductForm extends React.Component {
         this.state.oldImage
       );
     }
+  };
+  capitalizeFirstLetter = string => {
+    string = string.toLowerCase();
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
   render() {
     return (

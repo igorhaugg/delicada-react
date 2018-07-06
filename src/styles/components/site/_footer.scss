@@ -1,14 +1,14 @@
 .footer {
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   background-color: #f8f8f5;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 0;
   @media (min-width: $desktop-breakpoint) {
     min-height: 40rem;
@@ -23,21 +23,21 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-preferred-size: 80%;
-      flex-basis: 80%;
+  flex-basis: 80%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: $l-size;
   @media (min-width: $tablet-breakpoint) {
     -ms-flex-preferred-size: 60%;
-        flex-basis: 60%;
+    flex-basis: 60%;
     padding-top: $xl-size;
   }
   @media (min-width: $desktop-breakpoint) {
     -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     padding: $s-size;
     padding-top: $xl-size;
   }
@@ -92,9 +92,9 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   padding: $m-size $xl-size;
   width: 90%;
 }
