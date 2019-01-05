@@ -33,9 +33,9 @@ const Header = props => {
         <Link to="/contato">
           <li className="header__option">Contato</li>
         </Link>
-        <Link to="/sobre">
+        {/* <Link to="/sobre">
           <li className="header__option">Sobre</li>
-        </Link>
+        </Link> */}
       </ul>
     </header>
   );
@@ -50,4 +50,7 @@ const mapDispatchToProps = dispatch => ({
   setCategoryFilter: category => dispatch(setCategoryFilter(category))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

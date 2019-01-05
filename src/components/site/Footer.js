@@ -28,11 +28,11 @@ const Footer = props => {
                 <li className="color-link">- Dinheiro</li>
               </ul>
             </li>
-            <li>
+            {/* <li>
               <Link to="/sobre" className="color-link">
                 <i className="fas fa-angle-right" /> Sobre
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/login" className="color-link">
                 <i className="fas fa-angle-right" /> Login
@@ -65,7 +65,7 @@ const Footer = props => {
             </li>
 
             <Link to="/contato" className="color-link">
-              <i className="fas fa-envelope" /> Email
+              <i className="fas fa-envelope" /> delicadamulher@gmail.com
             </Link>
 
             <li className="color-link">
@@ -105,4 +105,7 @@ const mapDispatchToProps = dispatch => ({
   setCategoryFilter: category => dispatch(setCategoryFilter(category))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer);
